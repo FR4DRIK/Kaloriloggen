@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadMeals();     // vänta tills meals.json är laddad
   loadCustomMeals();     // laddar customMeals och kör renderMealSelect()
   loadFromLocal();
+  renderCurrentWeekTotal();
   checkNewWeek();
 });
 
@@ -198,28 +199,6 @@ function extractWeekday(displayText) {
 }
 
   //#endregion
-
-  // Lägg till / uppdatera endast EN rad i weekHistory
-  if(weekHistory) {
-    const now = new Date();
-    const currentWeek = getWeekNumber(now);
-
-    // Hitta befintlig rad
-    let existing = weekHistory.querySelector(`li[data-week='${currentWeek}']`);
-
-    if (!existing) {
-      // Skapa ny rad ENDAST om den inte finns
-      existing = document.createElement("li");
-      existing.dataset.week = currentWeek;
-      weekHistory.appendChild(existing);
-    }
-
-    // Uppdatera text
-    const weekTotal = calculateCurrentWeekTotal();
-    existing.textContent = `Denna vecka: ${weekTotal} kcal`;
-  } else {
-    console.warn("weekHistory finns inte i DOM");
-  }
 
 
 // Hjälpfunktion: veckonummer
@@ -469,6 +448,7 @@ addBtn.addEventListener("click", () => {
   applyDayColors();
   updateWeekSummary();
   saveToLocal();
+  renderCurrentWeekTotal();
 
   mealBuild.innerHTML = "";
   updateTotalKcal();
@@ -488,6 +468,7 @@ mealList.addEventListener("click", (e) => {
     updateWeekSummary();
     saveToLocal();
     applyDayColors();
+    renderCurrentWeekTotal();
   }
 });
 
@@ -514,6 +495,7 @@ function calculateCurrentWeekTotal() {
 
   return weekTotal;
 }
+
 
 
 // funktion
@@ -641,18 +623,16 @@ function renderCurrentWeekTotal() {
   const now = new Date();
   const currentWeek = getWeekNumber(now);
 
-  // Hitta befintlig rad
-  let existing = weekHistory.querySelector(`li[data-week='${currentWeek}']`);
+  let existing = weekHistory.querySelector(`li[data-week='current']`);
 
   if (!existing) {
-    // Skapa ny rad ENDAST om den inte finns
     existing = document.createElement("li");
-    existing.dataset.week = currentWeek;
-    weekHistory.appendChild(existing);
+    existing.dataset.week = "current";
+    weekHistory.prepend(existing);
   }
 
-  // Uppdatera text
-  existing.textContent = `Denna vecka: ${currentWeekTotal} kcal`;
+  existing.textContent = `Denna vecka (v${currentWeek}): ${currentWeekTotal} kcal`;
+
 }
 function checkNewWeek() {
   const now = new Date();
@@ -695,6 +675,7 @@ function checkNewWeek() {
     localStorage.setItem("lastSavedWeek", currentWeek);
   }
 }
+
 
 const allSelects = [foodSelect, mealSelect, amountSelect];
 allSelects.forEach(select => {
