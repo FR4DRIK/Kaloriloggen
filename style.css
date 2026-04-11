@@ -1,0 +1,390 @@
+
+  body { 
+    font-family: Verdana, sans-serif; max-width: 480px; margin: auto; padding: 16px; background-color: silver;
+  }
+  
+  h1 { text-align: center; }
+
+    button {
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(81, 212, 101);
+    border: 2px solid rgb(0, 37, 172);
+    border-radius: 40px;
+    margin-bottom: 2px;
+  }
+  .deleteBtn {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 2px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    vertical-align: right;
+    margin-left: 2px;
+  }
+  .deleteBtn:active {
+  background-color: #c0392b; /* mörkare röd vid tryck */
+  transform: scale(0.9); /* touch-feedback */
+}
+
+li { 
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: var(--base-color);
+  color: white;
+}
+
+select.select-active {
+  background-color: rgb(219, 53, 53);
+}
+#foodSelect {
+  --base-color: rgb(103, 135, 16);
+}
+
+#mealSelect {
+  --base-color: rgb(135, 95, 16);
+}
+
+#amountSelect {
+  --base-color: rgb(135, 64, 16);
+}
+
+
+/* GLOBAL STYLING */
+
+
+
+h2 {margin-bottom: 5px;}
+
+p {margin: 2px 0;}
+
+hr {
+  height: 1px;
+  width: 95%;
+  margin-top: 6px;
+  margin-bottom: 0px;
+  border-color: darkgrey;
+}
+
+/* CSS SECTION: userInput */
+
+ #top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#top button, #top select {
+    width: auto;  
+}
+
+#daySelect {
+  margin-right: auto; 
+  background-color: transparent;
+  border-style: none;
+  border-radius: 20px;
+  color: blue;
+}
+
+#deleteMealBtn {
+  background-color: transparent;
+  border-style: none;
+  border-radius: 20px;
+  color: red;
+}
+
+#weightInput {
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 40px;
+    background-color: rgb(16, 129, 135);
+    padding: 0 12px;
+    margin-bottom: 2px;
+    text-align: center; 
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: white;
+}
+
+/* Placeholder-styling separerat */
+#weightInput::placeholder {
+    color: white;  
+    opacity: 1;    
+}
+  select {
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 40px;
+    padding: 0px 12px;
+    margin-bottom: 2px;
+    text-align-last: center;
+  } 
+  .form-section {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+  }
+  #acceptBtn {
+    background-color: rgb(16, 135, 30);
+  }
+
+/* CSS SECTION: mealBuild */
+  
+  #mealBuildSection {
+    border-style: solid;
+    border-width: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    margin-top:20px;
+}
+#totalKcal{
+  text-align: right;
+  min-width: 60px;
+  color: green;
+}
+  #addBtn {
+    width: 120px;
+    background-color: transparent;
+    border-style: none;
+    color: blue;
+}
+  #saveBtn {
+    width: 150px;
+    background-color: transparent;
+    border-style: none;
+    color: green;
+}
+
+/* Lista */
+#mealBuild {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+/* Varje rad (li innehåller details) */
+#mealBuild li {
+  display: block;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+/* Details tar hela bredden */
+#mealBuild details {
+  width: 100%;
+}
+/* Summary-rad (alltid synlig) */
+#mealBuild summary {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto; /* datum | name | (filler) | kcal */
+  align-items: center;
+  gap: 10px;
+}
+
+/* Datum (vänster) */
+#mealBuild .day {
+  color: grey;
+  font-weight: normal;
+  font-size: 1em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;        /* döljer text som går utanför boxen */
+  text-overflow: ellipsis; /* lägger till ... */
+  width: 80px;            /*  bredden på datum plus dag */
+}
+
+/* Name (mitt, ellipsis om för lång) */
+#mealBuild .title {
+  color: black;
+  font-weight: 600;
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* kcal (höger) */
+#mealBuild .meta {
+  color: magenta;
+  font-weight: normal;
+  font-size: 1em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Expanderad content */
+#mealBuild .content {
+  margin-top: 6px;
+  padding: 6px;
+  background-color: #fafafa;
+  border-radius: 6px;
+}
+
+/* Rader inuti content (vänster/höger layout) */
+#mealBuild .content .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+/* Delete-knapp i content */
+#mealBuild .content .deleteBtn {
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* CSS SECTION: mealList */
+
+#mealList summary {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+#mealList summary .filler {
+  width: 100%;
+}
+  #weekMealsSection{
+    border-style: solid;
+    border-width: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    margin-top:20px;
+}
+  #mealList {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+}
+#mealList li {
+  display: block;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+  #mealList .day {
+  color: grey;
+  font-weight: normal;
+  font-size: 1em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;        
+  text-overflow: ellipsis;
+  width: 80px;            
+}
+  #mealList .title {
+    font-weight: bold;
+    color: black;
+    font-weight: 600;
+    font-size: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  #mealList .amount {
+    text-align: left;
+    min-width: 5px;
+    font-weight: normal;
+    color: black;
+}
+  #mealList .weight {
+    text-align: right;
+    min-width: 50px;
+    color: rgb(32, 141, 28);
+}
+
+#mealList .meta {
+  text-align: right;
+  white-space: nowrap;
+  color: magenta; 
+}
+
+/* CSS SECTION: weekSummary */
+
+  #weekSummarySection {
+    border-style: solid;
+    border-width: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    margin-top:20px;
+}
+/* Gör div:en till flexcontainer för UL:erna */
+#weekSummarySection > div {
+  display: flex;
+  gap: 20px;           /* Horisontellt avstånd mellan UL */
+  align-items: stretch; /* Lika höjd på UL:erna */
+}
+
+/* Applicera på alla li inom weekSummary och weekHistory */
+#weekSummarySection ul li {
+  margin-bottom: 8px; /* Avstånd mellan varje rad */
+}
+
+/* Ta bort extra marginal på sista li i varje ul */
+#weekSummarySection ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Vänster UL (weekSummary) */
+#weekSummarySection > div > ul#weekSummary {
+  flex: 1;             /* Tar lika mycket plats som höger */
+  list-style: disc;
+  padding: 10px;
+  border: solid black;
+  border-right: 1px;
+  border-left: 1px;
+  border-radius: 10px;
+  background-color: rgb(198, 255, 154);
+}
+
+/* Höger UL (weekHistory) */
+#weekSummarySection > div > ul#weekHistory {
+  flex: 1;             /* Tar lika mycket plats som vänster */
+  list-style: disc;  
+  padding: 10px;
+  border: solid black;
+  border-right: 1px;
+  border-left: 1px;
+  border-radius: 10px;
+  overflow-y: auto;    /* Scrollbar om innehållet blir för långt */
+  max-height: 220px;   /* Justera höjden efter behov */
+  background-color: rgb(225, 225, 225);
+}

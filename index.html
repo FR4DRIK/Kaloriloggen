@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Kaloriloggen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script type=module src="script.js" defer></script>
+
+</head>
+
+<body>
+<h1>Kaloriloggen</h1>
+<hr>
+
+<!-- HTML userInput Section -->
+<section id="userInput">
+  <div id="top">
+    <select id="daySelect"></select>
+    <button id="deleteMealBtn">Radera vald måltid</button>
+  </div>
+  <hr>
+  <div class="form-section">
+    <select id="foodSelect"><option value="">Livsmedel</option></select>
+    <select id="mealSelect"><option value="">Måltid</option></select>
+  </div>
+  <div class="form-section">
+    <select id="amountSelect"><option value="">Välj antal</option></select>
+    <input type="tel" id="weightInput" inputmode="numeric" pattern="[0-9]*" placeholder="Vikt (g)" value="">
+    <button id="acceptBtn">Bekräfta</button>
+  </div>
+</section>
+
+<!-- HTML mealBuild Section -->
+<section id="mealBuildSection">
+  <h2>Skapa måltid</h2>
+  <ul id="mealBuild"></ul>
+  <p id="totalKcal">Totalt: 0 kcal</p>
+  <hr>
+  <div id="mealBuildBtn">
+    <button id="saveBtn">Spara måltid</button>
+    <button id="addBtn">Lägg till</button>
+  </div>
+</section>
+
+<!-- HTML weekMeals Section -->
+<section id="weekMealsSection">
+  <h2>Veckans måltider:</h2>
+  <ul id="mealList"></ul>
+</section>
+
+<!-- HTML weekSummary Section -->
+<section id="weekSummarySection">
+  <h2>Veckosammanställning</h2>
+  <div>
+  <ul id="weekSummary">
+  </ul>
+   <ul id="weekHistory"></ul>
+</section>
+
+<button id="exportBtn">Exportera</button>
+<input type="file" id="importFile" accept=".json">
+
+</body>
+</html>

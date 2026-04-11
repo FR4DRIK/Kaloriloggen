@@ -1,0 +1,1136 @@
+[
+  {
+    "id": "agg",
+    "name": "Ägg",
+    "kcal": 160,
+    "cooked": 100,
+    "weight": 60,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ananas_konserv",
+    "name": "Ananas konserverad",
+    "kcal": 60,
+    "cooked": 100,
+    "weight": 140,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "apple",
+    "name": "Äpple",
+    "kcal": 52,
+    "cooked": 100,
+    "weight": 150,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "bacon",
+    "name": "Bacon",
+    "kcal": 300,
+    "cooked": 50,
+    "weight": 140,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "baguette",
+    "name": "Baguette",
+    "kcal": 270,
+    "cooked": 100,
+    "weight": 100,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "banan",
+    "name": "Banan",
+    "kcal": 95,
+    "cooked": 100,
+    "weight": 120,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "bar_musli_corny",
+    "name": "Bar Corny",
+    "kcal": 444,
+    "cooked": 100,
+    "weight": 50,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "bar_protein_barbells",
+    "name": "Bar Barbells",
+    "kcal": 382,
+    "cooked": 100,
+    "weight": 55,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "bar_protein_rawbite",
+    "name": "Bar Raw Bite",
+    "kcal": 444,
+    "cooked": 100,
+    "weight": 50,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "buljongtarning",
+    "name": "Buljontärning",
+    "kcal": 320,
+    "cooked": 100,
+    "weight": 10,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "cashewnotter_choklad",
+    "name": "Cashewnötter Choklad",
+    "kcal": 545,
+    "cooked": 100,
+    "weight": 35,
+    "category": "snack",
+    "status\r": "active\r"
+  },
+  {
+    "id": "cashewnotter_salt",
+    "name": "Cashewnötter Saltade",
+    "kcal": 580,
+    "cooked": 100,
+    "weight": 35,
+    "category": "snack",
+    "status\r": "active\r"
+  },
+  {
+    "id": "chicken_nuggets",
+    "name": "Chicken Nuggets",
+    "kcal": 280,
+    "cooked": 75,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "chilisas",
+    "name": "Chilisås",
+    "kcal": 98,
+    "cooked": 100,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "chips_taco_cheese",
+    "name": "Taco Chips Cheese",
+    "kcal": 472,
+    "cooked": 100,
+    "weight": 30,
+    "category": "snack",
+    "status\r": "active\r"
+  },
+  {
+    "id": "chocklad_boll_gillet",
+    "name": "Chokladboll Gillet",
+    "kcal": 497,
+    "cooked": 100,
+    "weight": 31,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "chocolate_chip_cookie",
+    "name": "Chocolate chip cookie",
+    "kcal": 510,
+    "cooked": 100,
+    "weight": 22,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "choklad_lindt_lindor",
+    "name": "Lindt Lindor Praline",
+    "kcal": 625,
+    "cooked": 100,
+    "weight": 13,
+    "category": "snack",
+    "status\r": "active\r"
+  },
+  {
+    "id": "choklad_pudding",
+    "name": "Chokladpudding Ekströms",
+    "kcal": 116,
+    "cooked": 100,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "digestive_fullkorn",
+    "name": "Digestive Fullkorn",
+    "kcal": 467,
+    "cooked": 100,
+    "weight": 16,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "finn_crisp_original",
+    "name": "Finn Crisp Original",
+    "kcal": 350,
+    "cooked": 100,
+    "weight": 6,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_laxfile",
+    "name": "Laxfilé",
+    "kcal": 181,
+    "cooked": 90,
+    "weight": 125,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_pinnar",
+    "name": "Fiskpinnar",
+    "kcal": 210,
+    "cooked": 90,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_sprodbakad",
+    "name": "Sprödbakad Fisk",
+    "kcal": 220,
+    "cooked": 90,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_tonfisk_olja",
+    "name": "Tonfisk i olja",
+    "kcal": 189,
+    "cooked": 100,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_tonfisk_vatten",
+    "name": "Tonfisk i vatten",
+    "kcal": 106,
+    "cooked": 100,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fisk_torsk",
+    "name": "Torskfilé",
+    "kcal": 78,
+    "cooked": 80,
+    "weight": 120,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fralla_chia",
+    "name": "Fralla Chia",
+    "kcal": 270,
+    "cooked": 100,
+    "weight": 60,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fralla_frokuse",
+    "name": "Fralla Frökuse",
+    "kcal": 270,
+    "cooked": 100,
+    "weight": 80,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fralla_grotbrod",
+    "name": "Fralla grötbröd",
+    "kcal": 197,
+    "cooked": 100,
+    "weight": 70,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "fralla_grov",
+    "name": "Fralla Grov",
+    "kcal": 250,
+    "cooked": 100,
+    "weight": 70,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "gradde",
+    "name": "Grädde",
+    "kcal": 340,
+    "cooked": 100,
+    "weight": 100,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "granola_kakao",
+    "name": "Granola Kakao Dadelcrisp",
+    "kcal": 417,
+    "cooked": 100,
+    "weight": 50,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "grotbrod",
+    "name": "Grötbröd",
+    "kcal": 266,
+    "cooked": 100,
+    "weight": 56,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "gurka",
+    "name": "Gurka",
+    "kcal": 13,
+    "cooked": 100,
+    "weight": 100,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hallon",
+    "name": "Hallon",
+    "kcal": 53,
+    "cooked": 100,
+    "weight": 80,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hamburgare_scan",
+    "name": "Hamburgare Scan",
+    "kcal": 240,
+    "cooked": 85,
+    "weight": 90,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hamburgerbrod_fiber",
+    "name": "Hamburgerbröd Fiber Fullkorn",
+    "kcal": 267,
+    "cooked": 100,
+    "weight": 60,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hamburgerbrod_frisco",
+    "name": "Hamburgerbröd Frisco",
+    "kcal": 290,
+    "cooked": 100,
+    "weight": 80,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hamburgerbrod_potato",
+    "name": "Hamburgerbröd Potato Bun",
+    "kcal": 275,
+    "cooked": 100,
+    "weight": 70,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "hamburgerbrod_vanligt",
+    "name": "Hamburgerbröd Vanligt",
+    "kcal": 296,
+    "cooked": 100,
+    "weight": 54,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "jordgubbar",
+    "name": "Jordgubbar",
+    "kcal": 41,
+    "cooked": 100,
+    "weight": 100,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "jordnotssmor",
+    "name": "Jordnötssmör",
+    "kcal": 592,
+    "cooked": 100,
+    "weight": 10,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "jordnotter_salt",
+    "name": "Jordnötter Saltade",
+    "kcal": 614,
+    "cooked": 100,
+    "weight": 35,
+    "category": "snack",
+    "status\r": "active\r"
+  },
+  {
+    "id": "juice_apelsin",
+    "name": "Apelsinjuice",
+    "kcal": 48,
+    "cooked": 100,
+    "weight": 100,
+    "category": "drink",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kassler_scan",
+    "name": "Kassler Scan",
+    "kcal": 106,
+    "cooked": 85,
+    "weight": 120,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kladdkaka",
+    "name": "Kladdkaka",
+    "kcal": 413,
+    "cooked": 100,
+    "weight": 50,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_bullens",
+    "name": "Varmkorv Bullens",
+    "kcal": 200,
+    "cooked": 100,
+    "weight": 30,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_falu",
+    "name": "Falukorv",
+    "kcal": 260,
+    "cooked": 90,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_grill_eriksson",
+    "name": "Grillkorv Eriksson",
+    "kcal": 220,
+    "cooked": 100,
+    "weight": 62,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_grill_tjock",
+    "name": "Grillkorv tjock",
+    "kcal": 300,
+    "cooked": 100,
+    "weight": 93,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_prins_eriksson",
+    "name": "Prinskorv Eriksons",
+    "kcal": 230,
+    "cooked": 90,
+    "weight": 20,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korv_sibylla",
+    "name": "Varmkorv Sibylla",
+    "kcal": 210,
+    "cooked": 100,
+    "weight": 50,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korvbrod_stort",
+    "name": "Korvbröd Stort",
+    "kcal": 300,
+    "cooked": 100,
+    "weight": 45,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "korvbrod_vanligt",
+    "name": "Korvbröd Små",
+    "kcal": 300,
+    "cooked": 100,
+    "weight": 27,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kott_flaskfile",
+    "name": "Fläskfilé",
+    "kcal": 144,
+    "cooked": 80,
+    "weight": 120,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kott_kebab_schysst_kak",
+    "name": "Kebabkött Schysst käk",
+    "kcal": 286,
+    "cooked": 85,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kott_skinkstek",
+    "name": "Kött Skinkstek",
+    "kcal": 165,
+    "cooked": 85,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kottbullar",
+    "name": "Köttbullar",
+    "kcal": 245,
+    "cooked": 85,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kottfars_5050",
+    "name": "Köttfärs 50/50",
+    "kcal": 260,
+    "cooked": 80,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kroketter",
+    "name": "Kroketter",
+    "kcal": 165,
+    "cooked": 70,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kryddjarpar",
+    "name": "Kryddjärpar",
+    "kcal": 200,
+    "cooked": 85,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kyckling",
+    "name": "Kyckling",
+    "kcal": 120,
+    "cooked": 85,
+    "weight": 120,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kyckling_kebab",
+    "name": "Kycklingkebab",
+    "kcal": 140,
+    "cooked": 85,
+    "weight": 150,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kyckling_schnitzel",
+    "name": "Kycklingschnitzel",
+    "kcal": 270,
+    "cooked": 90,
+    "weight": 92,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kyckling_taco",
+    "name": "Taco kyckling",
+    "kcal": 124,
+    "cooked": 85,
+    "weight": 150,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "kycklingfile",
+    "name": "Kycklingfilé",
+    "kcal": 120,
+    "cooked": 85,
+    "weight": 150,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "levain_norrland",
+    "name": "Norrlands Levain",
+    "kcal": 260,
+    "cooked": 100,
+    "weight": 100,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "lok_gul",
+    "name": "Lök Gul",
+    "kcal": 39,
+    "cooked": 100,
+    "weight": 50,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "lok_rod",
+    "name": "Lök röd",
+    "kcal": 45,
+    "cooked": 100,
+    "weight": 50,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "max_minimorotter",
+    "name": "Max Minimorötter",
+    "kcal": 41,
+    "cooked": 100,
+    "weight": 85,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "melon_vatten",
+    "name": "Vattenmelon",
+    "kcal": 34,
+    "cooked": 100,
+    "weight": 100,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "mjol_graham",
+    "name": "Grahamsmjöl",
+    "kcal": 331,
+    "cooked": 100,
+    "weight": 60,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "mjol_ideal",
+    "name": "Idealmjöl",
+    "kcal": 350,
+    "cooked": 100,
+    "weight": 9,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "mjol_vete",
+    "name": "Vetemjöl",
+    "kcal": 352,
+    "cooked": 100,
+    "weight": 60,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "mjolk",
+    "name": "Mjölk",
+    "kcal": 59,
+    "cooked": 100,
+    "weight": 100,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "morotter",
+    "name": "Morötter",
+    "kcal": 41,
+    "cooked": 100,
+    "weight": 100,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ost_hushall",
+    "name": "Hushållsost",
+    "kcal": 337,
+    "cooked": 100,
+    "weight": 12,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ost_riven_ica_basic",
+    "name": "Ost Riven Ica Basic",
+    "kcal": 350,
+    "cooked": 100,
+    "weight": 50,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ostsas_kelda",
+    "name": "Ostsås Kelda",
+    "kcal": 77,
+    "cooked": 100,
+    "weight": 500,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "paprika",
+    "name": "Paprika",
+    "kcal": 22,
+    "cooked": 100,
+    "weight": 100,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta",
+    "kcal": 361,
+    "cooked": 200,
+    "weight": 40,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pasta_lasagne_durum",
+    "name": "Lasagneplattor durumvete",
+    "kcal": 367,
+    "cooked": 200,
+    "weight": 100,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pastrami",
+    "name": "Pastrami",
+    "kcal": 100,
+    "cooked": 100,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pita_brod",
+    "name": "Pitabröd ",
+    "kcal": 252,
+    "cooked": 100,
+    "weight": 80,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pizza_brod_sallad",
+    "name": "Pizzabröd till sallad ",
+    "kcal": 280,
+    "cooked": 100,
+    "weight": 130,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pizzadeg",
+    "name": "Pizzadeg Ica",
+    "kcal": 280,
+    "cooked": 100,
+    "weight": 400,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "polarbrod_vete",
+    "name": "Polarbröd Vete",
+    "kcal": 270,
+    "cooked": 100,
+    "weight": 38,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "pommes_felix",
+    "name": "Pommes",
+    "kcal": 130,
+    "cooked": 70,
+    "weight": 120,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "potatis",
+    "name": "Potatis",
+    "kcal": 77,
+    "cooked": 80,
+    "weight": 100,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "potatis_gratang_peka",
+    "name": "Potatisgratäng Peka",
+    "kcal": 121,
+    "cooked": 100,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "potatisbullar",
+    "name": "Potatisbullar",
+    "kcal": 165,
+    "cooked": 70,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ris_basmati",
+    "name": "Basmati Ris",
+    "kcal": 350,
+    "cooked": 300,
+    "weight": 120,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "rostbiff_rostad",
+    "name": "Rostbiff ugnssrostad",
+    "kcal": 124,
+    "cooked": 100,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "sallad_isberg",
+    "name": "Isbergssallad",
+    "kcal": 14,
+    "cooked": 100,
+    "weight": 300,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "sas_hemmagjord",
+    "name": "Sås hemmagjord",
+    "kcal": 184,
+    "cooked": 100,
+    "weight": 30,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "schnitzel_ost",
+    "name": "Ostsnitzel",
+    "kcal": 270,
+    "cooked": 90,
+    "weight": 100,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "skinka_rokt",
+    "name": "Rökt Skinka",
+    "kcal": 90,
+    "cooked": 100,
+    "weight": 25,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "skinkschnitzel_ost_skinka",
+    "name": "Skinksnitzel (ost+skinka)",
+    "kcal": 174,
+    "cooked": 100,
+    "weight": 124,
+    "category": "meat",
+    "status\r": "active\r"
+  },
+  {
+    "id": "smor",
+    "name": "Smör (msk)",
+    "kcal": 750,
+    "cooked": 100,
+    "weight": 14,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "soya_muschroom",
+    "name": "Soya Muschroom",
+    "kcal": 150,
+    "cooked": 100,
+    "weight": 15,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "strobrod",
+    "name": "Ströbröd (msk)",
+    "kcal": 396,
+    "cooked": 100,
+    "weight": 11,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "tomat_pure",
+    "name": "Tomatpuré (msk)",
+    "kcal": 90,
+    "cooked": 100,
+    "weight": 16,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "tomater",
+    "name": "Tomater",
+    "kcal": 18,
+    "cooked": 100,
+    "weight": 50,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "tomater_krossade",
+    "name": "Krossade tomater",
+    "kcal": 20,
+    "cooked": 100,
+    "weight": 500,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "training_1_calm",
+    "name": "Träning Lugn (promenad)",
+    "kcal": "−600",
+    "cooked": 100,
+    "weight": 45,
+    "category": "training",
+    "status\r": "active\r"
+  },
+  {
+    "id": "training_2_medium",
+    "name": "Träning Mellan (snabb promenad)",
+    "kcal": "−400",
+    "cooked": 100,
+    "weight": 25,
+    "category": "training",
+    "status\r": "active\r"
+  },
+  {
+    "id": "training_3_hard",
+    "name": "Träning Hård (eliptical/löpning)",
+    "kcal": "−900",
+    "cooked": 100,
+    "weight": 25,
+    "category": "training",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ugn_baguette_mini",
+    "name": "Ugnsbaguette Mini",
+    "kcal": 226,
+    "cooked": 100,
+    "weight": 50,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "ugn_fralla",
+    "name": "Ugnsfralla",
+    "kcal": 300,
+    "cooked": 100,
+    "weight": 50,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "vafflor",
+    "name": "Våfflor",
+    "kcal": 356,
+    "cooked": 100,
+    "weight": 80,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "vatten",
+    "name": "Vatten",
+    "kcal": 0,
+    "cooked": 100,
+    "weight": 100,
+    "category": "drink",
+    "status\r": "active\r"
+  },
+  {
+    "id": "vindruvor_grona",
+    "name": "Vindruvor",
+    "kcal": 75,
+    "cooked": 100,
+    "weight": 50,
+    "category": "fruit",
+    "status\r": "active\r"
+  },
+  {
+    "id": "vitkal",
+    "name": "Vitkål",
+    "kcal": 30,
+    "cooked": 100,
+    "weight": 100,
+    "category": "vegetable",
+    "status\r": "active\r"
+  },
+  {
+    "id": "vitloksbrod",
+    "name": "Vitlöksbröd",
+    "kcal": 290,
+    "cooked": 80,
+    "weight": 75,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_delikatess_sesam",
+    "name": "Delikatess Sesam",
+    "kcal": 356,
+    "cooked": 100,
+    "weight": 10,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_frukost_fullkorn",
+    "name": "Frukost Fullkorn",
+    "kcal": 405,
+    "cooked": 100,
+    "weight": 14,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_havre_knacke",
+    "name": "Havre knäcke",
+    "kcal": 370,
+    "cooked": 100,
+    "weight": 17,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_julknacke",
+    "name": "Julknäcke",
+    "kcal": 390,
+    "cooked": 100,
+    "weight": 13,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_kanelknäcke",
+    "name": "Kanelknäcke",
+    "kcal": 396,
+    "cooked": 100,
+    "weight": 15,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_ragrut",
+    "name": "Rågrut",
+    "kcal": 331,
+    "cooked": 100,
+    "weight": 12,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_sesam_havssalt",
+    "name": "Sesam Havssalt",
+    "kcal": 407,
+    "cooked": 100,
+    "weight": 15,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "wasa_surdeg_flerkorn",
+    "name": "Surdeg Flerkorn",
+    "kcal": 340,
+    "cooked": 100,
+    "weight": 14,
+    "category": "grain",
+    "status\r": "active\r"
+  },
+  {
+    "id": "x_tra",
+    "name": "X-tra (100 kcal)",
+    "kcal": 100,
+    "cooked": 100,
+    "weight": 100,
+    "category": "extra",
+    "status\r": "active\r"
+  },
+  {
+    "id": "yoghurt_vanilj",
+    "name": "Vanilj yoghurt",
+    "kcal": 70,
+    "cooked": 100,
+    "weight": 100,
+    "category": "dairy",
+    "status\r": "active\r"
+  },
+  {
+    "id": "yoghurt_yoggi",
+    "name": "Yoggi",
+    "kcal": 77,
+    "cooked": 100,
+    "weight": 100,
+    "category": "dairy",
+    "status\r": "active"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "kottfarssas_spagetti",
+    "name": "Köttfärssås (150) Spagetti (80) Grönsaker (100)",
+    "kcal": 353,
+    "weight": 330,
+    "type": "predefined",
+    "status\r": "active\r"
+  },
+  {
+    "id": "nugget_ris",
+    "name": "Chicken nuggets (100) Ris (120) Sås (30) Grönsaker (100)",
+    "kcal": 455,
+    "weight": 290,
+    "type": "predefined",
+    "status\r": "active\r"
+  },
+  {
+    "id": "currytorsk_ris",
+    "name": "Cyrrytorsk (180) Ris (120) Grönsaker (100)",
+    "kcal": 428,
+    "weight": 360,
+    "type": "predefined",
+    "status\r": "active"
+  }
+]
