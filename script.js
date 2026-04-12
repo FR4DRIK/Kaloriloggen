@@ -903,7 +903,6 @@ saveGoalBtn.addEventListener("click", () => {
 });
 
 
-
 foodSelect.addEventListener("click", () => {
   foodSelect.focus();
 });
