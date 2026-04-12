@@ -33,7 +33,7 @@ let text = `${item.name} | ${kcalTotal} kcal | ${item.weight} g`;
 
 
 if (cookedWeight !== item.weight) {
-    text += ` → ${cookedWeight} (gc)`;
+    text += ` | ${cookedWeight} gc`;
 }
 option.textContent = text;
 foodSelect.appendChild(option);
@@ -142,25 +142,28 @@ function renderDaySelect() {
 
 function applyDayColors() {
   const items = Array.from(mealList.querySelectorAll("li"));
-  const colors = ["#fffcab", "#a5f0ff"];
   let lastDay = null;
   let colorIndex = 0;
 
   items.forEach(li => {
     const day = li.dataset.day;
-    if (day !== lastDay) { colorIndex = 1 - colorIndex; lastDay = day; }
-    li.style.backgroundColor = colors[colorIndex];
-    li.style.padding = "4px 8px";
-    li.style.borderRadius = "4px";
+
+    if (day !== lastDay) {
+      colorIndex = 1 - colorIndex;
+      lastDay = day;
+    }
+
+    li.classList.remove("dayColor0", "dayColor1");
+    li.classList.add(`dayColor${colorIndex}`);
   });
 }
+
 
 function updateTotalKcal() {
   const items = Array.from(mealBuild.querySelectorAll("li"));
   const total = items.reduce((sum, li) => sum + Number(li.dataset.kcal || 0), 0);
   document.getElementById("totalKcal").textContent = `Totalt: ${total} kcal`;
 }
-
 function updateWeekSummary() {
   const mealItems = Array.from(document.querySelectorAll("#mealList li"));
 
@@ -181,14 +184,36 @@ function updateWeekSummary() {
   const weekSummaryEl = document.getElementById("weekSummary");
   weekSummaryEl.innerHTML = "";
 
+  // ⭐ Hämta mål
+  const goal = Number(localStorage.getItem("dailyKcalGoal")) || null;
+
   sortedDays.forEach(day => {
+    const total = dayTotals[day];
+
+    // ⭐ 1. Räkna diff
+    const diff = goal ? total - goal : null;
+
+    // ⭐ 2. Skapa diff-text
+    const diffText = diff !== null
+      ? `${diff >= 0 ? "+" : ""}${diff} kcal`
+      : "";
+
+    // ⭐ 3. Här ska diffClass ligga
+    const diffClass = diff >= 0 ? "positive" : "negative";
+
+    // ⭐ 4. Bygg HTML med diff + kcal
     const li = document.createElement("li");
-    li.textContent = `${formatDateDisplay(new Date(day))}: ${dayTotals[day]} kcal`;
+    li.innerHTML = `
+      <span class="weekLabel">${formatDateDisplay(new Date(day))}</span>
+      <span class="weekKcal">
+        <span class="diff ${diffClass}">${diffText}</span>
+        <span class="kcal">${total} kcal</span>
+      </span>
+    `;
+
     weekSummaryEl.appendChild(li);
   });
 }
-
-
 
   //#endregion
 
@@ -213,13 +238,16 @@ function getWeekNumber(date) {
 function saveToLocal() {
   const data = Array.from(mealList.querySelectorAll("li")).map(li => ({
     day: li.dataset.day,
-    name: li.querySelector(".name")?.textContent || li.querySelector(".title")?.textContent || "",
-    amount: li.dataset.amount || 1,
-    weight: li.dataset.weight || 0,
-    kcal: li.dataset.kcal || 0
+    name: li.querySelector(".title")?.textContent || "",
+    amount: Number(li.dataset.amount) || 1,
+    weightRaw: Number(li.dataset.weightRaw) || 0,
+    weightCooked: Number(li.dataset.weightCooked) || 0,
+    kcal: Number(li.dataset.kcal) || 0
   }));
+
   localStorage.setItem("mealList", JSON.stringify(data));
 }
+
 
 // ------------------------- CUSTOM MEALS -------------------------
 function saveCustomMeals() {
@@ -259,33 +287,51 @@ function renderMealSelect() {
 
 
 // ------------------------- DELETE SELECTED MEAL -------------------------
-deleteMealBtn.addEventListener("click", () => {
-  const selectedValue = mealSelect.value;
+deleteSavedMealBtn.addEventListener("click", () => {
+  const selectedValue = deleteMealSelect.value;
 
   if (!selectedValue) {
-    alert("Välj en måltid i dropdown-menyn först!");
+    alert("Välj en sparad måltid först!");
     return;
   }
 
-  const optionToDelete = mealSelect.querySelector(`option[value="${selectedValue}"]`);
-  if (optionToDelete) {
-    optionToDelete.remove();
-    mealSelect.value = "";
-    mealSelect.classList.remove("select-active");
-    mealSelect.classList.add("select-default");
-  }
+  // 🔥 NYTT: Bekräftelsedialog
+  const mealName = deleteMealSelect.options[deleteMealSelect.selectedIndex].textContent;
+  const ok = confirm(`Är du säker på att du vill radera måltiden:\n\n"${mealName}"?`);
 
+  if (!ok) return; // ❌ Avbryt radering
+
+  // Ta bort från dropdown
+  const optionToDelete = deleteMealSelect.querySelector(`option[value="${selectedValue}"]`);
+  if (optionToDelete) optionToDelete.remove();
+
+  // Ta bort från customMeals
   const index = customMeals.findIndex(m => m.id === selectedValue);
   if (index !== -1) {
     const deletedMeal = customMeals.splice(index, 1)[0];
     saveCustomMeals();
-    alert(`Måltiden "${deletedMeal.name}" har raderats permanent.`);
-  } else {
-    alert(`Måltiden raderades från dropdown, men finns inte i sparade måltider.`);
+    alert(`Måltiden har raderats.`);
   }
 
   renderMealSelect();
+  populateDeleteMealSelect();
 });
+
+
+function populateDeleteMealSelect() {
+  deleteMealSelect.innerHTML = '<option value="">Välj måltid</option>';
+
+  customMeals.forEach(meal => {
+    const opt = document.createElement("option");
+    opt.value = meal.id;
+    opt.textContent = meal.name;
+    deleteMealSelect.appendChild(opt);
+  });
+}
+document.querySelector('[data-view="profile"]').addEventListener("click", () => {
+  populateDeleteMealSelect();
+});
+
 
 // ------------------------- LOAD SAVED MEALS -------------------------
 function loadFromLocal() {
@@ -294,10 +340,18 @@ function loadFromLocal() {
 
   savedMeals.forEach(item => {
     const li = document.createElement("li");
+
     li.dataset.day = item.day;
     li.dataset.amount = item.amount;
-    li.dataset.weight = item.weight;
+    li.dataset.weightRaw = item.weightRaw;
+    li.dataset.weightCooked = item.weightCooked;
     li.dataset.kcal = item.kcal;
+    li.dataset.name = item.name;
+
+    const weightText =
+      item.weightCooked === item.weightRaw
+        ? `${item.weightRaw} g`
+        : `${item.weightRaw} g | ${item.weightCooked} gc`;
 
     li.innerHTML = `
       <details>
@@ -310,36 +364,32 @@ function loadFromLocal() {
         <div class="expandedView">
           <div>${item.name}</div>
           <div id="detailedView">
-            ${formatDateDisplay(new Date(item.day))} |
-            ${item.amount}st |
-            ${item.weight} gram |
-            <button class="deleteBtn">X</button>
-          </div>
+  ${formatDateDisplay(new Date(item.day))} |
+  ${weightText} |
+  <button class="deleteBtn">X</button>
+</div>
+
         </div>
       </details>
     `;
 
-    // Lägg till delete-knapp listener
-    const btn = li.querySelector(".deleteBtn");
-    if(btn) {
-      btn.addEventListener("click", () => {
-        li.remove();
-        updateWeekSummary();
-        saveToLocal();
-        applyDayColors();
-      });
-    }
+    li.querySelector(".deleteBtn").addEventListener("click", () => {
+      li.remove();
+      updateWeekSummary();
+      saveToLocal();
+      applyDayColors();
+    });
 
     mealList.appendChild(li);
   });
 
-// Sortera efter datum
-const sorted = Array.from(mealList.querySelectorAll("li")).sort(
-  (a, b) => new Date(a.dataset.day) - new Date(b.dataset.day)
-);
+  // Sortera efter datum
+  const sorted = Array.from(mealList.querySelectorAll("li")).sort(
+    (a, b) => new Date(b.dataset.day) - new Date(a.dataset.day)
+  );
 
-mealList.innerHTML = "";
-sorted.forEach(li => mealList.appendChild(li));
+  mealList.innerHTML = "";
+  sorted.forEach(li => mealList.appendChild(li));
 
   applyDayColors();
   updateWeekSummary();
@@ -431,6 +481,12 @@ else if (mealSelect.value) {
 
 
 addBtn.addEventListener("click", () => {
+  // 🚫 STOPP: Om mealBuild är tomt
+  if (mealBuild.children.length === 0) {
+    alert("Du måste bekräfta valda alternativ först.");
+    return;
+  }
+
   const items = Array.from(mealBuild.querySelectorAll("li"));
 
   items.forEach(item => {
@@ -438,9 +494,10 @@ addBtn.addEventListener("click", () => {
   });
 
   // Sortera efter datum
-  const sortedItems = Array.from(mealList.querySelectorAll("li")).sort(
-    (a, b) => new Date(a.dataset.day) - new Date(b.dataset.day)
-  );
+const sortedItems = Array.from(mealList.querySelectorAll("li")).sort(
+  (a, b) => new Date(b.dataset.day) - new Date(a.dataset.day)
+);
+
 
   mealList.innerHTML = "";
   sortedItems.forEach(li => mealList.appendChild(li));
@@ -458,6 +515,12 @@ addBtn.addEventListener("click", () => {
     select.classList.remove("select-active");
     select.classList.add("select-default");
   });
+
+  items.forEach(item => {
+  const details = item.querySelector("details");
+  if (details) details.removeAttribute("open"); // stäng alltid
+  mealList.appendChild(item);
+});
 });
 
 mealList.addEventListener("click", (e) => {
@@ -507,7 +570,7 @@ function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kc
   const weightDisplay =
     totalWeightCooked === totalWeightRaw
       ? `${totalWeightRaw} g`
-      : `${totalWeightRaw} g → ${totalWeightCooked} g (gc)`;
+      : `${totalWeightRaw} g | ${totalWeightCooked} gc`;
 
   li.innerHTML = `
   <details>
@@ -521,11 +584,11 @@ function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kc
     <div class="expandedView">
       <div>${name}</div>
       <div id="detailedView">
-        ${formatDateDisplay(new Date(daySelect.value))} |
-        ${amount}st |
-        ${weightDisplay}
-        <button class="deleteBtn">X</button>
-      </div>
+  ${formatDateDisplay(new Date(daySelect.value))} |
+  ${weightDisplay} |
+  <button class="deleteBtn">X</button>
+</div>
+
     </div>
   </details>
   `;
@@ -574,14 +637,21 @@ saveBtn.addEventListener("click", () => {
     totalWeightRaw += weightRaw;
     totalWeightCooked += weightCooked;
     totalKcal += kcal;
-    totalText += `${name} (${amount}), `;
+    const weightText =
+  weightCooked === weightRaw
+    ? `${weightRaw} g`
+    : `${weightRaw} g | ${weightCooked} gc`;
 
-    mealItems.push({
-      name: `${name} (${amount})`,
-      kcal,
-      weightRaw,
-      weightCooked
-    });
+  totalText += `${name} (${weightText}), `;
+
+
+   mealItems.push({
+  name: `${name} | ${weightText}`,
+  kcal,
+  weightRaw,
+  weightCooked
+});
+
   });
 
   // Ta bort sista ", "
@@ -631,7 +701,9 @@ function renderCurrentWeekTotal() {
     weekHistory.prepend(existing);
   }
 
-  existing.textContent = `Denna vecka (v${currentWeek}): ${currentWeekTotal} kcal`;
+  existing.innerHTML = `
+  <span class="weekLabel">Denna vecka (v${currentWeek})</span>
+  <span class="weekKcal">${currentWeekTotal} kcal</span>`;
 
 }
 function checkNewWeek() {
@@ -664,7 +736,10 @@ function checkNewWeek() {
 
     const weekHistoryEl = document.getElementById("weekHistory");
     const li = document.createElement("li");
-    li.textContent = `Vecka ${lastSavedWeek}: ${weekTotal} kcal`;
+   li.innerHTML = `
+      <span class="weekLabel">Vecka ${lastSavedWeek}</span>
+      <span class="weekKcal">${weekTotal} kcal</span>`;
+
     li.dataset.week = lastSavedWeek;
     weekHistoryEl.prepend(li);
 
@@ -766,3 +841,73 @@ function importData(file) {
 renderDaySelect(); 
 loadCustomMeals();
 applyDayColors();
+
+//BOTTOM BAR
+function showView(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
+  document.getElementById(viewId).style.display = 'block';
+}
+
+//BOTTOM BAR PAGE SELECT
+const buttons = document.querySelectorAll('.bottom-nav button');
+const views = document.querySelectorAll('.view');
+
+window.addEventListener("DOMContentLoaded", () => {
+  const firstButton = buttons[0];
+  if (firstButton) {
+    firstButton.classList.add("active");
+
+    // Visa första vyn direkt
+    const target = firstButton.dataset.view;
+    document.getElementById(target).style.display = 'block';
+  }
+});
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.view;
+
+    // Ta bort active från alla knappar
+    buttons.forEach(b => b.classList.remove('active'));
+
+    // Lägg till active på den klickade knappen
+    btn.classList.add('active');
+
+    // Dölj alla vyer
+    views.forEach(v => v.style.display = 'none');
+
+    // Visa rätt vy
+    document.getElementById(target).style.display = 'block';
+  });
+});
+
+const dailyGoalInput = document.getElementById("dailyGoal");
+const saveGoalBtn = document.getElementById("saveGoalBtn");
+
+// Ladda mål vid start
+function loadDailyGoal() {
+  const goal = localStorage.getItem("dailyKcalGoal");
+  if (goal) dailyGoalInput.value = goal;
+}
+loadDailyGoal();
+
+// Spara mål
+saveGoalBtn.addEventListener("click", () => {
+  const goal = Number(dailyGoalInput.value);
+  if (!goal || goal < 500) {
+    alert("Ange ett rimligt kcal-mål.");
+    return;
+  }
+  localStorage.setItem("dailyKcalGoal", goal);
+  alert("Mål sparat!");
+});
+
+
+
+foodSelect.addEventListener("click", () => {
+  foodSelect.focus();
+});
+
+mealSelect.addEventListener("click", () => {
+  mealSelect.focus();
+});
