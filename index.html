@@ -4,63 +4,111 @@
 <meta charset="UTF-8">
 <title>Kaloriloggen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
   <script type=module src="script.js" defer></script>
-
 </head>
 
 <body>
-<h1>Kaloriloggen</h1>
-<hr>
-
-<!-- HTML userInput Section -->
-<section id="userInput">
-  <div id="top">
-    <select id="daySelect"></select>
-    <button id="deleteMealBtn">Radera vald måltid</button>
-  </div>
+  <h1>Kaloriloggen</h1>
   <hr>
-  <div class="form-section">
-    <select id="foodSelect"><option value="">Livsmedel</option></select>
-    <select id="mealSelect"><option value="">Måltid</option></select>
+
+  <!-- HTML BOTTOM BAR LAYOUT -->
+  <div id="home" class="view">
+    <section class="card">
+      <h2>Veckans måltider</h2>
+      <ul id="mealList"></ul>
+    </section>
   </div>
-  <div class="form-section">
-    <select id="amountSelect"><option value="">Välj antal</option></select>
-    <input type="tel" id="weightInput" inputmode="numeric" pattern="[0-9]*" placeholder="Vikt (g)" value="">
-    <button id="acceptBtn">Bekräfta</button>
+
+  <!-- HTML MEAL BUILD SECTION -->
+  <div id="add" class="view" style="display:none;">
+    <!-- CARD 1: Lägg till ingrediens -->
+    <section class="card">
+      <h2>Lägg till ingrediens</h2>
+      <div class="form-row">
+        <select id="daySelect"></select>
+      </div>
+
+      <div class="form-row">
+        <select id="foodSelect">
+         <option value="">Livsmedel</option>
+       </select>
+      </div>
+
+      <div class="form-row">
+        <select id="mealSelect">
+         <option value="">Måltid</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <select id="amountSelect">
+         <option value="">Antal</option>
+        </select>
+        <input type="tel" id="weightInput" placeholder="Vikt (g)">
+      </div>
+
+      <button id="acceptBtn" class="primary full">Bekräfta</button>
+    </section>
+
+    <!-- CARD 2: Bygg måltid -->
+    <section class="card">
+      <h2>Skapa måltid</h2>
+      <ul id="mealBuild"></ul>
+      <p id="totalKcal" class="total">Totalt: 0 kcal</p>
+      <button id="addBtn" class="primary full">Lägg till</button>
+      <button id="saveBtn" class="secondary small">Spara som ny måltid</button>
+    </section>
   </div>
-</section>
 
-<!-- HTML mealBuild Section -->
-<section id="mealBuildSection">
-  <h2>Skapa måltid</h2>
-  <ul id="mealBuild"></ul>
-  <p id="totalKcal">Totalt: 0 kcal</p>
-  <hr>
-  <div id="mealBuildBtn">
-    <button id="saveBtn">Spara måltid</button>
-    <button id="addBtn">Lägg till</button>
+  <div id="history" class="view" style="display:none;">
+    <!-- CARD 1: Veckosammanställning -->
+    <section class="card">
+      <h2>Veckosammanställning</h2>
+      <ul id="weekSummary"></ul>
+     </section>
+
+    <!-- CARD 2: Historik -->
+    <section class="card">
+      <h2>Historik</h2>
+      <ul id="weekHistory"></ul>
+    </section>
   </div>
-</section>
 
-<!-- HTML weekMeals Section -->
-<section id="weekMealsSection">
-  <h2>Veckans måltider:</h2>
-  <ul id="mealList"></ul>
-</section>
+  <div id="profile" class="view" style="display:none;">
+    <!-- CARD: Backup & Restore -->
+    <section class="card">
+      <h2>Säkerhetskopiering</h2>
+      <button id="exportBtn" class="primary full">Exportera data</button>
+      <label id="importFileLabel" for="importFile" class="secondary full">Importera data</label>
+      <input type="file" id="importFile" style="display:none" accept=".json">
+    </section>
 
-<!-- HTML weekSummary Section -->
-<section id="weekSummarySection">
-  <h2>Veckosammanställning</h2>
-  <div>
-  <ul id="weekSummary">
-  </ul>
-   <ul id="weekHistory"></ul>
-</section>
+    <!-- CARD: Radera sparade måltider -->
+    <section class="card">
+      <h2>Radera sparade måltider</h2>
+      <select id="deleteMealSelect">
+        <option value="">Välj måltid</option>
+      </select>
 
-<button id="exportBtn">Exportera</button>
-<input type="file" id="importFile" accept=".json">
+      <button id="deleteSavedMealBtn" class="danger full">Radera måltid</button>
+    </section>
 
+    <section class="card">
+      <h2>Dagligt KCAL-mål</h2>
+      <div class="form-row vertical">
+        <input type="number" id="dailyGoal" placeholder="t.ex. 2300">
+      </div>
+      <button id="saveGoalBtn" class="primary full">Spara mål</button>
+    </section>
+  </div>
+
+  <nav class="bottom-nav">
+    <button data-view="home">Hem</button>
+    <button data-view="add">Lägg till</button>
+    <button data-view="history">Historik</button>
+    <button data-view="profile">Settings</button>
+  </nav>
+  
 </body>
 </html>
