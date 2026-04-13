@@ -97,6 +97,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadFromLocal();
   renderCurrentWeekTotal();
   checkNewWeek();
+  renderWeekHistory();
+
 });
 
 
@@ -138,6 +140,75 @@ function renderDaySelect() {
   daySelect.value = toISODate(today); // dagens datum som förvalt
 }
 
+function saveCurrentWeekManually() {
+  const items = Array.from(document.querySelectorAll("#mealList li"));
+  if (items.length === 0) {
+    alert("Det finns inga måltider att spara.");
+    return;
+  }
+
+  // 1. Hitta vilken vecka som ska sparas (baserat på första posten)
+  const firstDate = new Date(items[0].dataset.day);
+  const { week: targetWeek, year: targetYear } = getISOWeek(firstDate);
+
+  const confirmSave = confirm(
+    `Spara vecka ${targetWeek}? Detta tar bort alla måltider från denna vecka.`
+  );
+  if (!confirmSave) return;
+
+  let total = 0;
+  const remaining = [];
+
+  // 2. Summera och filtrera
+  items.forEach(li => {
+    const d = new Date(li.dataset.day);
+    const w = getISOWeek(d);
+
+    if (w.week === targetWeek && w.year === targetYear) {
+      total += Number(li.dataset.kcal || 0);
+    } else {
+      remaining.push(li);
+    }
+  });
+
+  // 3. Hämta historik
+  let history = JSON.parse(localStorage.getItem("weekHistory")) || [];
+
+  // 4. Kolla om veckan redan finns
+  const existingIndex = history.findIndex(
+    h => h.week === targetWeek && h.year === targetYear
+  );
+
+  if (existingIndex !== -1) {
+    const overwrite = confirm(
+      `Vecka ${targetWeek} finns redan sparad.\nVill du skriva över värdet?`
+    );
+    if (!overwrite) return;
+
+    history[existingIndex].total = total;
+  } else {
+    history.unshift({
+      week: targetWeek,
+      year: targetYear,
+      total
+    });
+  }
+
+  // 5. Spara historik
+  localStorage.setItem("weekHistory", JSON.stringify(history));
+
+  // 6. Uppdatera mealList
+  mealList.innerHTML = "";
+  remaining.forEach(li => mealList.appendChild(li));
+  saveToLocal();
+
+  // 7. Uppdatera UI
+  renderWeekHistory();
+  renderCurrentWeekTotal();
+
+  alert(`Vecka ${targetWeek} sparad!`);
+}
+
 
 
 function applyDayColors() {
@@ -177,34 +248,38 @@ function updateWeekSummary() {
     dayTotals[day] += kcal;
   });
 
+  // ⭐ Sortera nyaste datum först
   const sortedDays = Object.keys(dayTotals).sort(
-    (a, b) => new Date(a) - new Date(b)
+    (a, b) => new Date(b) - new Date(a)
   );
 
   const weekSummaryEl = document.getElementById("weekSummary");
   weekSummaryEl.innerHTML = "";
 
-  // ⭐ Hämta mål
   const goal = Number(localStorage.getItem("dailyKcalGoal")) || null;
 
   sortedDays.forEach(day => {
     const total = dayTotals[day];
-
-    // ⭐ 1. Räkna diff
     const diff = goal ? total - goal : null;
 
-    // ⭐ 2. Skapa diff-text
     const diffText = diff !== null
       ? `${diff >= 0 ? "+" : ""}${diff} kcal`
       : "";
 
-    // ⭐ 3. Här ska diffClass ligga
     const diffClass = diff >= 0 ? "positive" : "negative";
 
-    // ⭐ 4. Bygg HTML med diff + kcal
+    const dateObj = new Date(day);
+    const weekday = dateObj.getDay(); // 0 = söndag, 6 = lördag
+
     const li = document.createElement("li");
+
+    // ⭐ Lägg till helgklass
+    if (weekday === 0 || weekday === 6) {
+      li.classList.add("weekend");
+    }
+
     li.innerHTML = `
-      <span class="weekLabel">${formatDateDisplay(new Date(day))}</span>
+      <span class="weekLabel">${formatDateDisplay(dateObj)}</span>
       <span class="weekKcal">
         <span class="diff ${diffClass}">${diffText}</span>
         <span class="kcal">${total} kcal</span>
@@ -214,6 +289,7 @@ function updateWeekSummary() {
     weekSummaryEl.appendChild(li);
   });
 }
+
 
   //#endregion
 
@@ -234,6 +310,40 @@ function getWeekNumber(date) {
   const yearStart = new Date(d.getFullYear(),0,1);
   return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
 }
+
+function getISOWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return {
+    week: Math.ceil((((d - yearStart) / 86400000) + 1) / 7),
+    year: d.getUTCFullYear()
+  };
+}
+function renderWeekHistory() {
+  const history = JSON.parse(localStorage.getItem("weekHistory")) || [];
+  const container = document.getElementById("weekHistory");
+  if (!container) return;
+
+  // Sortera: nyast vecka först
+  history.sort((a, b) => {
+    if (a.year !== b.year) return b.year - a.year;
+    return b.week - a.week;
+  });
+
+  container.innerHTML = "";
+
+  history.forEach(entry => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span class="weekLabel">Vecka ${entry.week} (${entry.year})</span>
+      <span class="weekKcal">${entry.total} kcal</span>
+    `;
+    container.appendChild(li);
+  });
+}
+
 
 function saveToLocal() {
   const data = Array.from(mealList.querySelectorAll("li")).map(li => ({
@@ -911,3 +1021,6 @@ foodSelect.addEventListener("click", () => {
 mealSelect.addEventListener("click", () => {
   mealSelect.focus();
 });
+
+document.getElementById("saveWeekBtn").addEventListener("click", saveCurrentWeekManually);
+
