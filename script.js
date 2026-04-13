@@ -302,13 +302,14 @@ function renderWeekHistory() {
   const container = document.getElementById("weekHistory");
   if (!container) return;
 
+  // ❗ Rensa bara sparade veckor, inte current week
+  container.querySelectorAll("li:not([data-week='current'])").forEach(li => li.remove());
+
   // Sortera: nyast vecka först
   history.sort((a, b) => {
     if (a.year !== b.year) return b.year - a.year;
     return b.week - a.week;
   });
-
-  container.innerHTML = "";
 
   history.forEach(entry => {
     const li = document.createElement("li");
@@ -319,6 +320,7 @@ function renderWeekHistory() {
     container.appendChild(li);
   });
 }
+
 
 function saveToLocal() {
   const data = Array.from(mealList.querySelectorAll("li")).map(li => ({
