@@ -297,12 +297,13 @@ function getISOWeek(date) { //FINNS TVÅ VERSIONER AV DETTA MED OLIKA BENÄMNING
     year: d.getUTCFullYear()
   };
 }
+
 function renderWeekHistory() {
   const history = JSON.parse(localStorage.getItem("weekHistory")) || [];
   const container = document.getElementById("weekHistory");
   if (!container) return;
 
-  // ❗ Rensa bara sparade veckor, inte current week
+  // ❗ Rensa bara sparade veckor, inte current week eller knappar
   container.querySelectorAll("li:not([data-week='current'])").forEach(li => li.remove());
 
   // Sortera: nyast vecka först
@@ -905,6 +906,9 @@ allSelects.forEach(select => {
 // ------------------------- EXPORT / IMPORT EVENTS -------------------------
 
 document.getElementById("exportBtn").addEventListener("click", exportData);
+document.getElementById("refreshAppBtn").addEventListener("click", () => {
+  location.reload();
+});
 
 document.getElementById("importFile").addEventListener("change", (e) => {
   const file = e.target.files[0];
