@@ -1,14 +1,25 @@
 /* #region GLOBAL STYLING */
+* {
+  -webkit-user-select: none; /* iPhone/Safari */
+  user-select: none;
+}
 body { 
   font-family: Verdana, sans-serif; max-width: 480px; 
   margin: auto; padding: 16px; background-color: rgb(100, 100, 100);
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
 h1 { text-align: center; }
 h2 {margin-bottom: 5px;}
 p {margin: 2px 0;}
 
+#versionTag {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px 0;
+  color: black;
+  font-size: 12px;
+}
 hr {
   height: 2px;
   width: 95%;
@@ -101,7 +112,7 @@ li {
   margin-top: -10px;
 }
 .bottom-nav button.active {
-  color: black;
+  color: white;
   font-weight: bold;
   background-color: #45a049;
 }
@@ -152,7 +163,7 @@ button.full {
 
 button.primary {
   background: #45a049;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
@@ -280,13 +291,48 @@ button.secondary {
   padding: 6px 10px;
   margin-top: 6px;
 }
+.weekLabel {
+  color: white;
+}
+.weekKcal {
+  color: white;
+  font-weight: 600;
+}
+.weekKcal .diff {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 14px;
+  margin-right: 6px;
+  opacity: 0.8;
+}
+.weekKcal .diff.positive {
+  color: #ff6b6b; /* röd */
+}
+.weekKcal .diff.negative {
+  color: #4cd964; /* grön */
+}
+.weekend {
+  background-color: #c74b4b;
+  border-radius: 10px;
+}
+.sortable-item.dragging {
+  opacity: 0.5;
+  transform: scale(1.02);
+  transition: transform 0.1s ease;
+}
+.sortable-item.dragging {
+  opacity: 0.9;
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  z-index: 10;
+}
 
 /* #endregion */
 
 /* #region LÄGG TILL FLIKEN */
 #daySelect {
   margin-right: auto; 
-  background-color: skyblue;
+  background-color: #219bdc;
   border: solid black 2px;
   border-radius: 10px;
   color: black;
@@ -443,36 +489,12 @@ button.secondary {
   padding: 4px 10px;
   margin-top: 6px;
 }
-.weekLabel {
-  color: white;
-}
-.weekKcal {
-  color: white;
-  font-weight: 600;
-}
-.weekKcal .diff {
-  font-weight: normal;
-  font-style: italic;
-  font-size: 14px;
-  margin-right: 6px;
-  opacity: 0.8;
-}
-.weekKcal .diff.positive {
-  color: #ff6b6b; /* röd */
-}
-.weekKcal .diff.negative {
-  color: #4cd964; /* grön */
-}
-.weekend {
-  background-color: #e74343;
-  border-radius: 10px;
-}
 
 /* #endregion */
 
 /* #region SETTINGS FLIKEN */
 #importFileLabel { 
-  background-color: #199d24;
+  background-color: #45a049;
   text-align: center;
   color: white;
   display: flex;            
@@ -498,6 +520,7 @@ button.secondary {
   width: 100%;
   height: 40px;
   margin-top: 0px;
+  font-weight: normal;
 }
 button.danger {
   background: #b33a3a;
@@ -514,7 +537,7 @@ button.danger {
   border-radius: 10px;
 }
 #saveWeekBtn {
-  background: rgb(152, 108, 25);
+  background: #45a049;
   color: white;
   border-top: 1px solid white;    
   border-radius: 10px;
@@ -527,6 +550,7 @@ button.danger {
   border-radius: 10px;
   color: white;
   margin-top: 0px;
+  font-weight: normal;
 }
 #dailyGoal {
   height: 40px;
@@ -544,7 +568,13 @@ button.danger {
   display: block;
   margin-bottom: 5px;
 }
-
+#refreshAppBtn {
+  background: #219bdc;
+  color: white;
+  margin-top: 0px;  
+  border-top: 1px solid white;    
+  border-radius: 10px;
+}
 /* #endregion */
 
 /* #region ANVÄNDS DESSA ???????

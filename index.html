@@ -2,20 +2,24 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>Kaloriloggen</title>
+<title>KaloriLoggen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script type=module src="script.js" defer></script>
 </head>
 
 <body>
-  <h1>Kaloriloggen</h1>
+  <h1>KaloriLoggen™️</h1>
   <hr>
 
-  <!-- HTML BOTTOM BAR LAYOUT -->
+  <!-- HTML HOME SECTION -->
   <div id="home" class="view">
+     <section class="card">
+      <h2>Översikt</h2>
+      <ul id="weekSummary"></ul>
+    </section>
     <section class="card">
-      <h2>Veckans måltider</h2>
+      <h2>Måltider</h2>
       <ul id="mealList"></ul>
     </section>
   </div>
@@ -24,7 +28,7 @@
   <div id="add" class="view" style="display:none;">
     <!-- CARD 1: Lägg till ingrediens -->
     <section class="card">
-      <h2>Lägg till ingrediens</h2>
+      <h2>Skapa måltid</h2>
       <div class="form-row">
         <select id="daySelect"></select>
       </div>
@@ -48,12 +52,12 @@
         <input type="tel" id="weightInput" placeholder="Vikt (g)">
       </div>
 
-      <button id="acceptBtn" class="primary full">Bekräfta</button>
+      <button id="acceptBtn" class="primary full">↓ Bekräfta ↓</button>
     </section>
 
     <!-- CARD 2: Bygg måltid -->
     <section class="card">
-      <h2>Skapa måltid</h2>
+      <h2>Spara måltid</h2>
       <ul id="mealBuild"></ul>
       <p id="totalKcal" class="total">Totalt: 0 kcal</p>
       <button id="addBtn" class="primary full">Lägg till</button>
@@ -63,10 +67,7 @@
 
   <div id="history" class="view" style="display:none;">
     <!-- CARD 1: Veckosammanställning -->
-    <section class="card">
-      <h2>Veckosammanställning</h2>
-      <ul id="weekSummary"></ul>
-     </section>
+ 
 
     <!-- CARD 2: Historik -->
     <section class="card">
@@ -79,36 +80,43 @@
     <!-- CARD: Backup & Restore -->
     <section class="card">
       <h2>Säkerhetskopiering</h2>
-      <button id="exportBtn" class="primary full">Exportera data</button>
-      <label id="importFileLabel" for="importFile" class="secondary full">Importera data</label>
+      <button id="exportBtn" class="primary full">Exportera</button>
+      <label id="importFileLabel" for="importFile" class="secondary full">Importera</label>
       <input type="file" id="importFile" style="display:none" accept=".json">
     </section>
 
     <!-- CARD: Radera sparade måltider -->
     <section class="card">
-      <h2>Radera sparade måltider</h2>
+      <h2>Radera skapade måltider</h2>
       <select id="deleteMealSelect">
         <option value="">Välj måltid</option>
       </select>
 
-      <button id="deleteSavedMealBtn" class="danger full">Radera måltid</button>
+      <button id="deleteSavedMealBtn" class="danger full">Radera</button>
     </section>
 
     <section class="card">
-      <h2>Spara vecka i Historik </h2>
+      <h2>Spara vecka i historik </h2>
         <div class="form-row vertical">
-          <button id="saveWeekBtn">Spara vecka</button>
+          <button id="saveWeekBtn">Spara</button>
         </div>
       </section>
 
     <section class="card">
-      <h2>Dagligt KCAL-mål</h2>
+      <h2>Ange dagligt kalorimål</h2>
       <div class="form-row vertical">
         <input type="number" id="dailyGoal" placeholder="t.ex. 2300">
       </div>
-      <button id="saveGoalBtn" class="primary full">Spara mål</button>
+      <button id="saveGoalBtn" class="primary full">Spara</button>
     </section>
-  </div>
+
+  <section class="card">
+      <h2>Reload page</h2>
+        <div class="form-row vertical">
+          <button id="refreshAppBtn">Reload</button>
+        </div>
+      </section>
+ </div>
 
   <nav class="bottom-nav">
     <button data-view="home">Hem</button>
@@ -116,6 +124,6 @@
     <button data-view="history">Historik</button>
     <button data-view="profile">Settings</button>
   </nav>
-  
+  <p id="versionTag">KaloriLoggen version 1.0</p>
 </body>
 </html>

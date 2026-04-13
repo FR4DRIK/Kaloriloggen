@@ -11,7 +11,6 @@ const mealList = document.getElementById("mealList");
 const mealBuild = document.getElementById("mealBuild");
 const daySelect = document.getElementById("daySelect");
 const weekHistory = document.getElementById("weekHistory");
-const deleteMealBtn = document.getElementById("deleteMealBtn");
 
 let foods = []; //behövs för global användning av foods-JSON
 let meals = []; //behövs för global användning av meals-JSON
@@ -48,24 +47,6 @@ async function loadFoods() {
 }
     loadFoods(); //JSON
 
-
-  //Bygger JSON-listan meals
- function initMealSelect(meals) {
-    const sortedMeals = meals.slice().sort((a, b) => {
-        return a.name.localeCompare(b.name, 'sv');
-    });
-    sortedMeals.forEach(item => {
-        const option = document.createElement('option');
-        option.value = item.id;
-
-        let text = `${item.name} | ${item.kcal} kcal | ${item.weight} g`;
-
-        option.textContent = text;
-
-        mealSelect.appendChild(option); // 👈 viktigt
-    });
-}
-
 //Laddar JSON+startar appen 
 async function loadMeals() {
     const response = await fetch('./meals.json');
@@ -77,7 +58,6 @@ loadMeals(); //JSON
 //#region DATA & VARIABLES
 
 let customMeals = []; // Egna måltider skapade av användaren
-const savedMeals = JSON.parse(localStorage.getItem("mealList")) || [];
 
 // Fyll amountSelect med antal
 for (let i = 1; i <= 20; i++) {
@@ -96,7 +76,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadCustomMeals();     // laddar customMeals och kör renderMealSelect()
   loadFromLocal();
   renderCurrentWeekTotal();
-  checkNewWeek();
   renderWeekHistory();
 
 });
@@ -106,7 +85,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   //#endregion
 
 //#region FUNCTIONS
-  const getKcal = (f, weight = f.weight) => Math.round(f.kcal * weight / 100);
+/* DENNA VERKAR INTE ANVÄNDAS LÄNGRE  
+const getKcal = (f, weight = f.weight) => Math.round(f.kcal * weight / 100); */
 
   function toISODate(d) {
   const y = d.getFullYear();
@@ -295,15 +275,11 @@ function updateWeekSummary() {
 
   //#region HELP FUNCTIONS
 
-function extractWeekday(displayText) {
-  return displayText.split(" ")[1]; // t.ex. "5/4 Söndag" → "Söndag"
-}
-
   //#endregion
 
 
 // Hjälpfunktion: veckonummer
-function getWeekNumber(date) {
+function getWeekNumber(date) { //FINNS TVÅ VERSIONER AV DETTA MED OLIKA BENÄMNING
   const d = new Date(date);
   d.setHours(0,0,0,0);
   d.setDate(d.getDate() + 4 - (d.getDay() || 7));
@@ -311,7 +287,7 @@ function getWeekNumber(date) {
   return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
 }
 
-function getISOWeek(date) {
+function getISOWeek(date) { //FINNS TVÅ VERSIONER AV DETTA MED OLIKA BENÄMNING
   const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
   const dayNum = d.getUTCDay() || 7;
   d.setUTCDate(d.getUTCDate() + 4 - dayNum);
@@ -343,7 +319,6 @@ function renderWeekHistory() {
     container.appendChild(li);
   });
 }
-
 
 function saveToLocal() {
   const data = Array.from(mealList.querySelectorAll("li")).map(li => ({
@@ -431,13 +406,18 @@ deleteSavedMealBtn.addEventListener("click", () => {
 function populateDeleteMealSelect() {
   deleteMealSelect.innerHTML = '<option value="">Välj måltid</option>';
 
-  customMeals.forEach(meal => {
+  // 🔥 Sortera A–Ö
+  const sorted = [...customMeals].sort((a, b) =>
+    a.name.localeCompare(b.name, "sv")
+  );
+  sorted.forEach(meal => {
     const opt = document.createElement("option");
     opt.value = meal.id;
     opt.textContent = meal.name;
     deleteMealSelect.appendChild(opt);
   });
 }
+
 document.querySelector('[data-view="profile"]').addEventListener("click", () => {
   populateDeleteMealSelect();
 });
@@ -451,6 +431,7 @@ function loadFromLocal() {
   savedMeals.forEach(item => {
     const li = document.createElement("li");
 
+    li.classList.add("sortable-item");
     li.dataset.day = item.day;
     li.dataset.amount = item.amount;
     li.dataset.weightRaw = item.weightRaw;
@@ -591,7 +572,6 @@ else if (mealSelect.value) {
 
 
 addBtn.addEventListener("click", () => {
-  // 🚫 STOPP: Om mealBuild är tomt
   if (mealBuild.children.length === 0) {
     alert("Du måste bekräfta valda alternativ först.");
     return;
@@ -599,15 +579,17 @@ addBtn.addEventListener("click", () => {
 
   const items = Array.from(mealBuild.querySelectorAll("li"));
 
+  // Flytta items till mealList (endast en gång)
   items.forEach(item => {
+    const details = item.querySelector("details");
+    if (details) details.removeAttribute("open");
     mealList.appendChild(item);
   });
 
-  // Sortera efter datum
-const sortedItems = Array.from(mealList.querySelectorAll("li")).sort(
-  (a, b) => new Date(b.dataset.day) - new Date(a.dataset.day)
-);
-
+  // ⭐ Sortera mealList direkt
+  const sortedItems = Array.from(mealList.querySelectorAll("li")).sort(
+    (a, b) => new Date(b.dataset.day) - new Date(a.dataset.day)
+  );
 
   mealList.innerHTML = "";
   sortedItems.forEach(li => mealList.appendChild(li));
@@ -625,12 +607,6 @@ const sortedItems = Array.from(mealList.querySelectorAll("li")).sort(
     select.classList.remove("select-active");
     select.classList.add("select-default");
   });
-
-  items.forEach(item => {
-  const details = item.querySelector("details");
-  if (details) details.removeAttribute("open"); // stäng alltid
-  mealList.appendChild(item);
-});
 });
 
 mealList.addEventListener("click", (e) => {
@@ -647,7 +623,7 @@ mealList.addEventListener("click", (e) => {
 
 daySelect.addEventListener("change", () => {
   // Detta uppdaterar visningen baserat på valt datum
-  updateMealBuildView();
+
   applyDayColors(); 
 });
 
@@ -675,6 +651,8 @@ function calculateCurrentWeekTotal() {
 
 function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kcal) {
   const li = document.createElement("li");
+
+  li.classList.add("sortable-item");
 
   // Visa cooked weight endast om den skiljer sig från raw
   const weightDisplay =
@@ -771,7 +749,7 @@ saveBtn.addEventListener("click", () => {
   const newId = totalText.toLowerCase().replace(/\s+/g, "_");
 
   // 3. Spara EN måltid
-  customMeals.push({
+    customMeals.push({
     id: newId,
     name: totalText,
     kcal: totalKcal,
@@ -816,6 +794,7 @@ function renderCurrentWeekTotal() {
   <span class="weekKcal">${currentWeekTotal} kcal</span>`;
 
 }
+/* DENNA VERKAR INTE ANVÄNDAS LÄNGRE - ERSATT AV MANUAL SAVE WEEK HISTORY
 function checkNewWeek() {
   const now = new Date();
   const currentWeek = getWeekNumber(now);
@@ -859,7 +838,7 @@ function checkNewWeek() {
     saveToLocal();
     localStorage.setItem("lastSavedWeek", currentWeek);
   }
-}
+} */ 
 
 
 const allSelects = [foodSelect, mealSelect, amountSelect];
@@ -870,15 +849,6 @@ allSelects.forEach(select => {
     select.classList.toggle("select-default", select.value === "");
   });
 });
-
-function populateSelect(select, items, textFn) {
-  items.forEach(item => {
-    const option = document.createElement("option");
-    option.value = item.id;
-    option.textContent = textFn(item);
-    select.appendChild(option);
-  });
-}
 
 // ------------------------- EXPORT / IMPORT EVENTS -------------------------
 
@@ -962,7 +932,7 @@ function showView(viewId) {
 const buttons = document.querySelectorAll('.bottom-nav button');
 const views = document.querySelectorAll('.view');
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => { //BEHÖVER SES ÖVER - DUBBEL FUNKTION?
   const firstButton = buttons[0];
   if (firstButton) {
     firstButton.classList.add("active");
@@ -973,7 +943,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-buttons.forEach(btn => {
+buttons.forEach(btn => { //BEHÖVER SES ÖVER - DUBBEL FUNKTION?
   btn.addEventListener('click', () => {
     const target = btn.dataset.view;
 
@@ -1009,18 +979,74 @@ saveGoalBtn.addEventListener("click", () => {
     return;
   }
   localStorage.setItem("dailyKcalGoal", goal);
+  updateWeekSummary();
   alert("Mål sparat!");
 });
 
-
-
-foodSelect.addEventListener("click", () => {
-  foodSelect.focus();
-});
-
-mealSelect.addEventListener("click", () => {
-  mealSelect.focus();
-});
-
 document.getElementById("saveWeekBtn").addEventListener("click", saveCurrentWeekManually);
+
+// ------------------------- LONG PRESS SORTING -------------------------
+
+// DENNA ÄR FRIKOPPLAD FRÅN ÖVRIG LOGIK - BÖR EGEN MODUL SKAPAS?
+
+let longPressTimer = null;
+let draggingEl = null;
+let startY = 0;
+
+mealList.addEventListener("touchstart", (e) => {
+  const li = e.target.closest(".sortable-item");
+  if (!li) return;
+
+  longPressTimer = setTimeout(() => {
+    draggingEl = li;
+    draggingEl.classList.add("dragging");
+    startY = e.touches[0].clientY;
+  }, 300); // 0.3 sek long-press
+});
+
+mealList.addEventListener("touchmove", (e) => {
+  if (!draggingEl) return;
+
+  const currentY = e.touches[0].clientY;
+  const delta = currentY - startY;
+
+  draggingEl.style.transform = `translateY(${delta}px)`;
+
+  const items = [...mealList.querySelectorAll(".sortable-item")];
+  const draggingIndex = items.indexOf(draggingEl);
+
+  items.forEach((item, index) => {
+    if (item === draggingEl) return;
+
+    const rect = item.getBoundingClientRect();
+    const middle = rect.top + rect.height / 2;
+
+    if (currentY < middle && index < draggingIndex) {
+      mealList.insertBefore(draggingEl, item);
+    }
+    if (currentY > middle && index > draggingIndex) {
+      mealList.insertBefore(draggingEl, item.nextSibling);
+    }
+  });
+});
+
+mealList.addEventListener("touchend", () => {
+  clearTimeout(longPressTimer);
+
+  if (draggingEl) {
+    draggingEl.classList.remove("dragging");
+    draggingEl.style.transform = "";
+    draggingEl = null;
+
+    saveToLocal();
+    applyDayColors();
+    updateWeekSummary();
+  }
+});
+document.getElementById("refreshAppBtn").addEventListener("click", () => {
+  location.reload();
+});
+
+
+
 
