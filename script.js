@@ -454,12 +454,18 @@ function loadFromLocal() {
         </summary>
         <div class="expandedView">
           <div>${item.name}</div>
-          <div id="detailedView">
-  ${formatDateDisplay(new Date(item.day))} |
-  ${weightText} |
-  <button class="deleteBtn">X</button>
-</div>
+         <div id="detailedView">
+  <div class="detailsText">
+    ${formatDateDisplay(new Date(item.day))} |
+    ${weightText}
+  </div>
 
+  <div class="actionButtonsRowBottom">
+    <button class="deleteBtn">X</button>
+    <button class="moveUpBtn">▲</button>
+    <button class="moveDownBtn">▼</button>
+  </div>
+</div>
         </div>
       </details>
     `;
@@ -671,11 +677,19 @@ function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kc
 
     <div class="expandedView">
       <div>${name}</div>
-      <div id="detailedView">
-  ${formatDateDisplay(new Date(daySelect.value))} |
-  ${weightDisplay} |
-  <button class="deleteBtn">X</button>
+     <div id="detailedView">
+  <div class="detailsText">
+    ${formatDateDisplay(new Date(daySelect.value))} |
+    ${weightDisplay}
+  </div>
+
+  <div class="actionButtonsRowBottom">
+    <button class="deleteBtn">X</button>
+    <button class="moveUpBtn">▲</button>
+    <button class="moveDownBtn">▼</button>
+  </div>
 </div>
+
 
     </div>
   </details>
@@ -794,6 +808,42 @@ function renderCurrentWeekTotal() {
   <span class="weekKcal">${currentWeekTotal} kcal</span>`;
 
 }
+
+mealList.addEventListener("click", (e) => {
+  const li = e.target.closest("li");
+  if (!li) return;
+
+  if (e.target.classList.contains("moveUpBtn")) {
+    const prev = li.previousElementSibling;
+    if (prev) {
+      mealList.insertBefore(li, prev);
+      saveToLocal();
+      applyDayColors();
+      updateWeekSummary();
+    }
+  }
+
+  if (e.target.classList.contains("moveDownBtn")) {
+    const next = li.nextElementSibling;
+    if (next) {
+      mealList.insertBefore(next, li);
+      saveToLocal();
+      applyDayColors();
+      updateWeekSummary();
+    }
+  }
+
+  if (e.target.classList.contains("deleteBtn")) {
+    li.remove();
+    saveToLocal();
+    applyDayColors();
+    updateWeekSummary();
+  }
+});
+
+
+
+
 /* DENNA VERKAR INTE ANVÄNDAS LÄNGRE - ERSATT AV MANUAL SAVE WEEK HISTORY
 function checkNewWeek() {
   const now = new Date();
@@ -864,12 +914,12 @@ function exportData() {
   const data = {
     mealList: JSON.parse(localStorage.getItem("mealList")) || [],
     customMeals: JSON.parse(localStorage.getItem("customMeals")) || [],
+    weekHistory: JSON.parse(localStorage.getItem("weekHistory")) || [],
+    dailyKcalGoal: localStorage.getItem("dailyKcalGoal") || null,
     lastSavedWeek: localStorage.getItem("lastSavedWeek") || null
   };
 
-  const today = new Date().toISOString().split("T")[0]; 
-  // ex: 2026-04-11
-
+  const today = new Date().toISOString().split("T")[0];
   const filename = `Kaloriloggen_backup_${today}.json`;
 
   const blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -877,12 +927,10 @@ function exportData() {
   });
 
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement("a");
   a.href = url;
   a.download = filename;
   a.click();
-
   URL.revokeObjectURL(url);
 }
 
@@ -900,6 +948,14 @@ function importData(file) {
 
       if (data.customMeals) {
         localStorage.setItem("customMeals", JSON.stringify(data.customMeals));
+      }
+
+      if (data.weekHistory) {
+        localStorage.setItem("weekHistory", JSON.stringify(data.weekHistory));
+      }
+
+      if (data.dailyKcalGoal) {
+        localStorage.setItem("dailyKcalGoal", data.dailyKcalGoal);
       }
 
       if (data.lastSavedWeek) {
@@ -985,67 +1041,7 @@ saveGoalBtn.addEventListener("click", () => {
 
 document.getElementById("saveWeekBtn").addEventListener("click", saveCurrentWeekManually);
 
-// ------------------------- LONG PRESS SORTING -------------------------
 
-// DENNA ÄR FRIKOPPLAD FRÅN ÖVRIG LOGIK - BÖR EGEN MODUL SKAPAS?
-
-let longPressTimer = null;
-let draggingEl = null;
-let startY = 0;
-
-mealList.addEventListener("touchstart", (e) => {
-  const li = e.target.closest(".sortable-item");
-  if (!li) return;
-
-  longPressTimer = setTimeout(() => {
-    draggingEl = li;
-    draggingEl.classList.add("dragging");
-    startY = e.touches[0].clientY;
-  }, 300); // 0.3 sek long-press
-});
-
-mealList.addEventListener("touchmove", (e) => {
-  if (!draggingEl) return;
-
-  const currentY = e.touches[0].clientY;
-  const delta = currentY - startY;
-
-  draggingEl.style.transform = `translateY(${delta}px)`;
-
-  const items = [...mealList.querySelectorAll(".sortable-item")];
-  const draggingIndex = items.indexOf(draggingEl);
-
-  items.forEach((item, index) => {
-    if (item === draggingEl) return;
-
-    const rect = item.getBoundingClientRect();
-    const middle = rect.top + rect.height / 2;
-
-    if (currentY < middle && index < draggingIndex) {
-      mealList.insertBefore(draggingEl, item);
-    }
-    if (currentY > middle && index > draggingIndex) {
-      mealList.insertBefore(draggingEl, item.nextSibling);
-    }
-  });
-});
-
-mealList.addEventListener("touchend", () => {
-  clearTimeout(longPressTimer);
-
-  if (draggingEl) {
-    draggingEl.classList.remove("dragging");
-    draggingEl.style.transform = "";
-    draggingEl = null;
-
-    saveToLocal();
-    applyDayColors();
-    updateWeekSummary();
-  }
-});
-document.getElementById("refreshAppBtn").addEventListener("click", () => {
-  location.reload();
-});
 
 
 
