@@ -29,30 +29,6 @@ hr {
   border-color: black;
 }
 
-/* delete button */
-.deleteBtn {
-  width: 20px;
-  height: 20px;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 2px;
-  background-color: #e74c3c;
-  color: white;
-  border: 1px solid black;
-  border-radius: 50%;
-  vertical-align: right;
-  margin-left: 2px;
-}
-  .deleteBtn:active {
-  background-color: #c0392b; /* mörkare röd vid tryck */
-  transform: scale(0.9); /* touch-feedback */
-}
-/* Delete-knapp i content */
-#mealBuild .content .deleteBtn {
-  margin-top: 6px;
-  width: 100%;
-}
-
 select {
   background-color: #444;
   color: white;
@@ -315,16 +291,52 @@ button.secondary {
   background-color: #c74b4b;
   border-radius: 10px;
 }
-.sortable-item.dragging {
-  opacity: 0.5;
-  transform: scale(1.02);
-  transition: transform 0.1s ease;
+#detailedView {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
 }
-.sortable-item.dragging {
+
+.detailsText {
+  width: 100%;
+}
+.actionButtonsRowBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.actionButtonsRowBottom button {
+  background: #f2f2f2;          /* ljus neutral bakgrund */
+  border: 1px solid #929191;       /* tunn, subtil kant */
+  border-radius: 6px;           /* mjuka hörn */
+  font-size: 20px;
+  font-weight: bold;              /* mindre text */
+  padding: 2px 6px;             /* kompakt padding */
   opacity: 0.9;
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  z-index: 10;
+  min-width: 28px;              /* gör knapparna jämnstora */
+  text-align: center;
+  height: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.actionButtonsRowBottom button:hover {
+  background: #e6e6e6;
+  opacity: 1;
+}
+
+.deleteBtn {
+  color: #b00000;               /* diskret röd */
+  border-color: #d0a0a0;
+}
+
+.moveUpBtn,
+.moveDownBtn {
+  color: #333;                  /* neutral grå */
 }
 
 /* #endregion */
