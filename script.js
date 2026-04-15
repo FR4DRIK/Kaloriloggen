@@ -1,7 +1,5 @@
 
 //#region DOM ELEMENTS
-const foodSelect = document.getElementById("foodSelect");
-const mealSelect = document.getElementById("mealSelect");
 const weightInput = document.getElementById("weightInput");
 const amountSelect = document.getElementById("amountSelect");
 const addBtn = document.getElementById("addBtn");
@@ -12,48 +10,10 @@ const mealBuild = document.getElementById("mealBuild");
 const daySelect = document.getElementById("daySelect");
 const weekHistory = document.getElementById("weekHistory");
 
-let foods = []; //behövs för global användning av foods-JSON
-let meals = []; //behövs för global användning av meals-JSON
-  //#endregion
+let selectedItem = null;
+let foods = [];
+let foodDropdown = null;
 
-  //Bygger JSON-listan foods
-  function initFoodSelect(foods) {
-      const sortedFoods = foods.slice().sort((a, b) => {
-          return a.name.localeCompare(b.name, 'sv');
-      });
-      sortedFoods.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item.id;
-
-          const cookedWeight = Math.round(item.weight * (item.cooked / 100));
-
-const kcalTotal = Math.round((item.kcal / 100) * item.weight);
-let text = `${item.name} | ${kcalTotal} kcal | ${item.weight} g`;
-
-
-if (cookedWeight !== item.weight) {
-    text += ` | ${cookedWeight} gc`;
-}
-option.textContent = text;
-foodSelect.appendChild(option);
-      });
-  }
-
-//Laddar JSON+startar appen 
-async function loadFoods() {
-    const response = await fetch('./foods.json');
-    foods = await response.json();
-    initFoodSelect(foods);
-}
-    loadFoods(); //JSON
-
-//Laddar JSON+startar appen 
-async function loadMeals() {
-    const response = await fetch('./meals.json');
-    meals = await response.json();
-}
-
-loadMeals(); //JSON
 
 //#region DATA & VARIABLES
 
@@ -72,12 +32,10 @@ for (let i = 1; i <= 20; i++) {
 //#region EVENT LISTENERS
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadMeals();     // vänta tills meals.json är laddad
-  loadCustomMeals();     // laddar customMeals och kör renderMealSelect()
+  
   loadFromLocal();
   renderCurrentWeekTotal();
   renderWeekHistory();
-
 });
 
 
@@ -328,8 +286,8 @@ function saveToLocal() {
     day: li.dataset.day,
     name: li.querySelector(".title")?.textContent || "",
     amount: Number(li.dataset.amount) || 1,
-    weightRaw: Number(li.dataset.weightRaw) || 0,
-    weightCooked: Number(li.dataset.weightCooked) || 0,
+    weight: Number(li.dataset.weight) || 0,
+    cWeight: Number(li.dataset.cWeight) || 0,
     kcal: Number(li.dataset.kcal) || 0
   }));
 
@@ -349,30 +307,7 @@ function loadCustomMeals() {
   // sortera customMeals direkt
   customMeals.sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
-  renderMealSelect();
 }
-
-function renderMealSelect() {
-  mealSelect.innerHTML = "<option value=''>Måltid</option>";
-
-  const allMeals = [...meals, ...customMeals].sort((a, b) =>
-    a.name.localeCompare(b.name, "sv")
-  );
-
-  allMeals.forEach(m => {
-    const option = document.createElement("option");
-    option.value = m.id;
-
-    const weight = m.weight;
-    const kcalPerGram = m.kcal / weight;
-    const kcalTotal = Math.round(kcalPerGram * weight);
-
-    option.textContent = `${m.name} | ${kcalTotal} kcal | ${weight} g`;
-    mealSelect.appendChild(option);
-  });
-}
-
-
 
 // ------------------------- DELETE SELECTED MEAL -------------------------
 deleteSavedMealBtn.addEventListener("click", () => {
@@ -400,8 +335,6 @@ deleteSavedMealBtn.addEventListener("click", () => {
     saveCustomMeals();
     alert(`Måltiden har raderats.`);
   }
-
-  renderMealSelect();
   populateDeleteMealSelect();
 });
 
@@ -437,15 +370,15 @@ function loadFromLocal() {
     li.classList.add("sortable-item");
     li.dataset.day = item.day;
     li.dataset.amount = item.amount;
-    li.dataset.weightRaw = item.weightRaw;
-    li.dataset.weightCooked = item.weightCooked;
+    li.dataset.weight = item.weight;
+    li.dataset.cWeight = item.cWeight;
     li.dataset.kcal = item.kcal;
     li.dataset.name = item.name;
 
     const weightText =
-      item.weightCooked === item.weightRaw
-        ? `${item.weightRaw} g`
-        : `${item.weightRaw} g | ${item.weightCooked} gc`;
+      item.cWeight === item.weight
+        ? `${item.weight} g`
+        : `${item.weight} g | ${item.cWeight} gc`;
 
     li.innerHTML = `
       <details>
@@ -497,87 +430,23 @@ function loadFromLocal() {
 
 // ------------------------- EVENT LISTENERS -------------------------
 acceptBtn.addEventListener("click", () => {
-  // STOPP: om inget är valt
-  if (!foodSelect.value && !mealSelect.value) {
-    alert("Välj livsmedel eller måltid först!");
+  if (!selectedItem) {
+    alert("Välj något först!");
     return;
   }
 
-  // STOPP: om båda är valda samtidigt
-  if (foodSelect.value && mealSelect.value) {
-    alert("Välj antingen livsmedel eller måltid - inte båda!");
-    return;
-  }
+  handleSelectedItem(selectedItem);
 
-  const amount = Number(amountSelect.value) || 1;
-  let selectedText = "";
-  let totalWeightRaw = 0;
-  let totalWeightCooked = 0;
-  let baseKcal = 0;
-
-  // ---------------- LIVSMEDEL ----------------
-  if (foodSelect.value) {
-    const food = foods.find(f => f.id === foodSelect.value);
-
-    // rå vikt per portion
-    const rawPerPortion = Number(weightInput.value) || food.weight;
-    totalWeightRaw = rawPerPortion * amount;
-
-    // tillagad vikt per portion
-    const cookedPerPortion = Math.round(rawPerPortion * (food.cooked / 100));
-    totalWeightCooked = cookedPerPortion * amount;
-
-    selectedText = food.name;
-
-    // kcal baserat på tillagad vikt
-    baseKcal = Math.round((food.kcal / 100) * totalWeightRaw);
-
-
-    createMealBuildItem(
-      selectedText,
-      amount,
-      totalWeightRaw,
-      totalWeightCooked,
-      baseKcal
-    );
-  }
-
-  // ---------------- SPARAD MÅLTID ----------------
-  // ---------------- SPARAD MÅLTID ----------------
-else if (mealSelect.value) {
-  const meal = [...meals, ...customMeals].find(m => m.id === mealSelect.value);
-
-  selectedText = meal.name;
-
-  const rawPerPortion = Number(weightInput.value) || meal.weight;
-  const totalWeight = rawPerPortion * amount;
-
-  const kcalPerGram = meal.kcal / meal.weight;
-  baseKcal = Math.round(kcalPerGram * totalWeight);
-
-  createMealBuildItem(
-    selectedText,
-    amount,
-    totalWeight,
-    totalWeight,   // cooked = raw för måltider
-    baseKcal
-  );
-}
-
-
-
-  // Nollställ selects
-  allSelects.forEach(select => {
-    select.selectedIndex = 0;
-    select.classList.remove("select-active");
-    select.classList.add("select-default");
-  });
+  weightInput.value = "";
+  amountSelect.value = "";
+  foodDropdown.reset();
+});
 
   // Nollställ vikt-input
   if (weightInput) {
     weightInput.value = "";
+    
   }
-});
 
 
 addBtn.addEventListener("click", () => {
@@ -611,11 +480,6 @@ addBtn.addEventListener("click", () => {
   mealBuild.innerHTML = "";
   updateTotalKcal();
 
-  allSelects.forEach(select => {
-    select.value = "";
-    select.classList.remove("select-active");
-    select.classList.add("select-default");
-  });
 });
 
 mealList.addEventListener("click", (e) => {
@@ -635,6 +499,31 @@ daySelect.addEventListener("change", () => {
 
   applyDayColors(); 
 });
+
+
+function handleSelectedItem(item) {
+  const amount = Number(amountSelect.value) || 1;
+
+  const rawPerPortion = Number(weightInput.value) || item.weight;
+  const totalweight = rawPerPortion * amount;
+
+  // Tillagad vikt baserat på proportion
+  const cookedRatio = item.cWeight / item.weight;
+  const cookedPerPortion = Math.round(rawPerPortion * cookedRatio);
+  const totalcWeight = cookedPerPortion * amount;
+
+  // ⭐ RÄTT: använd kcal100 (kcal per 100 g)
+  const kcal = Math.round((item.kcal100 / 100) * totalweight);
+
+  createMealBuildItem(
+    item.name,
+    amount,
+    totalweight,
+    totalcWeight,
+    kcal
+  );
+}
+
 
 //Function - beräkna vecka
 function calculateCurrentWeekTotal() {
@@ -658,16 +547,16 @@ function calculateCurrentWeekTotal() {
 
 // funktion
 
-function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kcal) {
+function createMealBuildItem(name, amount, totalweight, totalcWeight, kcal) {
   const li = document.createElement("li");
 
   li.classList.add("sortable-item");
 
   // Visa cooked weight endast om den skiljer sig från raw
   const weightDisplay =
-    totalWeightCooked === totalWeightRaw
-      ? `${totalWeightRaw} g`
-      : `${totalWeightRaw} g | ${totalWeightCooked} gc`;
+    totalcWeight === totalweight
+      ? `${totalweight} g`
+      : `${totalweight} g | ${totalcWeight} gc`;
 
   li.innerHTML = `
   <details>
@@ -700,8 +589,8 @@ function createMealBuildItem(name, amount, totalWeightRaw, totalWeightCooked, kc
 
   li.dataset.day = daySelect.value;
   li.dataset.amount = amount;
-  li.dataset.weightRaw = totalWeightRaw;
-  li.dataset.weightCooked = totalWeightCooked;
+  li.dataset.weight = totalweight;
+  li.dataset.cWeight = totalcWeight;
   li.dataset.kcal = kcal;
   li.dataset.name = name;
 
@@ -725,8 +614,8 @@ saveBtn.addEventListener("click", () => {
     return;
   }
 
-  let totalWeightRaw = 0;
-  let totalWeightCooked = 0;
+  let totalweight = 0;
+  let totalcWeight = 0;
   let totalText = "";
   let totalKcal = 0;
   const mealItems = [];
@@ -736,16 +625,16 @@ saveBtn.addEventListener("click", () => {
     const name = li.dataset.name;
     const kcal = Number(li.dataset.kcal || 0);
     const amount = Number(li.dataset.amount || 1);
-    const weightRaw = Number(li.dataset.weightRaw || 0);
-    const weightCooked = Number(li.dataset.weightCooked || 0);
+    const weight = Number(li.dataset.weight || 0);
+    const cWeight = Number(li.dataset.cWeight || 0);
 
-    totalWeightRaw += weightRaw;
-    totalWeightCooked += weightCooked;
+    totalweight += weight;
+    totalcWeight += cWeight;
     totalKcal += kcal;
     const weightText =
-  weightCooked === weightRaw
-    ? `${weightRaw} g`
-    : `${weightRaw} g | ${weightCooked} gc`;
+  cWeight === weight
+    ? `${weight} g`
+    : `${weight} g | ${cWeight} gc`;
 
   totalText += `${name} (${weightText}), `;
 
@@ -753,8 +642,8 @@ saveBtn.addEventListener("click", () => {
    mealItems.push({
   name: `${name} | ${weightText}`,
   kcal,
-  weightRaw,
-  weightCooked
+  weight,
+  cWeight
 });
 
   });
@@ -770,21 +659,18 @@ saveBtn.addEventListener("click", () => {
     id: newId,
     name: totalText,
     kcal: totalKcal,
-    weight: totalWeightCooked,   // EN vikt
+    weight: totalcWeight,   // EN vikt
     items: mealItems
   });
 
   // 4. Spara till localStorage
   saveCustomMeals();
 
-  // 5. Uppdatera dropdown
-  renderMealSelect();
-
   // 6. Töm builder
   mealBuild.innerHTML = "";
   updateTotalKcal();
 
-  alert(`Ny måltid "${totalText}" sparad med ${totalKcal} kcal och ${totalWeightCooked} g!`);
+  alert(`Ny måltid "${totalText}" sparad med ${totalKcal} kcal och ${totalcWeight} g!`);
 });
 
 
@@ -893,16 +779,6 @@ function checkNewWeek() {
   }
 } */ 
 
-
-const allSelects = [foodSelect, mealSelect, amountSelect];
-allSelects.forEach(select => {
-  select.classList.add("select-default");
-  select.addEventListener("change", () => {
-    select.classList.toggle("select-active", select.value !== "");
-    select.classList.toggle("select-default", select.value === "");
-  });
-});
-
 // ------------------------- EXPORT / IMPORT EVENTS -------------------------
 
 document.getElementById("exportBtn").addEventListener("click", exportData);
@@ -981,7 +857,6 @@ function importData(file) {
 }
 
 renderDaySelect(); 
-loadCustomMeals();
 applyDayColors();
 
 //BOTTOM BAR
@@ -1048,6 +923,163 @@ saveGoalBtn.addEventListener("click", () => {
 document.getElementById("saveWeekBtn").addEventListener("click", saveCurrentWeekManually);
 
 
+//DROPDOWN//
+
+// ---------------------------------------------------------
+// LOAD FOODS
+// ---------------------------------------------------------
+async function loadFoods() {
+  const res = await fetch("foods.json");
+  return await res.json();
+}
+
+// ---------------------------------------------------------
+// COMPONENT: SEARCHABLE DROPDOWN
+// ---------------------------------------------------------
+class SearchableDropdown {
+  constructor({ container, placeholder = "Sök...", items = [], onSelect = null }) {
+    this.container = container;
+    this.placeholder = placeholder;
+    this.items = items.sort((a, b) => a.name.localeCompare(b.name, "sv"));
+    this.onSelect = onSelect;
+
+    this.render();
+    this.attachEvents();
+  }
+
+  render() {
+    this.container.innerHTML = `
+      <div class="dropdown">
+        <input type="text" class="dropdown-input" placeholder="${this.placeholder}" autocomplete="off">
+        <div class="dropdown-list"></div>
+      </div>
+    `;
+
+    this.input = this.container.querySelector(".dropdown-input");
+    this.list = this.container.querySelector(".dropdown-list");
+
+    this.renderList();
+  }
+
+  renderList() {
+    this.list.innerHTML = "";
+
+    this.items.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+
+      div.innerHTML = `
+        <div class="item-row">
+          <div class="item-name">${item.name}</div>
+          <div class="item-meta">
+            <span class="meta-left">${item.weight} g</span>
+            ${item.weight !== item.cWeight
+              ? `<span class="meta-center">${item.cWeight} g</span>`
+              : `<span class="meta-center"></span>`}
+            <span class="meta-right">${item.kcal} kcal</span>
+          </div>
+          <hr class="item-divider">
+        </div>
+      `;
+
+      div.addEventListener("click", () => {
+        this.selectedItem = item;
+
+        this.input.value =
+          item.weight !== item.cWeight
+            ? `${item.name} | ${item.weight} g | ${item.cWeight} g | ${item.kcal} kcal`
+            : `${item.name} | ${item.weight} g | ${item.kcal} kcal`;
+
+        this.list.style.display = "none";
+
+        if (this.onSelect) this.onSelect(item);
+      });
+
+      this.list.appendChild(div);
+    });
+  }
+
+  attachEvents() {
+    this.input.addEventListener("focus", () => {
+      this.input.select();
+      this.list.style.display = "block";
+    });
+
+    this.input.addEventListener("input", () => {
+      const q = this.input.value.toLowerCase();
+      this.list.querySelectorAll(".item").forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(q)
+          ? "block"
+          : "none";
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        this.list.style.display = "none";
+      }
+    });
+  }
+  reset() {
+  this.input.value = "";
+  this.selectedItem = null;
+  this.renderList();
+  this.list.style.display = "none";
+}
+}
+async function init() {
+  // 1. Ladda foods och normalisera JSON-formatet
+  const foodsRaw = await loadFoods();
+
+  const foods = foodsRaw.map(f => ({
+    id: f.id,
+    name: f.name,
+    weight: f.weight,
+    cWeight: f.cWeight ?? f.cWeight ?? f.weight,
+    kcal100: f.kcal100,
+    kcal: f.kcal, // total kcal, används bara som metadata
+    category: f.category
+  }));
+
+  // 2. Ladda custom meals
+  loadCustomMeals();
+
+  // 3. Normalisera customMeals också
+  const customItems = customMeals.map(m => ({
+    id: m.id,
+    name: m.name,
+    weight: m.weight,
+    cWeight: m.cWeight ?? m.weight,
+    kcal100: m.kcal100 ?? (m.kcal / (m.weight / 100)), // fallback
+    kcal: m.kcal,
+    category: "custom"
+  }));
+
+  // 4. Slå ihop båda listorna
+  const items = [...foods, ...customItems];
+
+  // 5. Skapa dropdown
+  foodDropdown = new SearchableDropdown({
+    container: document.querySelector("#foodDropdown"),
+    placeholder: "Sök livsmedel...",
+    items,
+    onSelect: (item) => {
+      selectedItem = item;
+    }
+  });
+}
+
+
+init();
+
+
+
+// ---------------------------------------------------------
+// OPTIONAL: SHOW SELECTED INFO
+// ---------------------------------------------------------
+function showSelectedInfo(item) {
+  console.log("Valt item:", item);
+}
 
 
 
