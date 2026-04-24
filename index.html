@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>KaloriLoggen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>KaloriLoggen™️</h1>
+
+  <!-- HTML HOME SECTION -->
+    <div id="home" class="view">
+  <!-- CARD 1: Översikt -->
+     <section class="card">
+      <h2>Min vecka</h2>
+      <ul id="weekSummary"></ul>
+    </section>
+
+  <!-- CARD 2: Måltider -->
+    <section class="card">
+      <h2 id="toggle" class="toggle-header">
+        <span class="toggle-title">Mina måltider</span>
+        <span id="toggleArrow" class="arrow">❮</span>
+      </h2>
+      <div class="card-body">
+        <ul id="mealList"></ul>
+        <button id="saveWeekBtn">Spara vecka i historik</button>
+      </div>
+    </section>
+    </div>
+
+  <!-- HTML MEAL BUILD SECTION -->
+    <div id="add" class="view" style="display:none;">
+  <!-- CARD 1: Lägg till ingrediens -->
+    <section class="card">
+      <div class="mealbuild-header">
+        <h2>Skapa måltid</h2>
+        <select id="daySelect"></select>
+      </div>
+      <div class="form-row">
+        <div class="dropdown">
+          <input type="text" id="foodSearchInput" placeholder="Sök livsmedel...">
+          <div class="dropdown-list" id="foodDropdownList"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <select id="amountSelect" class="half">
+          <option value="">Antal</option>
+        </select>
+        <input id="weightInput" type="number" inputmode="numeric" class="half" placeholder="Vikt (g)">
+      </div>
+      <button id="acceptBtn" class="primary full">↓ Bekräfta ↓</button>
+    </section>
+
+  <!-- CARD 2: Bygg måltid -->
+    <section class="card">
+      <h2>Lägg till i mina måltider</h2>
+      <ul id="mealBuild"></ul>
+      <div id="kcalBar">
+        <span id="remainingKcal"></span>
+        <span id="totalKcal"></span>
+      </div>
+      <button id="addBtn" class="primary full">Lägg till</button>
+      <button id="saveBtn" class="secondary small">Spara som ny måltid</button>
+    </section>
+  </div>
+
+  <!--- HTML MEAL EDIT SECTION --->
+    <div id="meals" class="view" style="display:none;">
+      <section class="card">
+        <h2>Redigera innehåll</h2>
+        <div class="dropdown">
+          <input type="text" id="editSearchInput" placeholder="Sök innehåll...">
+          <div class="dropdown-list" id="editDropdownList"></div>
+        </div>
+        <div id="editFields"></div>
+        <div id="editMealItems"></div>
+        <div class="form-row">
+          <button id="abortBtn" class="primary">Avbryt</button>
+          <button id="saveEditBtn" class="primary">Spara ändringar</button>
+        </div>
+        <button id="addNewFoodBtn" class="neutral full">Lägg till nytt innehåll</button>
+        <button id="deleteMealBtn" class="danger full" style="display:none;">Radera valt innehåll</button>
+      </section>
+    </div>
+
+  <!--- HTML HEALTH SECTION --->
+  <div id="health" class="view" style="display:none;">
+    <section class="card">
+      <h2>Historik</h2>
+      <ul id="weekHistory"></ul>
+    </section>
+  </div>
+
+  <!--- HTML SETTINGS SECTION --->  
+    <div id="settings" class="view settings-view" style="display:none;">
+  <!-- CARD: Settings -->
+    <section class="card">
+      <h2>Inställningar</h2>
+      <hr>
+      <div class="form-row">
+        <p>Spara KCAL mål</p>
+        <div class="right-group">
+          <select id="dailyGoalSelect"></select>
+          <button id="saveGoalBtn">Spara</button>
+        </div>
+      </div>
+      <hr>
+      <div class="form-row">
+        <p>Välj tema</p>
+        <div class="right-group">
+          <select id="themeSelect">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="fall">Fall</option>
+          </select>
+          <button id="saveThemeBtn">Spara</button>
+        </div>
+      </div>
+      <hr id="settingsDivider">
+      <div class="form-row">
+        <p>Export MasterList</p>
+        <button id="exportBtn" class="backup">Export</button>
+      </div>
+      <hr>
+      <div class="form-row">
+        <p>Import MasterList</p>  
+        <input type="file" id="importMasterFile" accept="application/json" style="display:none;">
+        <button id="importBtn" class="backup">Import</button>
+      </div>
+      <hr>
+      <div class="form-row">
+        <p>Backup all data</p>
+        <button id="backupBtn" class="backup">Backup</button>
+      </div>
+      <hr>
+      <div class="form-row">
+        <p>Restore all data</p>  
+        <button id="restoreBtn" class="backup">Restore</button>
+        <input type="file" id="restoreFile" style="display:none" accept=".json">
+      </div>
+      <hr id="settingsDivider">
+      <div class="form-row">
+        <p>Ladda om sidan</p>
+        <button id="refreshAppBtn">Reload</button>
+      </div>
+    </section>
+  </div> 
+  <p id="versionTag">KaloriLoggen version 1.2</p>
+
+  <!--- HTML NAVIGATION BAR SECTION --->
+  <nav class="bottom-nav">
+    <button data-view="home"><img src="icons/house.svg" class="nav-icon"></button>
+    <button data-view="add"><img src="icons/meals.svg" class="nav-icon"></button>
+    <button data-view="meals"><img src="icons/edit.svg" class="nav-icon"></button>
+    <button data-view="health"><img src="icons/statistics.svg" class="nav-icon"></button>
+    <button data-view="settings"><img src="icons/settings.svg" class="nav-icon"></button>
+  </nav>
+
+  <!---  EDIT CONFIRMATION DIALOG  --->
+  <div id="editConfirmDialog">
+  <div id="editConfirmBox">
+    <h3>Bekräfta ändringar</h3>
+    <div id="editConfirmContent"></div>
+    <div class="editConfirmButtons">
+      <button id="editCancelBtn">Avbryt</button>
+      <button id="editSaveBtn">Spara</button>
+    </div>
+  </div>
+</div>
+
+<script src="functions.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>
