@@ -1,0 +1,3879 @@
+[
+  {
+    "id": "195fd8f0-b3c1-48e9-8d69-2dbdfc5da403",
+    "type": "food",
+    "name": "Pizzadeg Ica",
+    "kcal100": 280,
+    "weight": 400,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 1120,
+    "cWeight": 400
+  },
+  {
+    "id": "eb73ed22-d3e1-42b4-8815-2c80aaccf217",
+    "type": "food",
+    "name": "Bacon",
+    "kcal100": 300,
+    "weight": 140,
+    "cPercent": 50,
+    "category": null,
+    "kcal": 420,
+    "cWeight": 70
+  },
+  {
+    "id": "5d642f7e-0eb6-4929-8be7-a5572e6a0c25",
+    "type": "food",
+    "name": "Ostsås Kelda",
+    "kcal100": 77,
+    "weight": 500,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 385,
+    "cWeight": 500
+  },
+  {
+    "id": "47d08800-ab6e-4fb0-88a5-9322c6695fa1",
+    "type": "food",
+    "name": "Lasagneplattor durumvete",
+    "kcal100": 367,
+    "weight": 100,
+    "cPercent": 200,
+    "category": null,
+    "kcal": 367,
+    "cWeight": 200
+  },
+  {
+    "id": "b23a2d39-b013-4e1a-a14d-16ce6dae2558",
+    "type": "food",
+    "name": "Pizzabröd till sallad",
+    "kcal100": 280,
+    "weight": 130,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 364,
+    "cWeight": 130
+  },
+  {
+    "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+    "type": "food",
+    "name": "Grädde",
+    "kcal100": 340,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 340,
+    "cWeight": 100
+  },
+  {
+    "id": "e97147a3-f577-4359-a9d9-df4ea9f80b30",
+    "type": "food",
+    "name": "Köttfärsbiffar",
+    "kcal100": 249,
+    "weight": 130,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 324,
+    "cWeight": 104
+  },
+  {
+    "id": "bc8e3950-55e3-423d-8dd0-d685ca7b1ae8",
+    "type": "food",
+    "name": "Kebabkött Schysst käk",
+    "kcal100": 286,
+    "weight": 100,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 286,
+    "cWeight": 85
+  },
+  {
+    "id": "4e9fb660-62fc-472b-88a1-fe1740ec8829",
+    "type": "food",
+    "name": "Våfflor",
+    "kcal100": 356,
+    "weight": 80,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 285,
+    "cWeight": 80
+  },
+  {
+    "id": "2dd3aa94-ee61-435b-a121-6215a8e01718",
+    "type": "food",
+    "name": "Nuggets",
+    "kcal100": 280,
+    "weight": 100,
+    "cPercent": 75,
+    "category": null,
+    "kcal": 280,
+    "cWeight": 75
+  },
+  {
+    "id": "2fd419ab-1b4a-4eaa-95ea-993073fd3313",
+    "type": "food",
+    "name": "Grillkorv (tjock)",
+    "kcal100": 300,
+    "weight": 93,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 279,
+    "cWeight": 93
+  },
+  {
+    "id": "db7a6534-9150-47f1-8cd5-2ae8c478dc77",
+    "type": "food",
+    "name": "Baguette",
+    "kcal100": 270,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 270,
+    "cWeight": 100
+  },
+  {
+    "id": "6ab3da5c-29d5-4875-9b97-a0a0c2764fe8",
+    "type": "food",
+    "name": "Ostsnitzel",
+    "kcal100": 270,
+    "weight": 100,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 270,
+    "cWeight": 90
+  },
+  {
+    "id": "521ce989-c259-437c-aa99-641fba7d874f",
+    "type": "food",
+    "name": "Falukorv",
+    "kcal100": 260,
+    "weight": 100,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 260,
+    "cWeight": 90
+  },
+  {
+    "id": "b46d84ed-0f03-42a2-ae2c-3d9edf0f49f0",
+    "type": "food",
+    "name": "Köttfärs 50/50",
+    "kcal100": 260,
+    "weight": 100,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 260,
+    "cWeight": 80
+  },
+  {
+    "id": "ddb820da-0c77-4a23-a157-9a893e28a691",
+    "type": "food",
+    "name": "Norrlands Levain",
+    "kcal100": 260,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 260,
+    "cWeight": 100
+  },
+  {
+    "id": "54124de3-1a8c-4616-a755-a43b56dfb7cf",
+    "type": "food",
+    "name": "Kycklingschnitzel",
+    "kcal100": 270,
+    "weight": 92,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 248,
+    "cWeight": 83
+  },
+  {
+    "id": "8ae9c784-a5db-4467-b72f-8bebf57daae4",
+    "type": "food",
+    "name": "Köttbullar",
+    "kcal100": 245,
+    "weight": 100,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 245,
+    "cWeight": 85
+  },
+  {
+    "id": "fb53a6a1-01af-4925-bc62-4f46b5f81675",
+    "type": "food",
+    "name": "HamburgerBröd Frisco",
+    "kcal100": 290,
+    "weight": 80,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 232,
+    "cWeight": 80
+  },
+  {
+    "id": "829785c2-9fc9-496c-b99f-b4c9faf3e610",
+    "type": "food",
+    "name": "Laxfilé",
+    "kcal100": 181,
+    "weight": 125,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 226,
+    "cWeight": 113
+  },
+  {
+    "id": "09fc7c0c-0c57-4a55-9fce-1959167e61cb",
+    "type": "food",
+    "name": "Bar Corny",
+    "kcal100": 444,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 222,
+    "cWeight": 50
+  },
+  {
+    "id": "feb32929-4fb6-4c68-8667-ab93077806e9",
+    "type": "food",
+    "name": "Bar Raw Bite",
+    "kcal100": 444,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 222,
+    "cWeight": 50
+  },
+  {
+    "id": "c873a9d3-2ecd-4680-b1b8-3568f99cc044",
+    "type": "food",
+    "name": "SprödbakadFisk",
+    "kcal100": 220,
+    "weight": 100,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 220,
+    "cWeight": 90
+  },
+  {
+    "id": "97533d40-c76e-4460-be38-b0c4c0ba697c",
+    "type": "food",
+    "name": "Vitlöksbröd",
+    "kcal100": 290,
+    "weight": 75,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 218,
+    "cWeight": 60
+  },
+  {
+    "id": "a216b8de-2258-4679-95ff-7b57febe7114",
+    "type": "food",
+    "name": "Fralla Frökuse",
+    "kcal100": 290,
+    "weight": 70,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 203,
+    "cWeight": 70
+  },
+  {
+    "id": "815e76a9-bf64-473f-859b-8841f92ce901",
+    "type": "food",
+    "name": "Hamburgare Scan",
+    "kcal100": 240,
+    "weight": 90,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 216,
+    "cWeight": 77
+  },
+  {
+    "id": "f3701c04-2bdc-4858-b2dd-1c3af933a9a3",
+    "type": "food",
+    "name": "Skinksnitzel (ost+skinka)",
+    "kcal100": 174,
+    "weight": 124,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 216,
+    "cWeight": 124
+  },
+  {
+    "id": "efe51591-7e73-4620-923d-2614d42fd952",
+    "type": "food",
+    "name": "Jordnötter Saltade",
+    "kcal100": 614,
+    "weight": 35,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 215,
+    "cWeight": 35
+  },
+  {
+    "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+    "type": "food",
+    "name": "Vetemjöl",
+    "kcal100": 352,
+    "weight": 60,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 211,
+    "cWeight": 60
+  },
+  {
+    "id": "752bf281-acdf-4484-b93b-99eaa5241b0c",
+    "type": "food",
+    "name": "Bar Barbells",
+    "kcal100": 382,
+    "weight": 55,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 210,
+    "cWeight": 55
+  },
+  {
+    "id": "4b3ba6eb-33ff-47cd-b357-8844a0b7a741",
+    "type": "food",
+    "name": "Fiskpinnar",
+    "kcal100": 210,
+    "weight": 100,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 210,
+    "cWeight": 90
+  },
+  {
+    "id": "82bebbd0-27d4-4c95-87bc-a95c45ff67f2",
+    "type": "food",
+    "name": "KycklingKebab",
+    "kcal100": 140,
+    "weight": 150,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 210,
+    "cWeight": 128
+  },
+  {
+    "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+    "type": "food",
+    "name": "Granola KakaoDadelCrisp",
+    "kcal100": 417,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 209,
+    "cWeight": 50
+  },
+  {
+    "id": "3b222239-9722-47e7-b88d-5179506925f1",
+    "type": "food",
+    "name": "Kladdkaka",
+    "kcal100": 413,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 207,
+    "cWeight": 50
+  },
+  {
+    "id": "6da8187b-2658-493d-bad6-d28141208f59",
+    "type": "food",
+    "name": "Cashewnötter Saltade",
+    "kcal100": 580,
+    "weight": 35,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 203,
+    "cWeight": 35
+  },
+  {
+    "id": "bcc2c303-0341-4f10-a7a7-29cc42e474c9",
+    "type": "food",
+    "name": "Pitabröd",
+    "kcal100": 252,
+    "weight": 80,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 202,
+    "cWeight": 80
+  },
+  {
+    "id": "c24067ee-ee2f-43d6-966c-83f5b9377b5b",
+    "type": "food",
+    "name": "Kryddjärpar",
+    "kcal100": 200,
+    "weight": 100,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 200,
+    "cWeight": 85
+  },
+  {
+    "id": "6ae0cbfa-0de8-4d3b-82bd-d7d44b087c8d",
+    "type": "food",
+    "name": "Grahamsmjöl",
+    "kcal100": 331,
+    "weight": 60,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 199,
+    "cWeight": 60
+  },
+  {
+    "id": "3dbf38cc-0e8a-4cc4-8ef9-4b229ba9c197",
+    "type": "food",
+    "name": "Krögarpytt",
+    "kcal100": 153,
+    "weight": 130,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 199,
+    "cWeight": 130
+  },
+  {
+    "id": "ed053507-7dd8-4f43-8084-78bff0130583",
+    "type": "food",
+    "name": "HamburgerBröd Potato Bun",
+    "kcal100": 275,
+    "weight": 70,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 193,
+    "cWeight": 70
+  },
+  {
+    "id": "821e64bf-cc73-4802-a80f-639dbdc726ff",
+    "type": "food",
+    "name": "Cashewnötter Choklad",
+    "kcal100": 545,
+    "weight": 35,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 191,
+    "cWeight": 35
+  },
+  {
+    "id": "ed671462-7d29-43e8-b059-b1dac20a7949",
+    "type": "food",
+    "name": "Tonfisk i olja",
+    "kcal100": 189,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 189,
+    "cWeight": 100
+  },
+  {
+    "id": "61e9b110-5f61-4f80-9871-5cf1b726b948",
+    "type": "food",
+    "name": "Taco Kyckling",
+    "kcal100": 124,
+    "weight": 150,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 186,
+    "cWeight": 128
+  },
+  {
+    "id": "f650ad44-4fda-4371-9fed-d41e0ca2de43",
+    "type": "food",
+    "name": "Kycklingfilé",
+    "kcal100": 120,
+    "weight": 150,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 180,
+    "cWeight": 128
+  },
+  {
+    "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+    "type": "food",
+    "name": "Ost Riven",
+    "kcal100": 350,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 175,
+    "cWeight": 50
+  },
+  {
+    "id": "52c7c8f7-c92e-42fc-9100-71592e06451e",
+    "type": "food",
+    "name": "Fläskfilé",
+    "kcal100": 144,
+    "weight": 120,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 173,
+    "cWeight": 96
+  },
+  {
+    "id": "971c3e20-9e7d-457b-965a-a2d01fe7642f",
+    "type": "food",
+    "name": "Kött Skinkstek",
+    "kcal100": 165,
+    "weight": 100,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 165,
+    "cWeight": 85
+  },
+  {
+    "id": "65771031-f41e-4a65-905d-f91dad31ae0f",
+    "type": "food",
+    "name": "Potatisbullar",
+    "kcal100": 165,
+    "weight": 100,
+    "cPercent": 70,
+    "category": null,
+    "kcal": 165,
+    "cWeight": 70
+  },
+  {
+    "id": "f3033fd0-d3db-4a8a-ae06-57922e6441ab",
+    "type": "food",
+    "name": "Ugnspotatis",
+    "kcal100": 165,
+    "weight": 100,
+    "cPercent": 70,
+    "category": null,
+    "kcal": 165,
+    "cWeight": 70
+  },
+  {
+    "id": "29660998-6833-4243-a9ab-bfe8bab90717",
+    "type": "food",
+    "name": "Chiafralla",
+    "kcal100": 270,
+    "weight": 60,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 162,
+    "cWeight": 60
+  },
+  {
+    "id": "a5ea5abc-377d-46dd-8761-76998b510347",
+    "type": "food",
+    "name": "HamburgerBröd Fiber Fullkorn",
+    "kcal100": 267,
+    "weight": 60,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 160,
+    "cWeight": 60
+  },
+  {
+    "id": "67999cd3-d563-4f05-ab2b-d692cb64a7f6",
+    "type": "food",
+    "name": "HamburgerBröd Vanligt",
+    "kcal100": 296,
+    "weight": 54,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 160,
+    "cWeight": 54
+  },
+  {
+    "id": "a9099d2c-e269-49d7-afb2-e56729ba16fe",
+    "type": "food",
+    "name": "Pommes",
+    "kcal100": 130,
+    "weight": 120,
+    "cPercent": 70,
+    "category": null,
+    "kcal": 156,
+    "cWeight": 84
+  },
+  {
+    "id": "0f86c1d4-c6ed-42d3-aae4-0310623e4b6e",
+    "type": "food",
+    "name": "Chokladboll Gillet",
+    "kcal100": 497,
+    "weight": 31,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 154,
+    "cWeight": 31
+  },
+  {
+    "id": "20b4848b-6f65-4516-a5e3-33c04476950c",
+    "type": "food",
+    "name": "Risgrynsgröt",
+    "kcal100": 101,
+    "weight": 150,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 152,
+    "cWeight": 150
+  },
+  {
+    "id": "3868931a-2bc6-4210-8551-c693b3ef0ca6",
+    "type": "food",
+    "name": "Ungsfralla",
+    "kcal100": 300,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 150,
+    "cWeight": 50
+  },
+  {
+    "id": "f3d2eb51-a1b5-4a10-84d9-786a03ed7245",
+    "type": "food",
+    "name": "Grötbröd",
+    "kcal100": 266,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 133,
+    "cWeight": 50
+  },
+  {
+    "id": "dddac63e-8313-4819-8c22-68915649a706",
+    "type": "food",
+    "name": "Pasta",
+    "kcal100": 361,
+    "weight": 50,
+    "cPercent": 200,
+    "category": null,
+    "kcal": 181,
+    "cWeight": 100
+  },
+  {
+    "id": "cadfe85b-c121-498e-b178-ab7092a1a976",
+    "type": "food",
+    "name": "Taco Chips Cheese",
+    "kcal100": 472,
+    "weight": 30,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 142,
+    "cWeight": 30
+  },
+  {
+    "id": "e0f8cc0e-5ef1-4cd1-b177-6a98d1c98c33",
+    "type": "food",
+    "name": "Basmati Ris",
+    "kcal100": 350,
+    "weight": 40,
+    "cPercent": 300,
+    "category": null,
+    "kcal": 140,
+    "cWeight": 120
+  },
+  {
+    "id": "bf80a398-a884-441f-a51c-bf63c740dc94",
+    "type": "food",
+    "name": "Grötbrödfralla",
+    "kcal100": 197,
+    "weight": 70,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 138,
+    "cWeight": 70
+  },
+  {
+    "id": "c662f23f-d9e2-49e2-a81d-1cb88869785e",
+    "type": "food",
+    "name": "Grillkorv Eriksson",
+    "kcal100": 220,
+    "weight": 62,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 136,
+    "cWeight": 62
+  },
+  {
+    "id": "b9bade34-6370-4ced-ac6e-b4ebb4656f5f",
+    "type": "food",
+    "name": "Korvbröd Stora",
+    "kcal100": 300,
+    "weight": 45,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 135,
+    "cWeight": 45
+  },
+  {
+    "id": "884faafc-5204-4869-b6a6-91d3f8de070f",
+    "type": "food",
+    "name": "Kassler Scan",
+    "kcal100": 106,
+    "weight": 120,
+    "cPercent": 85,
+    "category": null,
+    "kcal": 127,
+    "cWeight": 102
+  },
+  {
+    "id": "ce3cc164-27b5-4c6c-a11d-fda693ba3eb0",
+    "type": "food",
+    "name": "Rostbiff ugnssrostad",
+    "kcal100": 124,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 124,
+    "cWeight": 100
+  },
+  {
+    "id": "8b611a81-9520-400e-a31c-9e4eb599449b",
+    "type": "food",
+    "name": "Potatisgratäng Peka",
+    "kcal100": 121,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 121,
+    "cWeight": 100
+  },
+  {
+    "id": "d91468da-c698-458a-a678-6b3a7fd649f7",
+    "type": "food",
+    "name": "Chokladpudding Ekströms",
+    "kcal100": 116,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 116,
+    "cWeight": 100
+  },
+  {
+    "id": "f58bac99-49cb-4769-83cc-c0dff371dacd",
+    "type": "food",
+    "name": "Banan",
+    "kcal100": 95,
+    "weight": 120,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 114,
+    "cWeight": 120
+  },
+  {
+    "id": "a148c7ef-c16f-4c61-9807-a8d1f7185c89",
+    "type": "food",
+    "name": "Ugnsbaguette mini",
+    "kcal100": 226,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 113,
+    "cWeight": 50
+  },
+  {
+    "id": "05ba656c-a62d-466b-b868-2d1d9c981dd7",
+    "type": "food",
+    "name": "Chocolate chip cookie",
+    "kcal100": 510,
+    "weight": 22,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 112,
+    "cWeight": 22
+  },
+  {
+    "id": "67b1fef9-8bff-4337-bf34-1abcbcd42ec0",
+    "type": "food",
+    "name": "Tonfisk i vatten",
+    "kcal100": 106,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 106,
+    "cWeight": 100
+  },
+  {
+    "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+    "type": "food",
+    "name": "Smör",
+    "kcal100": 750,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 375,
+    "cWeight": 50
+  },
+  {
+    "id": "c1c12263-7fca-4319-bc4b-62eb69a54b40",
+    "type": "food",
+    "name": "Varmkorv Sibylla",
+    "kcal100": 210,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 105,
+    "cWeight": 50
+  },
+  {
+    "id": "eac126eb-80df-42f2-ab7c-0d447305839b",
+    "type": "food",
+    "name": "Polarbröd Vete",
+    "kcal100": 270,
+    "weight": 38,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 103,
+    "cWeight": 38
+  },
+  {
+    "id": "d81bf16f-16d7-40e4-91bd-894e3c1f2214",
+    "type": "food",
+    "name": "Krossade tomater",
+    "kcal100": 20,
+    "weight": 500,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 100,
+    "cWeight": 500
+  },
+  {
+    "id": "bd588a39-c73b-4cc3-88d7-e181a76859a5",
+    "type": "food",
+    "name": "Pastrami",
+    "kcal100": 100,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 100,
+    "cWeight": 100
+  },
+  {
+    "id": "948ed7ac-6e66-454f-950f-d64c310ed3e4",
+    "type": "food",
+    "name": "X-tra (100 kcal)",
+    "kcal100": 100,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 100,
+    "cWeight": 100
+  },
+  {
+    "id": "4da2f8b8-7af6-4313-889b-773c9ff700de",
+    "type": "food",
+    "name": "Chilisås",
+    "kcal100": 98,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 98,
+    "cWeight": 100
+  },
+  {
+    "id": "488b522b-87c8-4503-9ed8-c580a5c97797",
+    "type": "food",
+    "name": "Torskfilé",
+    "kcal100": 78,
+    "weight": 120,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 94,
+    "cWeight": 96
+  },
+  {
+    "id": "4c6c8b96-7529-407f-8f4f-61185d941607",
+    "type": "food",
+    "name": "Ananas konserverad",
+    "kcal100": 60,
+    "weight": 140,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 84,
+    "cWeight": 140
+  },
+  {
+    "id": "591cccf8-0a4f-4556-817e-3607295ee7a5",
+    "type": "food",
+    "name": "Ägg",
+    "kcal100": 150,
+    "weight": 55,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 83,
+    "cWeight": 55
+  },
+  {
+    "id": "68899911-8208-443e-b4f4-13e6ff27f5bc",
+    "type": "food",
+    "name": "Korvbröd Små",
+    "kcal100": 300,
+    "weight": 27,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 81,
+    "cWeight": 27
+  },
+  {
+    "id": "5da8cce2-a4e6-495b-81fa-f16a40a8e2a1",
+    "type": "food",
+    "name": "Lindt Lindor Praline",
+    "kcal100": 625,
+    "weight": 13,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 81,
+    "cWeight": 13
+  },
+  {
+    "id": "0d431011-5284-4a4f-a03f-bf40d472c354",
+    "type": "food",
+    "name": "Potatis",
+    "kcal100": 77,
+    "weight": 100,
+    "cPercent": 80,
+    "category": null,
+    "kcal": 77,
+    "cWeight": 80
+  },
+  {
+    "id": "9a027044-0525-4be2-80c0-fa7cedb75bab",
+    "type": "food",
+    "name": "Yoggi",
+    "kcal100": 77,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 77,
+    "cWeight": 100
+  },
+  {
+    "id": "ba2acd3d-022b-42b9-a8ff-64fd53cfbf6e",
+    "type": "food",
+    "name": "Digestive Fullkorn",
+    "kcal100": 467,
+    "weight": 16,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 75,
+    "cWeight": 16
+  },
+  {
+    "id": "1a0782d3-3689-441f-8b79-a39ead0aae5f",
+    "type": "food",
+    "name": "Äpple",
+    "kcal100": 50,
+    "weight": 150,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 75,
+    "cWeight": 150
+  },
+  {
+    "id": "338f09fe-8d54-4bbe-ac1b-e6798979b0ca",
+    "type": "food",
+    "name": "Vanilj yoghurt",
+    "kcal100": 70,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 70,
+    "cWeight": 100
+  },
+  {
+    "id": "5902d43e-d14d-46d3-a072-69f8c8b46fa0",
+    "type": "food",
+    "name": "Havreknäcke",
+    "kcal100": 370,
+    "weight": 17,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 63,
+    "cWeight": 17
+  },
+  {
+    "id": "a92a7b9c-3322-4af2-a868-66672966d8e2",
+    "type": "food",
+    "name": "Sesam havssalt",
+    "kcal100": 407,
+    "weight": 15,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 61,
+    "cWeight": 15
+  },
+  {
+    "id": "be879790-a290-4a49-9398-e5d550eef454",
+    "type": "food",
+    "name": "Varmkorv Bullens",
+    "kcal100": 200,
+    "weight": 30,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 60,
+    "cWeight": 30
+  },
+  {
+    "id": "a0471820-07dc-4ce7-8f45-0a2398ef0b8f",
+    "type": "food",
+    "name": "Jordnötssmör",
+    "kcal100": 592,
+    "weight": 10,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 59,
+    "cWeight": 10
+  },
+  {
+    "id": "e6b3c988-87ef-4e6b-8967-641eb4b77fcb",
+    "type": "food",
+    "name": "Kanelknäcke",
+    "kcal100": 396,
+    "weight": 15,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 59,
+    "cWeight": 15
+  },
+  {
+    "id": "e836d5bb-61e7-478b-a77b-6d5a406cf86b",
+    "type": "food",
+    "name": "Mjölk",
+    "kcal100": 59,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 59,
+    "cWeight": 100
+  },
+  {
+    "id": "000f9c23-be35-44da-8d0e-b0d6d766bc08",
+    "type": "food",
+    "name": "Frukost Fullkorn",
+    "kcal100": 405,
+    "weight": 14,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 57,
+    "cWeight": 14
+  },
+  {
+    "id": "233c116c-0c41-4431-a70b-266ab2fbf0a4",
+    "type": "food",
+    "name": "Sås Hemmagjord",
+    "kcal100": 184,
+    "weight": 30,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 55,
+    "cWeight": 30
+  },
+  {
+    "id": "4e1ca517-70dd-4779-8bf8-3fb18df00adb",
+    "type": "food",
+    "name": "Julknäcke",
+    "kcal100": 390,
+    "weight": 13,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 51,
+    "cWeight": 13
+  },
+  {
+    "id": "90b6925f-404e-4d47-901a-dc0ac0b8d78f",
+    "type": "food",
+    "name": "Apelsinjuice",
+    "kcal100": 48,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 48,
+    "cWeight": 100
+  },
+  {
+    "id": "286aa80d-8828-4b71-a9dd-37deb8fc0722",
+    "type": "food",
+    "name": "Surdeg Flerkorn",
+    "kcal100": 340,
+    "weight": 14,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 48,
+    "cWeight": 14
+  },
+  {
+    "id": "d15afef2-3b43-43f9-a84c-0edffc81e336",
+    "type": "food",
+    "name": "Prinskorv Eriksons",
+    "kcal100": 230,
+    "weight": 20,
+    "cPercent": 90,
+    "category": null,
+    "kcal": 46,
+    "cWeight": 18
+  },
+  {
+    "id": "34479e71-d7a5-41b5-a75d-115f78522343",
+    "type": "food",
+    "name": "Ströbröd",
+    "kcal100": 396,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 396,
+    "cWeight": 100
+  },
+  {
+    "id": "b0a22ef3-8a61-49bd-bee8-28165d72071c",
+    "type": "food",
+    "name": "Hallon",
+    "kcal100": 53,
+    "weight": 80,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 42,
+    "cWeight": 80
+  },
+  {
+    "id": "a9d76e04-fae7-438e-8573-828330c72d56",
+    "type": "food",
+    "name": "Isbergssallad",
+    "kcal100": 14,
+    "weight": 300,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 42,
+    "cWeight": 300
+  },
+  {
+    "id": "681fafdb-806c-4cc3-8091-a3474033464a",
+    "type": "food",
+    "name": "Jordgubbar",
+    "kcal100": 41,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 41,
+    "cWeight": 100
+  },
+  {
+    "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+    "type": "food",
+    "name": "Morot",
+    "kcal100": 41,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 21,
+    "cWeight": 50
+  },
+  {
+    "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+    "type": "food",
+    "name": "Hushållsost",
+    "kcal100": 337,
+    "weight": 12,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 40,
+    "cWeight": 12
+  },
+  {
+    "id": "79ed6fb6-330c-4e9d-877b-1e3760fe6944",
+    "type": "food",
+    "name": "Rågrut",
+    "kcal100": 331,
+    "weight": 12,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 40,
+    "cWeight": 12
+  },
+  {
+    "id": "f107a71d-954f-4ef5-8483-ee79982e0d6a",
+    "type": "food",
+    "name": "Vindruvor",
+    "kcal100": 75,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 38,
+    "cWeight": 50
+  },
+  {
+    "id": "a84a93f9-64be-4420-bbce-cb09fa505f3e",
+    "type": "food",
+    "name": "Delikatess Sesam",
+    "kcal100": 356,
+    "weight": 10,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 36,
+    "cWeight": 10
+  },
+  {
+    "id": "893bdc62-f3dc-48b2-8a8f-4b0d604dba12",
+    "type": "food",
+    "name": "Max MiniMorot",
+    "kcal100": 41,
+    "weight": 85,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 35,
+    "cWeight": 85
+  },
+  {
+    "id": "b95f469c-a0ad-462f-b2ab-dd15e6c4ca63",
+    "type": "food",
+    "name": "Vattenmelon",
+    "kcal100": 34,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 34,
+    "cWeight": 100
+  },
+  {
+    "id": "83dd0fd4-45d5-4512-b3ba-6a56757fda5b",
+    "type": "food",
+    "name": "Buljontärning",
+    "kcal100": 320,
+    "weight": 10,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 32,
+    "cWeight": 10
+  },
+  {
+    "id": "4be8b2f5-f420-47f2-8eab-eb65c950ae93",
+    "type": "food",
+    "name": "Idealmjöl",
+    "kcal100": 350,
+    "weight": 9,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 32,
+    "cWeight": 9
+  },
+  {
+    "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+    "type": "food",
+    "name": "Vitkål",
+    "kcal100": 30,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 15,
+    "cWeight": 50
+  },
+  {
+    "id": "9fc2b267-3d95-4990-8834-2818e69898c4",
+    "type": "food",
+    "name": "Lök Röd",
+    "kcal100": 45,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 23,
+    "cWeight": 50
+  },
+  {
+    "id": "198b25c8-f255-483f-886b-4846bec23b64",
+    "type": "food",
+    "name": "Rökt Skinka",
+    "kcal100": 90,
+    "weight": 25,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 23,
+    "cWeight": 25
+  },
+  {
+    "id": "c042d178-6270-4160-9d75-213504889856",
+    "type": "food",
+    "name": "Soya Muschroom",
+    "kcal100": 150,
+    "weight": 15,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 23,
+    "cWeight": 15
+  },
+  {
+    "id": "7c144d78-b4f8-440d-9200-e39e7993bd30",
+    "type": "food",
+    "name": "Paprika",
+    "kcal100": 22,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 22,
+    "cWeight": 100
+  },
+  {
+    "id": "267bb3b2-cc7b-4bfe-b0d7-03af54533c40",
+    "type": "food",
+    "name": "Finn Crisp Original",
+    "kcal100": 350,
+    "weight": 6,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 21,
+    "cWeight": 6
+  },
+  {
+    "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+    "type": "food",
+    "name": "Lök Gul",
+    "kcal100": 39,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 20,
+    "cWeight": 50
+  },
+  {
+    "id": "b1ed3b64-d693-420b-9f27-1d05d02f26c9",
+    "type": "food",
+    "name": "Tomatpuré",
+    "kcal100": 90,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 90,
+    "cWeight": 100
+  },
+  {
+    "id": "dfd16f9d-2dea-4bd9-bc56-80001a37149c",
+    "type": "food",
+    "name": "Gurka",
+    "kcal100": 13,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 7,
+    "cWeight": 50
+  },
+  {
+    "id": "fff7ef38-996d-49e2-9046-9475be78942b",
+    "type": "food",
+    "name": "Tomater",
+    "kcal100": 18,
+    "weight": 50,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 9,
+    "cWeight": 50
+  },
+  {
+    "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+    "type": "food",
+    "name": "Vatten",
+    "kcal100": 0,
+    "weight": 100,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 0,
+    "cWeight": 100
+  },
+  {
+    "id": "affbf72f-a980-43d6-8548-b61c65dadba4",
+    "type": "food",
+    "name": "Träning Mellan",
+    "kcal100": 0,
+    "weight": 25,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 0,
+    "cWeight": 25
+  },
+  {
+    "id": "9e9907db-e480-420d-951b-11eebd19d047",
+    "type": "food",
+    "name": "Träning Hård",
+    "kcal100": 0,
+    "weight": 25,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 0,
+    "cWeight": 25
+  },
+  {
+    "id": "7d4b7105-3901-43c6-98ab-4cdbd719d5eb",
+    "type": "food",
+    "name": "Träning Lugn",
+    "kcal100": 0,
+    "weight": 45,
+    "cPercent": 100,
+    "category": null,
+    "kcal": 0,
+    "cWeight": 45
+  },
+  {
+    "id": "599e5d02-c84d-4fa8-88d1-867518148aeb",
+    "type": "meal",
+    "name": "Nuggets, Ris, Sås, Grönt",
+    "kcal100": 189,
+    "weight": 270,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 511,
+    "cWeight": 325,
+    "items": [
+      {
+        "id": "2dd3aa94-ee61-435b-a121-6215a8e01718",
+        "weight": 100,
+        "cWeight": 75,
+        "kcal": 280
+      },
+      {
+        "id": "e0f8cc0e-5ef1-4cd1-b177-6a98d1c98c33",
+        "weight": 40,
+        "cWeight": 120,
+        "kcal": 140
+      },
+      {
+        "id": "233c116c-0c41-4431-a70b-266ab2fbf0a4",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 55
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 21
+      },
+      {
+        "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 15
+      }
+    ]
+  },
+  {
+    "id": "5ae092f7-701f-4ab7-848b-5bc6cbb97c7f",
+    "type": "food",
+    "name": "Curry",
+    "kcal100": 300,
+    "weight": 0.5,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 2,
+    "cWeight": 1
+  },
+  {
+    "id": "62d70e2b-6b76-4a48-90c6-ef65e0e85a1a",
+    "type": "food",
+    "name": "Vitpeppar",
+    "kcal100": 300,
+    "weight": 0.3,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 1,
+    "cWeight": 0
+  },
+  {
+    "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+    "type": "food",
+    "name": "Svartpeppar",
+    "kcal100": 300,
+    "weight": 0.3,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 1,
+    "cWeight": 0
+  },
+  {
+    "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+    "type": "food",
+    "name": "Salt",
+    "kcal100": 0,
+    "weight": 0.7,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 0,
+    "cWeight": 1
+  },
+  {
+    "id": "f1233383-2902-4826-af17-fee349a1eade",
+    "type": "meal",
+    "name": "Currytorsk - Recept",
+    "kcal100": 165,
+    "weight": 834,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1377,
+    "cWeight": 754,
+    "items": [
+      {
+        "id": "488b522b-87c8-4503-9ed8-c580a5c97797",
+        "weight": 400,
+        "cWeight": 320,
+        "kcal": 312
+      },
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 150
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 20
+      },
+      {
+        "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 175
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 28
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 680
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 0
+      },
+      {
+        "id": "5ae092f7-701f-4ab7-848b-5bc6cbb97c7f",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 9
+      },
+      {
+        "id": "62d70e2b-6b76-4a48-90c6-ef65e0e85a1a",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 3
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      }
+    ]
+  },
+  {
+    "id": "c996d03a-bf90-4e64-9a37-03612a055c49",
+    "type": "meal",
+    "name": "Currytorsk, Ris, Grönt",
+    "kcal100": 148,
+    "weight": 320,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 473,
+    "cWeight": 220,
+    "items": [
+      {
+        "id": "f1233383-2902-4826-af17-fee349a1eade",
+        "weight": 180,
+        "cWeight": 0,
+        "kcal": 297
+      },
+      {
+        "id": "e0f8cc0e-5ef1-4cd1-b177-6a98d1c98c33",
+        "weight": 40,
+        "cWeight": 120,
+        "kcal": 140
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 21
+      },
+      {
+        "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 15
+      }
+    ]
+  },
+  {
+    "id": "526b8e41-4418-47a7-a49a-04864debf03b",
+    "type": "meal",
+    "name": "Delikatess Sesam, Ost (2)",
+    "kcal100": 344,
+    "weight": 34,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 117,
+    "cWeight": 34,
+    "items": [
+      {
+        "id": "a84a93f9-64be-4420-bbce-cb09fa505f3e",
+        "weight": 10,
+        "cWeight": 10,
+        "kcal": 36
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "ae42b2a6-9188-48fe-8a2b-6d78b81fcdf6",
+    "type": "meal",
+    "name": "Delikatess Sesam, Ost (2), Äpple",
+    "kcal100": 104,
+    "weight": 184,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 192,
+    "cWeight": 184,
+    "items": [
+      {
+        "id": "a84a93f9-64be-4420-bbce-cb09fa505f3e",
+        "weight": 10,
+        "cWeight": 10,
+        "kcal": 36
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      },
+      {
+        "id": "1a0782d3-3689-441f-8b79-a39ead0aae5f",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 75
+      }
+    ]
+  },
+  {
+    "id": "0d6141f9-4ea2-4c4a-9dcb-ae2d32c9ae99",
+    "type": "meal",
+    "name": "Digestive Fullkorn, Ost (1)",
+    "kcal100": 411,
+    "weight": 28,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 115,
+    "cWeight": 28,
+    "items": [
+      {
+        "id": "ba2acd3d-022b-42b9-a8ff-64fd53cfbf6e",
+        "weight": 16,
+        "cWeight": 16,
+        "kcal": 75
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 12,
+        "cWeight": 12,
+        "kcal": 40
+      }
+    ]
+  },
+  {
+    "id": "1f015e9c-8b6c-4dc9-9592-1154eea710bc",
+    "type": "meal",
+    "name": "Digestive Fullkorn, Ost (2)",
+    "kcal100": 390,
+    "weight": 40,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 156,
+    "cWeight": 40,
+    "items": [
+      {
+        "id": "ba2acd3d-022b-42b9-a8ff-64fd53cfbf6e",
+        "weight": 16,
+        "cWeight": 16,
+        "kcal": 75
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "d872c0b3-6c2e-4a98-859e-f18e6b5aedda",
+    "type": "meal",
+    "name": "Chiafralla, Ost (4), Morot",
+    "kcal100": 149,
+    "weight": 258,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 385,
+    "cWeight": 258,
+    "items": [
+      {
+        "id": "29660998-6833-4243-a9ab-bfe8bab90717",
+        "weight": 60,
+        "cWeight": 60,
+        "kcal": 162
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 61
+      }
+    ]
+  },
+  {
+    "id": "f7c8d47c-32da-409f-a10f-d444f8704d58",
+    "type": "meal",
+    "name": "Chiafralla, Ost (4)",
+    "kcal100": 300,
+    "weight": 108,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 324,
+    "cWeight": 108,
+    "items": [
+      {
+        "id": "29660998-6833-4243-a9ab-bfe8bab90717",
+        "weight": 60,
+        "cWeight": 60,
+        "kcal": 162
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      }
+    ]
+  },
+  {
+    "id": "cc66f5a2-00a4-447d-adef-46c6d40bd382",
+    "type": "meal",
+    "name": "Frukost Fullkorn, Ost (2)",
+    "kcal100": 363,
+    "weight": 38,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 138,
+    "cWeight": 38,
+    "items": [
+      {
+        "id": "000f9c23-be35-44da-8d0e-b0d6d766bc08",
+        "weight": 14,
+        "cWeight": 14,
+        "kcal": 57
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "b6a8eeea-d7cc-4fe4-9e21-2f6ee6cd14cf",
+    "type": "meal",
+    "name": "Frukost Fullkorn, Ost (2), Granola",
+    "kcal100": 385,
+    "weight": 126,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 485,
+    "cWeight": 50,
+    "items": [
+      {
+        "id": "cc66f5a2-00a4-447d-adef-46c6d40bd382",
+        "weight": 76,
+        "cWeight": 0,
+        "kcal": 276
+      },
+      {
+        "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 209
+      }
+    ]
+  },
+  {
+    "id": "69e55ddd-5f2a-4dd0-871f-90485157a4cf",
+    "type": "meal",
+    "name": "Fralla Frökuse, Ost (4), Äpple",
+    "kcal100": 164,
+    "weight": 268,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 440,
+    "cWeight": 268,
+    "items": [
+      {
+        "id": "a216b8de-2258-4679-95ff-7b57febe7114",
+        "weight": 70,
+        "cWeight": 70,
+        "kcal": 203
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "1a0782d3-3689-441f-8b79-a39ead0aae5f",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 75
+      }
+    ]
+  },
+  {
+    "id": "a62466ff-a552-43a8-80df-8c711e17693a",
+    "type": "meal",
+    "name": "Grötbröd, Ost (3)",
+    "kcal100": 295,
+    "weight": 86,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 254,
+    "cWeight": 86,
+    "items": [
+      {
+        "id": "f3d2eb51-a1b5-4a10-84d9-786a03ed7245",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 133
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 36,
+        "cWeight": 36,
+        "kcal": 121
+      }
+    ]
+  },
+  {
+    "id": "0b787261-aacd-4317-bd6a-6590dcca529d",
+    "type": "meal",
+    "name": "Grötbrödfralla, Ost (4), Äpple",
+    "kcal100": 140,
+    "weight": 268,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 375,
+    "cWeight": 268,
+    "items": [
+      {
+        "id": "bf80a398-a884-441f-a51c-bf63c740dc94",
+        "weight": 70,
+        "cWeight": 70,
+        "kcal": 138
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "1a0782d3-3689-441f-8b79-a39ead0aae5f",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 75
+      }
+    ]
+  },
+  {
+    "id": "5d3cbc35-b36f-4f6d-ba3e-fbe6f7d73ded",
+    "type": "meal",
+    "name": "Grönt (+)",
+    "kcal100": 26,
+    "weight": 200,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 52,
+    "cWeight": 200,
+    "items": [
+      {
+        "id": "dfd16f9d-2dea-4bd9-bc56-80001a37149c",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 7
+      },
+      {
+        "id": "fff7ef38-996d-49e2-9046-9475be78942b",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 9
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 21
+      },
+      {
+        "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 15
+      }
+    ]
+  },
+  {
+    "id": "80019b0d-cf36-4070-a2d6-a1f1c50d071f",
+    "type": "meal",
+    "name": "Hamburgare, Bröd, Grönt (+)",
+    "kcal100": 124,
+    "weight": 344,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 428,
+    "cWeight": 131,
+    "items": [
+      {
+        "id": "815e76a9-bf64-473f-859b-8841f92ce901",
+        "weight": 90,
+        "cWeight": 77,
+        "kcal": 216
+      },
+      {
+        "id": "67999cd3-d563-4f05-ab2b-d692cb64a7f6",
+        "weight": 54,
+        "cWeight": 54,
+        "kcal": 160
+      },
+      {
+        "id": "5d3cbc35-b36f-4f6d-ba3e-fbe6f7d73ded",
+        "weight": 200,
+        "cWeight": 0,
+        "kcal": 52
+      }
+    ]
+  },
+  {
+    "id": "111a9f76-2f55-45e0-b0bd-c5d4f82af862",
+    "type": "meal",
+    "name": "Hasselbackspotatis - Recept",
+    "kcal100": 117,
+    "weight": 652,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 766,
+    "cWeight": 532,
+    "items": [
+      {
+        "id": "0d431011-5284-4a4f-a03f-bf40d472c354",
+        "weight": 600,
+        "cWeight": 480,
+        "kcal": 462
+      },
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 225
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      },
+      {
+        "id": "34479e71-d7a5-41b5-a75d-115f78522343",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 79
+      }
+    ]
+  },
+  {
+    "id": "cbb1034d-8a18-4d30-87a1-660c2061c87d",
+    "type": "meal",
+    "name": "Havreknäcke (2), Ost (4), Granola",
+    "kcal100": 377,
+    "weight": 132,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 497,
+    "cWeight": 132,
+    "items": [
+      {
+        "id": "5902d43e-d14d-46d3-a072-69f8c8b46fa0",
+        "weight": 34,
+        "cWeight": 34,
+        "kcal": 126
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 209
+      }
+    ]
+  },
+  {
+    "id": "99f40105-ccb2-45f7-8c85-04afcdeda143",
+    "type": "meal",
+    "name": "Kanelknäcke, Ost (1)",
+    "kcal100": 367,
+    "weight": 27,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 99,
+    "cWeight": 27,
+    "items": [
+      {
+        "id": "e6b3c988-87ef-4e6b-8967-641eb4b77fcb",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 59
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 12,
+        "cWeight": 12,
+        "kcal": 40
+      }
+    ]
+  },
+  {
+    "id": "a321b514-0ddb-4b07-967e-91c50d62615c",
+    "type": "meal",
+    "name": "Kanelknäcke, Ost (2)",
+    "kcal100": 359,
+    "weight": 39,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 140,
+    "cWeight": 39,
+    "items": [
+      {
+        "id": "e6b3c988-87ef-4e6b-8967-641eb4b77fcb",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 59
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "d695c12a-239f-40da-876f-194b2bcf2907",
+    "type": "meal",
+    "name": "Kanelknäcke, Ost (2), Granola",
+    "kcal100": 392,
+    "weight": 89,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 349,
+    "cWeight": 89,
+    "items": [
+      {
+        "id": "e6b3c988-87ef-4e6b-8967-641eb4b77fcb",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 59
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      },
+      {
+        "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 209
+      }
+    ]
+  },
+  {
+    "id": "fe2ed2a3-3655-4871-b320-f6165d429f19",
+    "type": "meal",
+    "name": "Falukorv, Pasta, Grönt",
+    "kcal100": 191,
+    "weight": 250,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 477,
+    "cWeight": 290,
+    "items": [
+      {
+        "id": "521ce989-c259-437c-aa99-641fba7d874f",
+        "weight": 100,
+        "cWeight": 90,
+        "kcal": 260
+      },
+      {
+        "id": "dddac63e-8313-4819-8c22-68915649a706",
+        "weight": 50,
+        "cWeight": 100,
+        "kcal": 181
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 21
+      },
+      {
+        "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 15
+      }
+    ]
+  },
+  {
+    "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+    "type": "meal",
+    "name": "Grönt",
+    "kcal100": 36,
+    "weight": 100,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 36,
+    "cWeight": 100,
+    "items": [
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 21
+      },
+      {
+        "id": "bab704a6-c557-4029-9a74-547b6d150ea5",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 15
+      }
+    ]
+  },
+  {
+    "id": "d2dd8292-5e8e-44d4-9fb0-278f37fa28cd",
+    "type": "meal",
+    "name": "Falukorv i ugn - Recept",
+    "kcal100": 271,
+    "weight": 1000,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2705,
+    "cWeight": 920,
+    "items": [
+      {
+        "id": "521ce989-c259-437c-aa99-641fba7d874f",
+        "weight": 800,
+        "cWeight": 720,
+        "kcal": 2080
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 180,
+        "cWeight": 180,
+        "kcal": 607
+      },
+      {
+        "id": "b1ed3b64-d693-420b-9f27-1d05d02f26c9",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 18
+      }
+    ]
+  },
+  {
+    "id": "938125a7-6d69-41e3-b8fe-8d491ece5389",
+    "type": "meal",
+    "name": "Falukorv i ugn, Potatisbullar, Grönt",
+    "kcal100": 157,
+    "weight": 300,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 472,
+    "cWeight": 70,
+    "items": [
+      {
+        "id": "d2dd8292-5e8e-44d4-9fb0-278f37fa28cd",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 271
+      },
+      {
+        "id": "65771031-f41e-4a65-905d-f91dad31ae0f",
+        "weight": 100,
+        "cWeight": 70,
+        "kcal": 165
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "cf8fdc4a-1d88-47cc-90ec-09c0de224095",
+    "type": "meal",
+    "name": "Fiskpinnar, Ris, Sås, Grönt",
+    "kcal100": 163,
+    "weight": 270,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 441,
+    "cWeight": 240,
+    "items": [
+      {
+        "id": "4b3ba6eb-33ff-47cd-b357-8844a0b7a741",
+        "weight": 100,
+        "cWeight": 90,
+        "kcal": 210
+      },
+      {
+        "id": "e0f8cc0e-5ef1-4cd1-b177-6a98d1c98c33",
+        "weight": 40,
+        "cWeight": 120,
+        "kcal": 140
+      },
+      {
+        "id": "233c116c-0c41-4431-a70b-266ab2fbf0a4",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 55
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "4f1aba6c-aaf8-4bc8-b80b-040d8f2d579b",
+    "type": "meal",
+    "name": "Hotell. Fralla, Ost, Ägg, Rågrut",
+    "kcal100": 229,
+    "weight": 185,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 423,
+    "cWeight": 185,
+    "items": [
+      {
+        "id": "bf80a398-a884-441f-a51c-bf63c740dc94",
+        "weight": 70,
+        "cWeight": 70,
+        "kcal": 138
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "591cccf8-0a4f-4556-817e-3607295ee7a5",
+        "weight": 55,
+        "cWeight": 55,
+        "kcal": 83
+      },
+      {
+        "id": "79ed6fb6-330c-4e9d-877b-1e3760fe6944",
+        "weight": 12,
+        "cWeight": 12,
+        "kcal": 40
+      }
+    ]
+  },
+  {
+    "id": "f6c7d840-0616-4ea8-960f-59aead7d4d4f",
+    "type": "food",
+    "name": "Kallskuret",
+    "kcal100": 127,
+    "weight": 150,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 191,
+    "cWeight": 150
+  },
+  {
+    "id": "a948fba0-c586-4695-b324-92dc04835608",
+    "type": "meal",
+    "name": "Kallskuret, Gratäng, Grönt",
+    "kcal100": 99,
+    "weight": 350,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 348,
+    "cWeight": 250,
+    "items": [
+      {
+        "id": "f6c7d840-0616-4ea8-960f-59aead7d4d4f",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 191
+      },
+      {
+        "id": "8b611a81-9520-400e-a31c-9e4eb599449b",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 121
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "340a55b1-947c-49cd-bed9-b2a565f2a24a",
+    "type": "meal",
+    "name": "Kassler i ugn - Recept",
+    "kcal100": 144,
+    "weight": 920,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1327,
+    "cWeight": 830,
+    "items": [
+      {
+        "id": "884faafc-5204-4869-b6a6-91d3f8de070f",
+        "weight": 600,
+        "cWeight": 510,
+        "kcal": 636
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 180,
+        "cWeight": 180,
+        "kcal": 607
+      },
+      {
+        "id": "4c6c8b96-7529-407f-8f4f-61185d941607",
+        "weight": 140,
+        "cWeight": 140,
+        "kcal": 84
+      }
+    ]
+  },
+  {
+    "id": "e5b745b8-7276-4e9f-8e17-9ceb7e6c6b5b",
+    "type": "meal",
+    "name": "Kassler i ugn, Ugnspotatis, Grönt",
+    "kcal100": 119,
+    "weight": 350,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 417,
+    "cWeight": 70,
+    "items": [
+      {
+        "id": "340a55b1-947c-49cd-bed9-b2a565f2a24a",
+        "weight": 150,
+        "cWeight": 0,
+        "kcal": 216
+      },
+      {
+        "id": "f3033fd0-d3db-4a8a-ae06-57922e6441ab",
+        "weight": 100,
+        "cWeight": 70,
+        "kcal": 165
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+    "type": "food",
+    "name": "Vitlök",
+    "kcal100": 140,
+    "weight": 4,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 6,
+    "cWeight": 4
+  },
+  {
+    "id": "6e518bd8-49c1-4673-b6d5-e95006fbdebd",
+    "type": "food",
+    "name": "Timjan",
+    "kcal100": 250,
+    "weight": 0.15,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 0,
+    "cWeight": 0
+  },
+  {
+    "id": "0fe0e255-a905-43f7-9c69-90ec5b9feb5f",
+    "type": "food",
+    "name": "Paprikapulver",
+    "kcal100": 300,
+    "weight": 0.5,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 2,
+    "cWeight": 1
+  },
+  {
+    "id": "9ede83ca-55b1-4aaa-a1c4-b4f006e174ba",
+    "type": "meal",
+    "name": "Korvgryta - Recept",
+    "kcal100": 178,
+    "weight": 1356,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2413,
+    "cWeight": 1276,
+    "items": [
+      {
+        "id": "521ce989-c259-437c-aa99-641fba7d874f",
+        "weight": 800,
+        "cWeight": 720,
+        "kcal": 2080
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 20
+      },
+      {
+        "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 11
+      },
+      {
+        "id": "b1ed3b64-d693-420b-9f27-1d05d02f26c9",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 5
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 400,
+        "cWeight": 400,
+        "kcal": 0
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 170
+      },
+      {
+        "id": "83dd0fd4-45d5-4512-b3ba-6a56757fda5b",
+        "weight": 10,
+        "cWeight": 10,
+        "kcal": 32
+      },
+      {
+        "id": "c042d178-6270-4160-9d75-213504889856",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 8
+      },
+      {
+        "id": "6e518bd8-49c1-4673-b6d5-e95006fbdebd",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 5
+      },
+      {
+        "id": "0fe0e255-a905-43f7-9c69-90ec5b9feb5f",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 6
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 6
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 70
+      }
+    ]
+  },
+  {
+    "id": "c09f9399-e19e-4508-8043-8d02a6398158",
+    "type": "meal",
+    "name": "Korvgryta, Ris, Grönt",
+    "kcal100": 151,
+    "weight": 270,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 407,
+    "cWeight": 120,
+    "items": [
+      {
+        "id": "9ede83ca-55b1-4aaa-a1c4-b4f006e174ba",
+        "weight": 130,
+        "cWeight": 0,
+        "kcal": 231
+      },
+      {
+        "id": "e0f8cc0e-5ef1-4cd1-b177-6a98d1c98c33",
+        "weight": 40,
+        "cWeight": 120,
+        "kcal": 140
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "f132b54c-d0fb-4a04-9461-821175529e96",
+    "type": "meal",
+    "name": "Kryddjärpar, Potatis, Sås, Grönt",
+    "kcal100": 107,
+    "weight": 380,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 407,
+    "cWeight": 235,
+    "items": [
+      {
+        "id": "c24067ee-ee2f-43d6-966c-83f5b9377b5b",
+        "weight": 100,
+        "cWeight": 85,
+        "kcal": 200
+      },
+      {
+        "id": "0d431011-5284-4a4f-a03f-bf40d472c354",
+        "weight": 150,
+        "cWeight": 120,
+        "kcal": 116
+      },
+      {
+        "id": "233c116c-0c41-4431-a70b-266ab2fbf0a4",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 55
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "94cdd60e-aca6-4c48-8403-c57b793c2a66",
+    "type": "food",
+    "name": "Chilipulver",
+    "kcal100": 300,
+    "weight": 3,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 9,
+    "cWeight": 3
+  },
+  {
+    "id": "6a6fed94-bf18-4a83-842d-71d8cf9316ad",
+    "type": "meal",
+    "name": "Kycklinggryta Chili - Recept",
+    "kcal100": 145,
+    "weight": 1054,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1531,
+    "cWeight": 964,
+    "items": [
+      {
+        "id": "f650ad44-4fda-4371-9fed-d41e0ca2de43",
+        "weight": 600,
+        "cWeight": 510,
+        "kcal": 720
+      },
+      {
+        "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 11
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 6
+      },
+      {
+        "id": "0fe0e255-a905-43f7-9c69-90ec5b9feb5f",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 6
+      },
+      {
+        "id": "94cdd60e-aca6-4c48-8403-c57b793c2a66",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 15
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 70
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 680
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 0
+      },
+      {
+        "id": "c042d178-6270-4160-9d75-213504889856",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 23
+      }
+    ]
+  },
+  {
+    "id": "6b28a4ae-f389-4488-ad6c-ebaaa955c472",
+    "type": "meal",
+    "name": "Kycklinggryta Bacon - Recept",
+    "kcal100": 179,
+    "weight": 982,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1757,
+    "cWeight": 845,
+    "items": [
+      {
+        "id": "f650ad44-4fda-4371-9fed-d41e0ca2de43",
+        "weight": 450,
+        "cWeight": 383,
+        "kcal": 540
+      },
+      {
+        "id": "eb73ed22-d3e1-42b4-8815-2c80aaccf217",
+        "weight": 140,
+        "cWeight": 70,
+        "kcal": 420
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 20
+      },
+      {
+        "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 11
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 6
+      },
+      {
+        "id": "6e518bd8-49c1-4673-b6d5-e95006fbdebd",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 3
+      },
+      {
+        "id": "b1ed3b64-d693-420b-9f27-1d05d02f26c9",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 5
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 680
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 0
+      },
+      {
+        "id": "c042d178-6270-4160-9d75-213504889856",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 8
+      },
+      {
+        "id": "83dd0fd4-45d5-4512-b3ba-6a56757fda5b",
+        "weight": 10,
+        "cWeight": 10,
+        "kcal": 32
+      },
+      {
+        "id": "4be8b2f5-f420-47f2-8eab-eb65c950ae93",
+        "weight": 9,
+        "cWeight": 9,
+        "kcal": 32
+      }
+    ]
+  },
+  {
+    "id": "a2e9e8a1-6bc0-4551-bd56-bcdaf24bee61",
+    "type": "meal",
+    "name": "Köttfärssoppa - Recept",
+    "kcal100": 80,
+    "weight": 2730,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2196,
+    "cWeight": 2540,
+    "items": [
+      {
+        "id": "b46d84ed-0f03-42a2-ae2c-3d9edf0f49f0",
+        "weight": 600,
+        "cWeight": 480,
+        "kcal": 1560
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 39
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 0
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 9
+      },
+      {
+        "id": "0fe0e255-a905-43f7-9c69-90ec5b9feb5f",
+        "weight": 4,
+        "cWeight": 4,
+        "kcal": 12
+      },
+      {
+        "id": "4da2f8b8-7af6-4313-889b-773c9ff700de",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 98
+      },
+      {
+        "id": "096c818d-c087-4829-89c6-0830d7c8fbab",
+        "weight": 350,
+        "cWeight": 350,
+        "kcal": 144
+      },
+      {
+        "id": "0d431011-5284-4a4f-a03f-bf40d472c354",
+        "weight": 350,
+        "cWeight": 280,
+        "kcal": 270
+      },
+      {
+        "id": "83dd0fd4-45d5-4512-b3ba-6a56757fda5b",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 64
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 1200,
+        "cWeight": 1200,
+        "kcal": 0
+      }
+    ]
+  },
+  {
+    "id": "5701b893-0257-4f35-b4b6-1846d14c2b26",
+    "type": "food",
+    "name": "Oregano",
+    "kcal100": 250,
+    "weight": 0.15,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 0,
+    "cWeight": 0
+  },
+  {
+    "id": "07e87610-a5a8-4af4-9a97-0fdea5ef5998",
+    "type": "meal",
+    "name": "Köttfärssås - Recept",
+    "kcal100": 119,
+    "weight": 1609,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1907,
+    "cWeight": 1489,
+    "items": [
+      {
+        "id": "b46d84ed-0f03-42a2-ae2c-3d9edf0f49f0",
+        "weight": 600,
+        "cWeight": 480,
+        "kcal": 1560
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 20
+      },
+      {
+        "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+        "weight": 4,
+        "cWeight": 4,
+        "kcal": 6
+      },
+      {
+        "id": "d81bf16f-16d7-40e4-91bd-894e3c1f2214",
+        "weight": 500,
+        "cWeight": 500,
+        "kcal": 100
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 300,
+        "cWeight": 300,
+        "kcal": 0
+      },
+      {
+        "id": "4da2f8b8-7af6-4313-889b-773c9ff700de",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 98
+      },
+      {
+        "id": "b1ed3b64-d693-420b-9f27-1d05d02f26c9",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 18
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 0
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 9
+      },
+      {
+        "id": "94cdd60e-aca6-4c48-8403-c57b793c2a66",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 9
+      },
+      {
+        "id": "0fe0e255-a905-43f7-9c69-90ec5b9feb5f",
+        "weight": 4,
+        "cWeight": 4,
+        "kcal": 12
+      },
+      {
+        "id": "5701b893-0257-4f35-b4b6-1846d14c2b26",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 5
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 70
+      }
+    ]
+  },
+  {
+    "id": "17e07ac6-ff8f-4aef-b2a3-976a12c37813",
+    "type": "food",
+    "name": "Socker",
+    "kcal100": 400,
+    "weight": 4,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 16,
+    "cWeight": 4
+  },
+  {
+    "id": "efe07175-c8e6-4907-b1b8-a19dea6cadf4",
+    "type": "meal",
+    "name": "Köttfärsbiffar - Recept",
+    "kcal100": 242,
+    "weight": 855,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2071,
+    "cWeight": 735,
+    "items": [
+      {
+        "id": "b46d84ed-0f03-42a2-ae2c-3d9edf0f49f0",
+        "weight": 600,
+        "cWeight": 480,
+        "kcal": 1560
+      },
+      {
+        "id": "2762fbed-078c-4032-ab3a-ae7ff0157081",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 39
+      },
+      {
+        "id": "68d57766-1720-43e2-8b85-a6bc58cb76c6",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 11
+      },
+      {
+        "id": "591cccf8-0a4f-4556-817e-3607295ee7a5",
+        "weight": 55,
+        "cWeight": 55,
+        "kcal": 83
+      },
+      {
+        "id": "34479e71-d7a5-41b5-a75d-115f78522343",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 79
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 0
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 51
+      },
+      {
+        "id": "5cd6fc80-9ed4-4c23-9a00-06dacd35d412",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 15
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 5,
+        "cWeight": 5,
+        "kcal": 0
+      },
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 225
+      },
+      {
+        "id": "17e07ac6-ff8f-4aef-b2a3-976a12c37813",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 8
+      }
+    ]
+  },
+  {
+    "id": "4843abf9-32d2-408a-b582-25d7f82808fc",
+    "type": "meal",
+    "name": "Lasagne - Recept",
+    "kcal100": 125,
+    "weight": 2559,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 3209,
+    "cWeight": 1150,
+    "items": [
+      {
+        "id": "07e87610-a5a8-4af4-9a97-0fdea5ef5998",
+        "weight": 1609,
+        "cWeight": 0,
+        "kcal": 1915
+      },
+      {
+        "id": "47d08800-ab6e-4fb0-88a5-9322c6695fa1",
+        "weight": 200,
+        "cWeight": 400,
+        "kcal": 734
+      },
+      {
+        "id": "5d642f7e-0eb6-4929-8be7-a5572e6a0c25",
+        "weight": 500,
+        "cWeight": 500,
+        "kcal": 385
+      },
+      {
+        "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 175
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 0
+      }
+    ]
+  },
+  {
+    "id": "0cb506f6-085d-45af-9721-bdbf40191420",
+    "type": "food",
+    "name": "Max Nugget (6)",
+    "kcal100": 236,
+    "weight": 120,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 283,
+    "cWeight": 120
+  },
+  {
+    "id": "f5591542-74bf-493b-9ba7-709a699aa429",
+    "type": "food",
+    "name": "Max Nuggets (9)",
+    "kcal100": 236,
+    "weight": 180,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 425,
+    "cWeight": 180
+  },
+  {
+    "id": "20cd3d24-fb39-4046-aa14-f4071ae3c1a5",
+    "type": "food",
+    "name": "Max Pommes (mellan)",
+    "kcal100": 313,
+    "weight": 115,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 360,
+    "cWeight": 115
+  },
+  {
+    "id": "3b3cba63-8e88-4048-8ebb-c0f58e84112e",
+    "type": "meal",
+    "name": "Ost- och skinkpaj - Recept",
+    "kcal100": 239,
+    "weight": 1318,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 3150,
+    "cWeight": 1318,
+    "items": [
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 1125
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 528
+      },
+      {
+        "id": "6ae0cbfa-0de8-4d3b-82bd-d7d44b087c8d",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 99
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 0
+      },
+      {
+        "id": "198b25c8-f255-483f-886b-4846bec23b64",
+        "weight": 300,
+        "cWeight": 300,
+        "kcal": 270
+      },
+      {
+        "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 700
+      },
+      {
+        "id": "591cccf8-0a4f-4556-817e-3607295ee7a5",
+        "weight": 165,
+        "cWeight": 165,
+        "kcal": 248
+      },
+      {
+        "id": "e836d5bb-61e7-478b-a77b-6d5a406cf86b",
+        "weight": 300,
+        "cWeight": 300,
+        "kcal": 177
+      },
+      {
+        "id": "62d70e2b-6b76-4a48-90c6-ef65e0e85a1a",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 3
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 2,
+        "cWeight": 2,
+        "kcal": 0
+      }
+    ]
+  },
+  {
+    "id": "40120e92-9c3e-4b92-bbfe-0d29fa2ab3fe",
+    "type": "food",
+    "name": "Vaniljsocker",
+    "kcal100": 380,
+    "weight": 4.5,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 17,
+    "cWeight": 5
+  },
+  {
+    "id": "dd38e851-defd-4ada-b8d0-429a134bd321",
+    "type": "meal",
+    "name": "Pannkakor - Recept",
+    "kcal100": 145,
+    "weight": 1791,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2593,
+    "cWeight": 1791,
+    "items": [
+      {
+        "id": "591cccf8-0a4f-4556-817e-3607295ee7a5",
+        "weight": 330,
+        "cWeight": 330,
+        "kcal": 495
+      },
+      {
+        "id": "e836d5bb-61e7-478b-a77b-6d5a406cf86b",
+        "weight": 1100,
+        "cWeight": 1100,
+        "kcal": 649
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 240,
+        "cWeight": 240,
+        "kcal": 845
+      },
+      {
+        "id": "6ae0cbfa-0de8-4d3b-82bd-d7d44b087c8d",
+        "weight": 60,
+        "cWeight": 60,
+        "kcal": 199
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 3,
+        "cWeight": 3,
+        "kcal": 0
+      },
+      {
+        "id": "40120e92-9c3e-4b92-bbfe-0d29fa2ab3fe",
+        "weight": 8,
+        "cWeight": 8,
+        "kcal": 30
+      },
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 375
+      }
+    ]
+  },
+  {
+    "id": "2546828a-729b-4391-97e8-d5a6bbb98cc7",
+    "type": "meal",
+    "name": "Pizza Hemmagjord - Recept",
+    "kcal100": 194,
+    "weight": 1090,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 2114,
+    "cWeight": 1090,
+    "items": [
+      {
+        "id": "195fd8f0-b3c1-48e9-8d69-2dbdfc5da403",
+        "weight": 400,
+        "cWeight": 400,
+        "kcal": 1120
+      },
+      {
+        "id": "d81bf16f-16d7-40e4-91bd-894e3c1f2214",
+        "weight": 150,
+        "cWeight": 150,
+        "kcal": 30
+      },
+      {
+        "id": "198b25c8-f255-483f-886b-4846bec23b64",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 180
+      },
+      {
+        "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 700
+      },
+      {
+        "id": "4c6c8b96-7529-407f-8f4f-61185d941607",
+        "weight": 140,
+        "cWeight": 140,
+        "kcal": 84
+      }
+    ]
+  },
+  {
+    "id": "26c5573f-c38c-454a-8e8d-a6c67a111865",
+    "type": "meal",
+    "name": "Potatisgratäng Peka, Grädde, Ost - Recept",
+    "kcal100": 182,
+    "weight": 550,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 999,
+    "cWeight": 550,
+    "items": [
+      {
+        "id": "8b611a81-9520-400e-a31c-9e4eb599449b",
+        "weight": 400,
+        "cWeight": 400,
+        "kcal": 484
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 340
+      },
+      {
+        "id": "6d84f07a-4792-417e-abc9-760ee2656220",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 175
+      }
+    ]
+  },
+  {
+    "id": "b4075bf1-9c5c-4e25-9d95-d50be2fbc953",
+    "type": "meal",
+    "name": "Ugnsbaguette mini, Ost (2)",
+    "kcal100": 262,
+    "weight": 74,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 194,
+    "cWeight": 74,
+    "items": [
+      {
+        "id": "a148c7ef-c16f-4c61-9807-a8d1f7185c89",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 113
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "968b234d-5f1a-4523-b465-1527adf79670",
+    "type": "meal",
+    "name": "Rågrut, Ost (2)",
+    "kcal100": 336,
+    "weight": 36,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 121,
+    "cWeight": 36,
+    "items": [
+      {
+        "id": "79ed6fb6-330c-4e9d-877b-1e3760fe6944",
+        "weight": 12,
+        "cWeight": 12,
+        "kcal": 40
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "d7b2e1e0-293f-48c8-b728-5769ea317cf2",
+    "type": "meal",
+    "name": "Sesam havssalt, Ost (1)",
+    "kcal100": 374,
+    "weight": 27,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 101,
+    "cWeight": 27,
+    "items": [
+      {
+        "id": "a92a7b9c-3322-4af2-a868-66672966d8e2",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 61
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 12,
+        "cWeight": 12,
+        "kcal": 40
+      }
+    ]
+  },
+  {
+    "id": "fc4ae648-11ef-44c2-82e3-05313bd05ff9",
+    "type": "meal",
+    "name": "Sesam havssalt, Ost (2)",
+    "kcal100": 364,
+    "weight": 39,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 142,
+    "cWeight": 39,
+    "items": [
+      {
+        "id": "a92a7b9c-3322-4af2-a868-66672966d8e2",
+        "weight": 15,
+        "cWeight": 15,
+        "kcal": 61
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "57f4d96a-5715-4af7-a026-d3745857fb9a",
+    "type": "meal",
+    "name": "Sesam havssalt, Ost (2), Granola",
+    "kcal100": 394,
+    "weight": 89,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 351,
+    "cWeight": 50,
+    "items": [
+      {
+        "id": "fc4ae648-11ef-44c2-82e3-05313bd05ff9",
+        "weight": 39,
+        "cWeight": 0,
+        "kcal": 142
+      },
+      {
+        "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 209
+      }
+    ]
+  },
+  {
+    "id": "a30f9999-5f10-436f-9ad3-85c7265d0dcf",
+    "type": "meal",
+    "name": "Stuvade makaroner - Recept",
+    "kcal100": 175,
+    "weight": 752,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 1315,
+    "cWeight": 952,
+    "items": [
+      {
+        "id": "dddac63e-8313-4819-8c22-68915649a706",
+        "weight": 200,
+        "cWeight": 400,
+        "kcal": 722
+      },
+      {
+        "id": "e836d5bb-61e7-478b-a77b-6d5a406cf86b",
+        "weight": 500,
+        "cWeight": 500,
+        "kcal": 295
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 70
+      },
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 225
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 0
+      },
+      {
+        "id": "62d70e2b-6b76-4a48-90c6-ef65e0e85a1a",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 3
+      }
+    ]
+  },
+  {
+    "id": "b5d393d7-c2df-4586-af8c-229718d0990d",
+    "type": "meal",
+    "name": "Surdeg Flerkorn, Ost (2)",
+    "kcal100": 339,
+    "weight": 38,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 129,
+    "cWeight": 38,
+    "items": [
+      {
+        "id": "286aa80d-8828-4b71-a9dd-37deb8fc0722",
+        "weight": 14,
+        "cWeight": 14,
+        "kcal": 48
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "1a88fc46-0204-4f1a-8701-6e39aabddacd",
+    "type": "meal",
+    "name": "Surdeg Flerkorn (2), Ost (2), Granola",
+    "kcal100": 370,
+    "weight": 126,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 466,
+    "cWeight": 126,
+    "items": [
+      {
+        "id": "286aa80d-8828-4b71-a9dd-37deb8fc0722",
+        "weight": 28,
+        "cWeight": 28,
+        "kcal": 95
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 48,
+        "cWeight": 48,
+        "kcal": 162
+      },
+      {
+        "id": "86988648-c66d-4e5f-9967-346be2eb2461",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 209
+      }
+    ]
+  },
+  {
+    "id": "153cc246-e2de-4fc0-8551-001433d54164",
+    "type": "food",
+    "name": "Surdegsfralla (butik)",
+    "kcal100": 227,
+    "weight": 125,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 284,
+    "cWeight": 125
+  },
+  {
+    "id": "763f8f47-500a-4307-8ec5-546a9c3cde31",
+    "type": "meal",
+    "name": "Sås hemmagjord - Recept",
+    "kcal100": 145,
+    "weight": 461,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 667,
+    "cWeight": 461,
+    "items": [
+      {
+        "id": "36355527-09f7-4662-b22b-81b5b8a0243c",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 225
+      },
+      {
+        "id": "3f9f7ba1-9fa0-481e-95ec-b7ced6f7f58a",
+        "weight": 20,
+        "cWeight": 20,
+        "kcal": 70
+      },
+      {
+        "id": "d1f38247-6df1-4593-93ad-adad0148fd88",
+        "weight": 300,
+        "cWeight": 300,
+        "kcal": 0
+      },
+      {
+        "id": "b0758722-8153-4efe-8fe7-57c6fbe4356b",
+        "weight": 100,
+        "cWeight": 100,
+        "kcal": 340
+      },
+      {
+        "id": "50a8a1d4-e1a8-4c1d-b3a0-92f9c7c8657e",
+        "weight": 1,
+        "cWeight": 1,
+        "kcal": 0
+      },
+      {
+        "id": "83dd0fd4-45d5-4512-b3ba-6a56757fda5b",
+        "weight": 10,
+        "cWeight": 10,
+        "kcal": 32
+      }
+    ]
+  },
+  {
+    "id": "25d4e0db-fd97-45f4-b79b-6ed2ef5a19da",
+    "type": "food",
+    "name": "Tonfisksallad",
+    "kcal100": 80,
+    "weight": 425,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 340,
+    "cWeight": 425
+  },
+  {
+    "id": "1aa0180d-b909-47a6-88eb-1cbb9a2c9ae1",
+    "type": "food",
+    "name": "Ugnsfralla",
+    "kcal100": 300,
+    "weight": 50,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 150,
+    "cWeight": 50
+  },
+  {
+    "id": "aaca0534-67c7-4082-850d-091f268ac717",
+    "type": "meal",
+    "name": "Ugnsfralla, Ost (2)",
+    "kcal100": 312,
+    "weight": 74,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 231,
+    "cWeight": 74,
+    "items": [
+      {
+        "id": "1aa0180d-b909-47a6-88eb-1cbb9a2c9ae1",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 150
+      },
+      {
+        "id": "ef974b59-a8e3-4f93-b91e-b22502d674ec",
+        "weight": 24,
+        "cWeight": 24,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "036b254d-2324-4129-bf87-4ec83b30f3dd",
+    "type": "meal",
+    "name": "Grillkorv (1),  Korvbröd (1)",
+    "kcal100": 244,
+    "weight": 89,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 217,
+    "cWeight": 89,
+    "items": [
+      {
+        "id": "c662f23f-d9e2-49e2-a81d-1cb88869785e",
+        "weight": 62,
+        "cWeight": 62,
+        "kcal": 136
+      },
+      {
+        "id": "68899911-8208-443e-b4f4-13e6ff27f5bc",
+        "weight": 27,
+        "cWeight": 27,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "02fcac8d-7f96-4371-a73c-69e8501fff17",
+    "type": "meal",
+    "name": "Varmkorv (1), Korvbröd (1)",
+    "kcal100": 242,
+    "weight": 77,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 186,
+    "cWeight": 77,
+    "items": [
+      {
+        "id": "c1c12263-7fca-4319-bc4b-62eb69a54b40",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 105
+      },
+      {
+        "id": "68899911-8208-443e-b4f4-13e6ff27f5bc",
+        "weight": 27,
+        "cWeight": 27,
+        "kcal": 81
+      }
+    ]
+  },
+  {
+    "id": "94c58a56-0e03-40cd-a235-8b4cd55f41f6",
+    "type": "meal",
+    "name": "KycklingKebab, Grönt (+), Pitabröd",
+    "kcal100": 108,
+    "weight": 430,
+    "cPercent": "",
+    "category": "meal",
+    "kcal": 464,
+    "cWeight": 408,
+    "items": [
+      {
+        "id": "82bebbd0-27d4-4c95-87bc-a95c45ff67f2",
+        "weight": 150,
+        "cWeight": 128,
+        "kcal": 210
+      },
+      {
+        "id": "5d3cbc35-b36f-4f6d-ba3e-fbe6f7d73ded",
+        "weight": 200,
+        "cWeight": 200,
+        "kcal": 52
+      },
+      {
+        "id": "bcc2c303-0341-4f10-a7a7-29cc42e474c9",
+        "weight": 80,
+        "cWeight": 80,
+        "kcal": 202
+      }
+    ]
+  },
+  {
+    "id": "48d4ee37-1874-4190-aae8-3ab977668a19",
+    "type": "meal",
+    "name": "Köttbullar, Pasta, Sås, Grönt",
+    "kcal100": 185,
+    "weight": 280,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 517,
+    "cWeight": 215,
+    "items": [
+      {
+        "id": "8ae9c784-a5db-4467-b72f-8bebf57daae4",
+        "weight": 100,
+        "cWeight": 85,
+        "kcal": 245
+      },
+      {
+        "id": "dddac63e-8313-4819-8c22-68915649a706",
+        "weight": 50,
+        "cWeight": 100,
+        "kcal": 181
+      },
+      {
+        "id": "233c116c-0c41-4431-a70b-266ab2fbf0a4",
+        "weight": 30,
+        "cWeight": 30,
+        "kcal": 55
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "ff256c83-f18f-45e5-9211-a2864b498f1e",
+    "type": "meal",
+    "name": "Köttfärssås & Spagetti, Grönt",
+    "kcal100": 132,
+    "weight": 300,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 396,
+    "cWeight": 100,
+    "items": [
+      {
+        "id": "07e87610-a5a8-4af4-9a97-0fdea5ef5998",
+        "weight": 150,
+        "cWeight": 0,
+        "kcal": 179
+      },
+      {
+        "id": "dddac63e-8313-4819-8c22-68915649a706",
+        "weight": 50,
+        "cWeight": 100,
+        "kcal": 181
+      },
+      {
+        "id": "6711aa74-63d8-47ae-a482-e80686a1b302",
+        "weight": 100,
+        "cWeight": 0,
+        "kcal": 36
+      }
+    ]
+  },
+  {
+    "id": "3edb2b32-ebbd-4144-9497-09870b9a8b92",
+    "type": "meal",
+    "name": "Grönt (-)",
+    "kcal100": 16,
+    "weight": 100,
+    "cPercent": null,
+    "category": "meal",
+    "kcal": 16,
+    "cWeight": 100,
+    "items": [
+      {
+        "id": "dfd16f9d-2dea-4bd9-bc56-80001a37149c",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 7
+      },
+      {
+        "id": "fff7ef38-996d-49e2-9046-9475be78942b",
+        "weight": 50,
+        "cWeight": 50,
+        "kcal": 9
+      }
+    ]
+  },
+  {
+    "id": "a6d163cc-a6be-4faa-9a35-b7465fc342b2",
+    "type": "food",
+    "name": "Kanel",
+    "kcal100": 250,
+    "weight": 0.3,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 1,
+    "cWeight": 0
+  },
+  {
+    "id": "a22df937-6f2d-430a-b648-82706aaa4de3",
+    "type": "food",
+    "name": "Basilika",
+    "kcal100": 240,
+    "weight": 0.2,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 0,
+    "cWeight": 0
+  },
+  {
+    "id": "abeba231-e3ad-4f83-b530-6a388ba18c0c",
+    "type": "food",
+    "name": "Chiliflakes",
+    "kcal100": 300,
+    "weight": 0.4,
+    "cPercent": 100,
+    "category": "food",
+    "kcal": 1,
+    "cWeight": 0
+  }
+]
