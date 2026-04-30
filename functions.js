@@ -1,15 +1,174 @@
 
+// BOTTOM BAR NAVIGATION
+
+  // SHOW VIEW
+  function showView(viewId) {
+    // Dölj alla vyer
+    document.querySelectorAll(".view").forEach(v => {
+      v.style.display = "none";
+    });
+
+    // Visa rätt vy
+    const view = document.getElementById(viewId);
+    if (view) {
+      view.style.display = "block";
+    }
+      // HOME-vyn
+  if (viewId === "home") {
+  }
+
+    // Extra logik för ADD-vyn
+    if (viewId === "add") {
+      updateTotalKcal();
+      updateRemainingKcal();
+    }
+  }
+
+  // SHOW VIEW PAGES NAVIGATION //
+ function initNavigation() {
+  const buttons = document.querySelectorAll(".bottom-bar button");
+  const views = document.querySelectorAll(".view");
+
+  // FIRST TAB ACTIVE
+  if (buttons.length > 0) {
+    const firstButton = buttons[0];
+    firstButton.classList.add("active");
+    const target = firstButton.dataset.view;
+    showView(target);
+  }
+
+  // CLICK CHANGE TAB
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.view;
+
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      showView(target);
+    });
+  });
+}
+
+// högst upp i functions.js
+
+window.showEditCard = function () {
+  document.getElementById("editCard").classList.remove("hidden");
+  document.getElementById("settingsCard").classList.add("hidden");
+};
+
+window.hideEditCard = function () {
+  document.getElementById("editCard").classList.add("hidden");
+  document.getElementById("settingsCard").classList.remove("hidden");
+};
+
+
+
+//#region unified //
+function renderUnifiedListItemHTML({ name, amount, kcal, day, detailsHTML }) {
+
+  const amountHTML = amount > 1 
+    ? `<span class="amountTag">[${amount}]</span>` 
+    : "";
+
+  return `
+    <div class="summary-row">
+      <span class="day">${formatDateShort(new Date(day))}</span>
+      <span class="title">
+      ${amountHTML} 
+        <span class="name">${name}</span>
+        
+      </span>
+    
+      <span class="meta">${kcal} kcal</span>
+      <button class="expandToggle">▼</button>
+    </div>
+
+    <div class="expandedView">
+      <div class="ingredientsList">${detailsHTML}</div>
+
+      <div class="actionButtonsRowBottom">
+        <button class="deleteBtn">X</button>
+        <button class="moveDownBtn">▼</button>
+        <button class="moveUpBtn">▲</button>
+      </div>
+    </div>
+  `;
+}
+
+function collapseOtherExpanded(activeExpanded, parentList) {
+  parentList.querySelectorAll(".expandedView.open").forEach(ev => {
+    if (ev !== activeExpanded) {
+      ev.classList.remove("open");
+      const btn = ev.parentElement.querySelector(".expandToggle");
+      if (btn) btn.textContent = "▼";
+    }
+  });
+}
+
+function attachUnifiedListItemEvents(li, parentList) {
+
+const summaryRow = li.querySelector(".summary-row");
+const expanded = li.querySelector(".expandedView");
+
+summaryRow.addEventListener("click", () => {
+  const isOpen = expanded.classList.contains("open");
+
+  // Stäng andra
+  collapseOtherExpanded(expanded, parentList);
+
+  // Toggla denna
+  expanded.classList.toggle("open");
+});
+
+  // DELETE
+  li.querySelector(".deleteBtn").addEventListener("click", () => {
+    const row = li.closest("li");
+    row.remove();
+    saveToLocal?.();
+    updateTotalKcal?.();
+    updateRemainingKcal?.();
+    applyDayColors?.();
+    updateWeekSummary?.();
+    renderCurrentWeekTotal();
+
+    showToast("Måtid borttagen");
+  });
+
+  // MOVE UP
+  li.querySelector(".moveUpBtn").addEventListener("click", () => {
+    const prev = li.previousElementSibling;
+    if (prev) {
+      parentList.insertBefore(li, prev);
+      saveToLocal?.();
+      updateTotalKcal?.();
+      updateRemainingKcal?.();
+    }
+  });
+
+  // MOVE DOWN
+  li.querySelector(".moveDownBtn").addEventListener("click", () => {
+    const next = li.nextElementSibling;
+    if (next) {
+      parentList.insertBefore(next, li);
+      saveToLocal?.();
+      updateTotalKcal?.();
+      updateRemainingKcal?.();
+    }
+  });
+}
+
+//#endregion
 //#region MEAL LIST //
 
 // CREATE MEAL LIST ITEM
 function createMealListItem(item, amount, weight, cWeight, kcal, day) {
   const master = getItemById(item.id);
-
   const displayName = master?.name ?? item.name;
   const displayType = master?.type ?? item.type;
 
   const li = document.createElement("li");
-  li.classList.add("sortable-item");
+  li.classList.add("list-item", "sortable-item");
 
   li.dataset.day = day;
   li.dataset.amount = amount;
@@ -19,80 +178,39 @@ function createMealListItem(item, amount, weight, cWeight, kcal, day) {
   li.dataset.item = JSON.stringify(item);
 
   const weightText =
-    cWeight === weight
-      ? `${weight} g`
-      : `${weight} g | ${cWeight} gc`;
+    cWeight === weight ? `${weight} g` : `${weight} g | ${cWeight} gc`;
 
   const detailsHTML =
     displayType === "meal"
       ? item.items.map(sub => {
           const food = getItemById(sub.id);
           if (!food) return "(okänd)";
-
           const w = sub.weight;
           const kcalPer100 = food.kcal100 ?? food.kcal ?? 0;
           const subKcal = Math.round((kcalPer100 / 100) * w);
 
-          return `${food.name} ${w} g (${subKcal} kcal)`;
+          const amountLabel = ` ${sub.amount} st | `;
+
+          return `${amountLabel} ${food.name} | ${w} g | ${subKcal} kcal`;
         }).join("<br>")
-      : `${weightText} (${kcal} kcal)`;
+      : `${amount} st | ${item.name} | ${weightText} | ${kcal} kcal`;
 
-  li.innerHTML = `
-    <details>
-      <summary>
-        <span class="day">${formatDateDisplay(new Date(day))}</span>
-        <span class="title">${displayName}</span>
-        <span class="filler"></span>
-        <span class="meta">${kcal} kcal</span>
-      </summary>
-
-      <div class="expandedView">
-        <div class="ingredientsList">
-          ${detailsHTML}
-        </div>
-
-        <div class="actionButtonsRowBottom">
-          <button class="deleteBtn">X</button>
-          <button class="moveUpBtn">▲</button>
-          <button class="moveDownBtn">▼</button>
-        </div>
-      </div>
-    </details>
-  `;
-
-  // DELETE
-  li.querySelector(".deleteBtn").addEventListener("click", () => {
-    li.remove();
-    saveToLocal();
-    applyDayColors();
-    updateWeekSummary();
+  li.innerHTML = renderUnifiedListItemHTML({
+    name: displayName,
+    amount: amount ?? item.amount ?? 1,
+    kcal,
+    day,
+    detailsHTML
   });
 
-  // MOVE UP (DOM-flytt)
-  li.querySelector(".moveUpBtn").addEventListener("click", () => {
-    const prev = li.previousElementSibling;
-    if (prev) {
-      mealList.insertBefore(li, prev);
-      saveToLocal();
-      applyDayColors();
-      updateWeekSummary();
-    }
-  });
-
-  // MOVE DOWN (DOM-flytt)
-  li.querySelector(".moveDownBtn").addEventListener("click", () => {
-    const next = li.nextElementSibling;
-    if (next) {
-      mealList.insertBefore(next, li);
-      saveToLocal();
-      applyDayColors();
-      updateWeekSummary();
-    }
-  });
-
+  attachUnifiedListItemEvents(li, mealList);
   mealList.appendChild(li);
   sortMealList();
+  applyDayColors();
 }
+
+
+
 
 // LOAD FROM LOCAL - MEAL LIST
 function loadFromLocal() {
@@ -110,7 +228,6 @@ function loadFromLocal() {
     );
   });
 
-  applyDayColors();
   updateWeekSummary();
 }
 
@@ -181,7 +298,7 @@ function updateWeekSummary() {
       ? `${diff >= 0 ? "+" : ""}${diff} kcal`
       : "";
 
-    const diffClass = diff >= 0 ? "positive" : "negative";
+    const diffClass = diff <= 0 ? "positive" : "negative";
 
     const dateObj = new Date(day);
     const weekday = dateObj.getDay(); // 0 = söndag, 6 = lördag
@@ -193,13 +310,15 @@ function updateWeekSummary() {
       li.classList.add("weekend");
     }
 
-    li.innerHTML = `
-      <span class="weekLabel">${formatDateDisplay(dateObj)}</span>
-      <span class="weekKcal">
-        <span class="diff ${diffClass}">${diffText}</span>
-        <span class="kcal">${total} kcal</span>
-      </span>
-    `;
+li.innerHTML = `
+  <div class="weekRow">
+    <span class="weekLabel">${formatDateDisplay(dateObj)}</span>
+    <span class="weekNumbers">
+      <span class="diff ${diffClass}">${diffText}</span>
+      <span class="kcal">${total} kcal</span>
+    </span>
+  </div>
+`;
 
     weekSummaryEl.appendChild(li);
   });
@@ -255,7 +374,8 @@ function renderWeekHistory() {
 function saveCurrentWeekManually() {
   const items = Array.from(document.querySelectorAll("#mealList li"));
   if (items.length === 0) {
-    alert("Det finns inga måltider att spara.");
+    showToast("det finns inga måltider att spara");
+
     return;
   }
 
@@ -318,24 +438,9 @@ function saveCurrentWeekManually() {
   renderWeekHistory();
   renderCurrentWeekTotal();
 
-  alert(`Vecka ${targetWeek} sparad!`);
+ showToast("Veckan sparad i historik");
 }
 
-// TOGGLE EXPANDED VIEW - MEAL LIST
-function toggleMealListExpand() {
-  const list = document.getElementById("mealList");
-  const arrow = document.getElementById("toggleArrow");
-
-  if (!list) return;
-
-  const expanded = list.classList.toggle("mealList-expanded");
-
-  if (expanded) {
-    arrow.classList.add("expanded");
-  } else {
-    arrow.classList.remove("expanded");
-  }
-}
 
 // SORT MEAL LIST BY DATE
 function sortMealList() {
@@ -350,12 +455,9 @@ function sortMealList() {
 
   list.innerHTML = "";
   sorted.forEach(li => list.appendChild(li));
+
+  applyDayColors();
 }
-
-
-/*
-document.getElementById("toggle").addEventListener("click", toggleMealListExpand);*/
-
 
 //#endregion MEAL LIST
 
@@ -364,116 +466,53 @@ document.getElementById("toggle").addEventListener("click", toggleMealListExpand
 // CREATE MEAL BUILD ITEMS - MEAL BUILD
 function createMealBuildItem(item, amount, totalweight, totalcWeight, kcal) {
 
-function buildMealIngredientSummary(meal) {
-  return meal.items.map(sub => {
-    const food = getItemById(sub.id);
-    if (!food) return "(okänd)";
-
-    const w = sub.weight;
-    const cw = sub.cWeight;
-
-    // RÄTT kcal-beräkning per sub-item
-    const kcalPer100 = food.kcal100 ?? food.kcal ?? 0;
-    const subKcal = Math.round((kcalPer100 / 100) * w);
-
-    const cooked =
-      cw > 0 &&
-      cw !== w &&
-      food.cPercent > 0
-        ? ` → ${cw} gc`
-        : "";
-
-    return `${food.name} ${w} g (${subKcal} kcal)${cooked}`;
-  }).join("<br>");
-}
   const li = document.createElement("li");
-  li.classList.add("meal-build-item", "mealBuildItem");
+  li.classList.add("list-item", "meal-build-item", "mealBuildItem");
+
   li.dataset.id = item.id;
   li.dataset.name = item.name;
   li.dataset.weight = totalweight;
   li.dataset.cWeight = totalcWeight;
   li.dataset.kcal = kcal;
   li.dataset.item = JSON.stringify(item);
+  li.dataset.amount = amount;
+  li.dataset.day = daySelect.value;
+
+const detailsHTML =
+  item.type === "meal"
+    ? item.items.map(sub => {
+        const food = getItemById(sub.id);
+        if (!food) return "(okänd)";
+
+        const w = sub.weight;
+        const kcalPer100 = food.kcal100 ?? food.kcal ?? 0;
+        const subKcal = Math.round((kcalPer100 / 100) * w);
+
+        const amountLabel = ` ${sub.amount} st |`;
+
+        return `${amountLabel} ${food.name} | ${w} g | ${subKcal} kcal`;
+      }).join("<br>")
+    : `${amount} st | ${item.name} | ${kcal} kcal | ${totalweight} g |${
+        totalcWeight > 0 && totalcWeight !== totalweight
+          ? `${totalcWeight} gc`
+          : ""
+      }`;
 
 
- const detailsHTML = item.type === "meal"
-  ? buildMealIngredientSummary(item)
-  : `${totalweight} g (${kcal} kcal)${
-      totalcWeight > 0 && totalcWeight !== totalweight
-        ? ` → ${totalcWeight} gc`
-        : ""
-    }`;
-
-  li.innerHTML = `
-    <details>
-      <summary>
-        <span class="day">${formatDateDisplay(new Date(daySelect.value))}</span>
-        <span class="title">${item.name}</span>
-        <span class="filler"></span>
-        <span class="meta">${kcal} kcal</span>
-      </summary>
-
-      <div class="expandedView">
-        ${detailsHTML}
-
-        <div class="actionButtonsRowBottom">
-          <button class="deleteBtn">X</button>
-          <button class="moveUpBtn">▲</button>
-          <button class="moveDownBtn">▼</button>
-        </div>
-      </div>
-    </details>
-  `;
-  console.log("CREATE MEAL BUILD ITEM", {
-  item,
-  amount,
-  totalweight,
-  totalcWeight,
-  kcal,
-  dataset: {
-    id: item.id,
+  li.innerHTML = renderUnifiedListItemHTML({
     name: item.name,
-    weight: totalweight,
-    cWeight: totalcWeight,
-    kcal: kcal
-  }
-});
-li.dataset.day = daySelect.value;
-
-// DELETE
-li.querySelector(".deleteBtn").addEventListener("click", () => {
-  li.remove();
-  updateTotalKcal();
-  updateRemainingKcal();
-
-});
-
-// MOVE UP
-li.querySelector(".moveUpBtn").addEventListener("click", () => {
-  const prev = li.previousElementSibling;
-  if (prev) {
-    mealBuild.insertBefore(li, prev);
-    updateTotalKcal();
-    updateRemainingKcal();
-
-  }
-});
-
-// MOVE DOWN
-li.querySelector(".moveDownBtn").addEventListener("click", () => {
-  const next = li.nextElementSibling;
-  if (next) {
-    mealBuild.insertBefore(next, li);
-    updateTotalKcal();
-    updateRemainingKcal();
-
-  }
-});
+    amount,
+    kcal,
+    day: li.dataset.day,
+    detailsHTML
+  });
+ 
+  attachUnifiedListItemEvents(li, mealBuild);
   mealBuild.appendChild(li);
   updateTotalKcal();
   updateRemainingKcal();
-
 }
+
 
 // HANDLE SELECTED ITEMS - MEAL BUILD
 function handleSelectedItem(item) {
@@ -499,6 +538,66 @@ function handleSelectedItem(item) {
   );
 }
 
+// COLLAPSE EXPANDED VIEW MEAL LIST & MEAL BUILD
+function collapseOtherExpanded(activeExpanded) {
+  const parent = activeExpanded.closest("ul, ol, #mealBuild, #mealList");
+  if (!parent) return;
+
+  const all = parent.querySelectorAll(".expandedView.open");
+  all.forEach(ev => {
+    if (ev !== activeExpanded) {
+      ev.classList.remove("open");
+    }
+  });
+}
+
+// RESET MEALBUILD
+function resetMealBuild() {
+  
+  mealBuild.innerHTML = "";
+
+  document.querySelectorAll("#add input, #add select").forEach(el => {
+    el.value = "";
+  });
+
+  renderDaySelect();
+  updateTotalKcal();
+  updateRemainingKcal();
+  showToast("Åtgärden avbröts!");
+
+  if (typeof updateMealBuildButtons === "function") {
+    updateMealBuildButtons();
+  }
+
+}
+
+// DIFF BERÄKNING TOTAL KCAL
+const el = document.getElementById("remainingKcal");
+
+// 1. Räkna ut remaining (detta saknades)
+const dailyGoal = getDailyGoal();
+const todaysLogged = getTodaysLoggedKcal();
+const buildKcal = getTodaysBuildKcal();
+
+const remaining = dailyGoal - todaysLogged - buildKcal;
+
+// 2. Sätt texten
+if (remaining >= 0) {
+  el.textContent = `-${remaining} kcal`;
+} else {
+  el.textContent = `+${Math.abs(remaining)} kcal`;
+}
+
+// 3. Färglogik
+el.classList.remove("kcal-positive", "kcal-negative");
+
+if (remaining >= 0) {
+  el.classList.add("kcal-positive");
+} else {
+  el.classList.add("kcal-negative");
+}
+
+
 //#endregion MEAL BUILD
 
 //#region DROPDOWN //
@@ -513,14 +612,39 @@ function setupDropdown(inputId, listId, getData, onSelect) {
   renderDropdownList(list, items, onSelect);
  });
 
-  input.addEventListener("input", () => {
-    const query = input.value.toLowerCase();
-    const items = getData().filter(x =>
-      x.name.toLowerCase().includes(query)
-    );
+  // 1. Öppna dropdown när fältet får fokus
+input.addEventListener("focus", () => {
+  const query = input.value.toLowerCase();
+  input.placeholder = "";
 
-    renderDropdownList(list, items, onSelect);
-  });
+  const items = getData()
+    .filter(item => item.name.toLowerCase().includes(query))
+    .sort((a, b) => {
+      if (query === "") return a.name.localeCompare(b.name);
+      return getMatchScore(b.name, query) - getMatchScore(a.name, query);
+    });
+
+  renderDropdownList(list, items, onSelect);
+  list.classList.add("open");
+});
+
+input.addEventListener("blur", () => {
+  input.placeholder = "Sök…"; // eller vad du nu använder
+});
+
+// 2. Filtrera medan man skriver
+input.addEventListener("input", () => {
+  const query = input.value.toLowerCase();
+
+  const items = getData()
+    .filter(item => item.name.toLowerCase().includes(query))
+    .sort((a, b) => {
+      if (query === "") return a.name.localeCompare(b.name);
+      return getMatchScore(b.name, query) - getMatchScore(a.name, query);
+    });
+
+  renderDropdownList(list, items, onSelect);
+});
 }
 
 // RENDER DROPDOWN LIST
@@ -560,7 +684,18 @@ function renderDropdownList(list, items, onSelect) {
     }
   });
 });
+}
 
+// SEARCH MATCH SORTING
+function getMatchScore(name, query) {
+  name = name.toLowerCase();
+  query = query.toLowerCase();
+
+  if (name === query) return 1000;
+  if (name.startsWith(query)) return 800; 
+  const index = name.indexOf(query);
+  if (index !== -1) return 500 - index;
+  return 0 - name.length * 0.1;
 }
 
 // GET DISPLAY TEXT DROPDOWN
@@ -728,105 +863,39 @@ function importMasterList() {
     window.masterList = imported;
     saveMasterList();
     refreshAllDropdowns();
-    alert("Import klar!");
+    showToast("Import klar");
   };
 
   input.click();
 
 }
 
-//REPAIR MASTER LIST FOODS
-function repairMasterListFoods() {
-  if (!window.masterList) {
-    console.error("masterList saknas – kör loadMasterList() först.");
-    return;
-  }
-
-  window.masterList.forEach(item => {
-    if (item.type !== "food") return;
-
-    // Se till att alla fält finns
-    item.weight = Number(item.weight) || 0;
-    item.kcal100 = Number(item.kcal100) || 0;
-
-    // Om cPercent saknas → sätt till 100 (ingen viktförändring)
-    // eller 0 om du hellre vill det
-    item.cPercent = Number(item.cPercent);
-    if (isNaN(item.cPercent)) item.cPercent = 100;
-
-    // Beräkna derived fields
-    item.cWeight = Math.round(item.weight * (item.cPercent / 100));
-    item.kcal = Math.round((item.kcal100 / 100) * item.weight);
-  });
-
-  localStorage.setItem("masterList", JSON.stringify(window.masterList));
-  console.log("Foods repaired!");
-}
-
 // LOAD MASTER LIST
 async function loadMasterList() {
   const saved = localStorage.getItem("masterList");
 
-  if (saved) {
-    window.masterList = JSON.parse(saved);
-    return;
+  // Kontrollera att saved är en giltig JSON-array
+  if (saved !== null && saved !== "null" && saved !== "undefined") {
+    try {
+      const parsed = JSON.parse(saved);
+
+      // Om parsed är en array → använd den
+      if (Array.isArray(parsed)) {
+        window.masterList = parsed;
+        return;
+      }
+    } catch (e) {
+      // JSON-fel → fallthrough till fetch
+    }
   }
 
-  // 1. Ladda foods.json
-  const response = await fetch("foods.json");
-  const foods = await response.json();
+  // Fallback: hämta masterList.json
+  const response = await fetch("masterList.json");
+  const data = await response.json();
 
-  // 2. Konvertera foods till nya modellen
-  const convertedFoods = foods.map(f => {
-    const item = createNewItem("food");
+  window.masterList = data;
+  localStorage.setItem("masterList", JSON.stringify(data));
 
-    item.name = f.name;
-    item.kcal100 = Number(f.kcal100) || 0;
-    item.weight = Number(f.weight) || 0;
-    item.category = f.category ?? null;
-
-    item.cPercent = Number(f.cPercent);
-    if (isNaN(item.cPercent)) item.cPercent = 100;
-
-    item.cWeight = Math.round(item.weight * (item.cPercent / 100));
-    item.kcal = Math.round((item.kcal100 / 100) * item.weight);
-
-    return item;
-  });
-
-  // 3. Ladda och konvertera äldre custom meals
-  const oldMealsRaw = localStorage.getItem("customMeals");
-  let convertedMeals = [];
-
-  if (oldMealsRaw) {
-    const oldMeals = JSON.parse(oldMealsRaw);
-
-    convertedMeals = oldMeals.map(m => {
-      const meal = createNewItem("meal");
-      meal.name = m.name;
-      meal.items = [];
-
-      m.items.forEach(sub => {
-        meal.items.push({
-          id: sub.id,
-          weight: sub.weight,
-          cWeight: sub.cWeight,
-          kcal: sub.kcal
-        });
-      });
-
-      computeDerivedFields(meal);
-      return meal;
-    });
-  }
-
-  // 4. Spara masterList
-  window.masterList = [
-    ...convertedFoods,
-    ...convertedMeals
-  ];
-
-  saveMasterList();
 }
 
 //#endregion MEAL BUILD 
@@ -853,15 +922,6 @@ function getISOWeek(date) {
   };
 }
 
-// FORMAT DATE DISPLAY
-function formatDateDisplay(d) {
-  const weekdays = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
-  const day = d.getDate();
-  const month = d.getMonth() + 1; 
-  const weekday = weekdays[d.getDay()]; 
-  return `${day}/${month} ${weekday}`;
-}
-
 // GET WEEK NUMBER
 function getWeekNumber(date) {
   const d = new Date(date);
@@ -877,6 +937,13 @@ function formatDateDisplay(date) {
   const weekdays = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
   return `${date.getDate()}/${date.getMonth()+1} ${weekdays[date.getDay()]}`;
 }
+//FORMAT SHORT DATE DISPLAYS
+function formatDateShort(date) {
+  if (!(date instanceof Date)) date = new Date(date);
+  const weekdaysShort = ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö"];
+  return `${date.getDate()}/${date.getMonth()+1} ${weekdaysShort[date.getDay()]}`;
+}
+
 
 //#endregion DATE FUNCTIONS 
 
@@ -953,7 +1020,6 @@ function updateRemainingKcal() {
     el.classList.add("kcal-negative");
   }
 }
-
 
   // CALULATE CURRENT WEEK TOTAL
   function calculateCurrentWeekTotal() {
@@ -1035,8 +1101,10 @@ function updateRemainingKcal() {
 
   // APPLY THEME
   function applyTheme(theme) {
-    document.body.classList.remove("light-theme", "dark-theme", "fall-theme");
+    document.body.classList.remove("night-theme","vivid-theme", "happy-theme", 
+      "wood-theme", "earth-theme", "cold-theme");
     document.body.classList.add(`${theme}-theme`);
+
   }
 
   // RENDER DAY SELECT
@@ -1053,6 +1121,10 @@ function updateRemainingKcal() {
       option.value = toISODate(d);
       daySelect.appendChild(option);
     }
+    /*function updateDayHeader(iso) {
+    const d = new Date(iso);
+    document.getElementById("dayHeader").textContent = formatDateDisplay(d);
+}*/
 
     daySelect.value = toISODate(today);
   }
@@ -1061,14 +1133,13 @@ function updateRemainingKcal() {
   function backupData() {
     const data = {
       mealList: JSON.parse(localStorage.getItem("mealList")) || [],
-      customMeals: JSON.parse(localStorage.getItem("customMeals")) || [],
       weekHistory: JSON.parse(localStorage.getItem("weekHistory")) || [],
       dailyKcalGoal: localStorage.getItem("dailyKcalGoal") || null,
       lastSavedWeek: localStorage.getItem("lastSavedWeek") || null
     };
 
     const today = new Date().toISOString().split("T")[0];
-    const filename = `Kaloriloggen_backup_${today}.json`;
+    const filename = `MealStudioUserData_${today}.json`;
 
     const blob = new Blob([JSON.stringify(data, null, 2)], {
       type: "application/json"
@@ -1094,10 +1165,6 @@ function updateRemainingKcal() {
           localStorage.setItem("mealList", JSON.stringify(data.mealList));
         }
 
-        if (data.customMeals) {
-          localStorage.setItem("customMeals", JSON.stringify(data.customMeals));
-        }
-
         if (data.weekHistory) {
           localStorage.setItem("weekHistory", JSON.stringify(data.weekHistory));
         }
@@ -1110,10 +1177,10 @@ function updateRemainingKcal() {
           localStorage.setItem("lastSavedWeek", data.lastSavedWeek);
         }
 
-        alert("Data återställd! Laddar om sidan...");
+        showToast("Data återställd, laddar om sidan");;
         location.reload();
       } catch (err) {
-        alert("Fel vid restore av fil!");
+         showToast("Fel vid återställning av fil");;
         console.error(err);
       }
     };
@@ -1131,11 +1198,16 @@ function updateRemainingKcal() {
 
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
+
+  const today = new Date().toISOString().split("T")[0];
+
+  a.download = `MealStudioMasterList_${today}.json`;
   a.href = url;
-  a.download = "masterlist.json";
+
   a.click();
   URL.revokeObjectURL(url);
-  }
+}
+
 
   // IMPORT MASTER LIST
     function importMasterList(event) {
@@ -1153,9 +1225,9 @@ function updateRemainingKcal() {
         // Återskapa dropdowns, mealBuild, mealList osv
         window.masterList = imported;
 
-        alert("Masterlist importerad!");
+         showToast("MasterList importerad");;
       } catch (err) {
-        alert("Felaktig JSON-fil.");
+         showToast("Felaktig Json-fil");;
       }
     };
 
@@ -1173,90 +1245,75 @@ function updateRemainingKcal() {
 
   // LOAD ITEMS FOR EDITING
   function loadItemForEditing(item) {
-    window.currentEditItem = item;
+      window.currentEditItem = item;
 
-    const addNewFoodBtn = document.getElementById("addNewFoodBtn");
-    const deleteMealBtn = document.getElementById("deleteMealBtn");
+      const fields = document.getElementById("editFields");
+      const mealItems = document.getElementById("editMealItems");
 
-    if (item) {
-      addNewFoodBtn.style.display = "none";
-      deleteMealBtn.style.display = "block";
-      abortBtn.style.display = "block";
-      saveEditBtn.style.display = "block";
+      fields.innerHTML = "";
+      mealItems.innerHTML = "";
 
-      deleteMealBtn.onclick = () => deleteMeal(item.id);
+      // Om inget item är valt ska kortet bara vara tomt
+      if (!item) return;
 
-    } else {
-      addNewFoodBtn.style.display = "block";
-      deleteMealBtn.style.display = "none";
-    }
+      const topFields = [
+        { key: "name", label: "Namn" },
+        { key: "weight", label: "Vikt (g)" },
+        { key: "kcal100", label: "kcal / 100g" },
+        { key: "cPercent", label: "cPercent" }
+      ];
 
-    const fields = document.getElementById("editFields");
-    const mealItems = document.getElementById("editMealItems");
+      topFields.forEach(f => {
+        if (item[f.key] === undefined) return;
 
-    fields.innerHTML = "";
-    mealItems.innerHTML = "";
+        const isMeal = item.type === "meal";
+        const isLockedField = isMeal && ["weight", "kcal100", "cPercent"].includes(f.key);
+        const readonlyAttr = isLockedField ? "readonly" : "";
 
-    const topFields = [
-      { key: "name", label: "Namn" },
-      { key: "weight", label: "Vikt (g)" },
-      { key: "kcal100", label: "kcal / 100g" },
-      { key: "cPercent", label: "cPercent" }
-    ];
+        const { type, inputmode } = getInputTypeForKey(f.key);
 
-    topFields.forEach(f => {
-      if (item[f.key] === undefined) return;
-
-      const isMeal = item.type === "meal";
-      const isLockedField = isMeal && ["weight", "kcal100", "cPercent"].includes(f.key);
-      const readonlyAttr = isLockedField ? "readonly" : "";
-
-      // Hämta rätt input-typ
-      const { type, inputmode } = getInputTypeForKey(f.key);
-
-      fields.insertAdjacentHTML(
-        "beforeend",
-        `
-          <div class="edit-row">
-            <div class="edit-label">${f.label}</div>
-            <div class="edit-value">
-              <input 
-                type="${type}"
-                inputmode="${inputmode}"
-                data-key="${f.key}" 
-                value="${item[f.key]}"
-                ${readonlyAttr}
-              >
-            </div>
-          </div>
-        `
-      );
-    });
-
-    // Sub-items om det är en meal
-    if (item.type === "meal") {
-      item.items.forEach(sub => {
-        const food = getItemById(sub.id);
-
-        mealItems.insertAdjacentHTML(
+        fields.insertAdjacentHTML(
           "beforeend",
           `
             <div class="edit-row">
-              <div class="edit-label">${food ? food.name : "(okänd)"}</div>
+              <div class="edit-label">${f.label}</div>
               <div class="edit-value">
                 <input 
-                  type="number"
-                  inputmode="numeric"
-                  class="meal-item-weight"
-                  value="${sub.weight}"
-                  data-id="${sub.id}"
+                  type="${type}"
+                  inputmode="${inputmode}"
+                  data-key="${f.key}" 
+                  value="${item[f.key]}"
+                  ${readonlyAttr}
                 >
               </div>
             </div>
           `
         );
       });
-    }
+
+      if (item.type === "meal") {
+        item.items.forEach(sub => {
+          const food = getItemById(sub.id);
+
+          mealItems.insertAdjacentHTML(
+            "beforeend",
+            `
+              <div class="edit-row">
+                <div class="edit-label">${food ? food.name : "(okänd)"}</div>
+                <div class="edit-value">
+                  <input 
+                    type="number"
+                    inputmode="numeric"
+                    class="meal-item-weight"
+                    value="${sub.weight}"
+                    data-id="${sub.id}"
+                  >
+                </div>
+              </div>
+            `
+          );
+        });
+      }
   }
 
   // SHOW EDIT DIALOG
@@ -1345,7 +1402,7 @@ function updateRemainingKcal() {
     
     saveItem(item);
     refreshAllDropdowns();
-    resetEditButtons();
+    loadItemForEditing(null);
 
     document.getElementById("editFields").innerHTML = "";
     document.getElementById("editMealItems").innerHTML = "";
@@ -1356,16 +1413,9 @@ function updateRemainingKcal() {
     list.style.display = "none";
 
     window.currentEditItem = null;
+    showToast("Redigering sparad!");
+}
 
-  }
-
-  // RESET VIEW EDIT BUTTONS
-  function resetEditButtons() {
-  addNewFoodBtn.style.display = "block";
-  deleteMealBtn.style.display = "none";
-  saveEditBtn.style.display = "none";
-  abortBtn.style.display = "none";
-  }
 
 // DAILY GOAL SELECT
 function initDailyGoalSelect() {
@@ -1381,25 +1431,12 @@ function initDailyGoalSelect() {
     dailyGoalSelect.value = savedGoal;
   }
 }
-
 // THEMES
 function initTheme() {
-  const savedTheme = localStorage.getItem("savedTheme") || "dark";
+  const savedTheme = localStorage.getItem("savedTheme") || "cold";
   themeSelect.value = savedTheme;
   applyTheme(savedTheme);
 }
-
-// BOTTOM BAR NAVIGATION
-  function showView(viewId) {
-    document.querySelectorAll(".view").forEach(v => (v.style.display = "none"));
-    const view = document.getElementById(viewId);
-    if (view) view.style.display = "block";
-
-    if (viewId === "add") {
-    updateTotalKcal();
-    updateRemainingKcal();
-
-}}
 
 // AMOUNT SELECT
 function initAmountSelect() {
@@ -1411,4 +1448,183 @@ function initAmountSelect() {
   }
 }
 
+// Toast
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
+
 //#endregion SUPPORT
+
+// ===============================
+//   STATISK 7-DAGARS DAY SELECT
+// ===============================
+
+// Hämta dagens datum och nollställ tid
+function getToday() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+let today = getToday();
+let todayISO = toISODate(today);
+
+// Elementet som ska innehålla dagarna
+const dayScroller = document.getElementById("dayScroller");
+
+// ===============================
+//   FUNKTION: BYGG 7 DAGAR
+// ===============================
+function buildDaySelect() {
+  dayScroller.innerHTML = "";
+
+  // 3 dagar bakåt + idag + 3 dagar framåt
+  for (let i = -3; i <= 3; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+
+    const iso = toISODate(d);
+    const dayNum = d.getDate();
+
+    const dayItem = document.createElement("div");
+    dayItem.classList.add("day-item");
+    dayItem.dataset.date = iso;
+
+    // Visa "Idag"
+    if (iso === todayISO) {
+      dayItem.textContent = "Idag";
+      dayItem.classList.add("today");
+    } else {
+      dayItem.textContent = dayNum;
+    }
+
+    // Markera vald dag (start = idag)
+    if (iso === todayISO) {
+      dayItem.classList.add("active");
+    }
+
+    dayScroller.appendChild(dayItem);
+  }
+}
+
+// ===============================
+//   FUNKTION: MARKERA DAG (daySelect)
+// ===============================
+function activateDay(iso) {
+  document.querySelectorAll(".day-item").forEach(i => i.classList.remove("active"));
+
+  const item = document.querySelector(`.day-item[data-date="${iso}"]`);
+  if (item) {
+    item.classList.add("active");
+  }
+
+  // Uppdatera din befintliga daySelect
+  daySelect.value = iso;
+  daySelect.dispatchEvent(new Event("change"));
+}
+
+// ===============================
+//   KLICKLOGIK
+// ===============================
+dayScroller.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("day-item")) return;
+
+  const iso = e.target.dataset.date;
+  activateDay(iso);
+});
+
+// ===============================
+//   ÅTERAKTIVERA "IDAG" VID ÅTERKOMST
+// ===============================
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    today = getToday();
+    todayISO = toISODate(today);
+    buildDaySelect();
+    
+
+  }
+});
+
+// ===============================
+//   INIT
+// ===============================
+buildDaySelect();
+
+//#region TEST 
+
+//Card toggle
+function showCard(cardToShow, cardToHide) {
+  cardToShow.classList.remove("hidden");
+  cardToHide.classList.add("hidden");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const mealBuildCard = document.getElementById("mealBuildCard");
+  const mealListCard = document.getElementById("mealListCard");
+
+  const acceptBtn = document.getElementById("acceptBtn");
+  const addBtn = document.getElementById("addBtn");
+  const saveBtn = document.getElementById("saveBtn");
+  const addCancelBtn = document.getElementById("addCancelBtn");
+
+  // 1) acceptBtn → visa mealBuildCard
+  acceptBtn.addEventListener("click", () => {
+    showCard(mealBuildCard, mealListCard);
+  });
+
+  // 2) addBtn, saveBtn, addCancelBtn → visa mealListCard
+  [addBtn, saveBtn, addCancelBtn].forEach(btn => {
+    btn.addEventListener("click", () => {
+      showCard(mealListCard, mealBuildCard);
+    });
+  });
+});
+
+// show edit card
+document.addEventListener("DOMContentLoaded", () => {
+  const editCard = document.getElementById("editCard");
+  const settingsCard = document.getElementById("settingsCard");
+
+  const abortBtn = document.getElementById("abortBtn");
+  const saveEditBtn = document.getElementById("saveEditBtn");
+
+  function showEditCard() {
+    editCard.classList.remove("hidden");
+    settingsCard.classList.add("hidden");
+  }
+
+  function hideEditCard() {
+    editCard.classList.add("hidden");
+    settingsCard.classList.remove("hidden");
+  }
+
+  // När användaren väljer något i dropdownlistan
+  document.getElementById("editDropdownList").addEventListener("click", (e) => {
+    if (e.target.matches(".dropdown-item")) {
+      showEditCard();
+    }
+  });
+
+  // När användaren sparar eller avbryter
+  [abortBtn, saveEditBtn].forEach(btn => {
+    btn.addEventListener("click", hideEditCard);
+  });
+});
+
+// Ändra Header på Edit cards
+function setEditTitle(mode) {
+  const cardElement = document.getElementById("editCard");
+  const title = cardElement.querySelector(".toggle-title");
+  title.textContent = mode === "edit" ? "Redigera innehåll" : "Lägg till nytt innehåll";
+}
+
+//#endregion TEST
+
+

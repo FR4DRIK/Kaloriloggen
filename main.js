@@ -5,33 +5,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   //#region DOM ELEMENTS
   const weightInput = document.getElementById("weightInput");
   const amountSelect = document.getElementById("amountSelect");
-  const saveGoalBtn = document.getElementById("saveGoalBtn");
   const daySelect = document.getElementById("daySelect");
-  const weekHistory = document.getElementById("weekHistory");
   const dailyGoalSelect = document.getElementById("dailyGoalSelect");
-
   const saveBtn = document.getElementById("saveBtn");
+
   const addBtn = document.getElementById("addBtn");
   const restoreBtn = document.getElementById("restoreBtn");
   const restoreFile = document.getElementById("restoreFile");
   const backupBtn = document.getElementById("backupBtn");
   const refreshAppBtn = document.getElementById("refreshAppBtn");
-
   const abortBtn = document.getElementById("abortBtn");
+
   const deleteMealBtn = document.getElementById("deleteMealBtn");
   const saveEditBtn = document.getElementById("saveEditBtn");
   const addNewFoodBtn = document.getElementById("addNewFoodBtn");
-
   const mealList = document.getElementById("mealList");
   const mealBuild = document.getElementById("mealBuild");
-  const themeSelect = document.getElementById("themeSelect");
-  const saveThemeBtn = document.getElementById("saveThemeBtn");
 
-  const buttons = document.querySelectorAll(".bottom-nav button");
+  const buttons = document.querySelectorAll(".bottom-bar button");
   const views = document.querySelectorAll(".view");
 
-  let originalEditItem = null;
-  let customMeals = [];
   let selectedItem = null;
 
   //#endregion DOM ELEMENTS
@@ -48,6 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initDailyGoalSelect();
     initTheme();
     initAmountSelect();
+    initNavigation();
 
     //Reload/refresh when returning to app
     document.addEventListener("visibilitychange", () => {
@@ -56,26 +50,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    //NAVIGATION BAR - FIRST TAB ACTIVE
-    if (buttons.length > 0) {
-      const firstButton = buttons[0];
-      firstButton.classList.add("active");
-      const target = firstButton.dataset.view;
-      showView(target);
-    }
-
-    //NAVIGATION BAR - CLICK CHANGE TAB
-    buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const target = btn.dataset.view;
-
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      views.forEach(v => (v.style.display = "none"));
-      showView(target);
-    });
-  });
 
   //#endregion INIT
   
@@ -91,9 +65,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   //#region DROPDOWNS
 
   // SETUP EDIT DROPDOWS
-  setupDropdown("editSearchInput", "editDropdownList", getAllItems, item =>
-    loadItemForEditing(item)
-  );
+  setupDropdown("editSearchInput", "editDropdownList", getAllItems, item => {
+    loadItemForEditing(item);
+    showEditCard();
+    setEditTitle("edit");
+  });
+
 
   // SETUP FOOD DROPDOWN
   setupDropdown("foodSearchInput", "foodDropdownList", getAllItems, item => {
@@ -102,6 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       weightInput.value = item.weight ?? "";
     }
   });
+  
   //#endregion DROPDOWS 
   
   //#region EVENT LISTENERS //
@@ -112,8 +90,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("importBtn").addEventListener("click", () => {
     document.getElementById("importMasterFile").click();});
     document.getElementById("importMasterFile").addEventListener("change", importMasterList);
-
-    document.getElementById("toggle").addEventListener("click", toggleMealListExpand);
 
   // AUTO SELECT OF ALL TEXT ON INPUT
     document.addEventListener("focusin", (e) => {
@@ -135,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     applyDayColors();
   });
 
+  /* utbytt mot unified 
   // DELETE BUTTON EVENT LISTENER - MEAL LIST
   mealList.addEventListener("click", (e) => {
     if (e.target.classList.contains("deleteBtn")) {
@@ -145,11 +122,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       saveToLocal();
       applyDayColors();
       renderCurrentWeekTotal();
+      showToast("Måltiden har tagits bort från listan!");
+
     }
-  });
+  }); */
 
   // SAVE EDIT BUTTON EVENT LISTENER
-  saveEditBtn.addEventListener("click", saveEditedItem);
+  saveEditBtn.addEventListener("click", () => {
+    saveEditedItem();
+    setEditTitle("default");
+  });
 
   // ADD NEW FOOD EDIT EVENT BUTTON LISTENER
   addNewFoodBtn.addEventListener("click", () => {
@@ -157,16 +139,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   item.items = undefined;
   loadItemForEditing(item);
   window.currentEditItem = item;
+    showEditCard();
 
-    addNewFoodBtn.style.display = "none";
-    deleteMealBtn.style.display = "none"; 
-    abortBtn.style.display = "block";
-    saveEditBtn.style.display = "block";
-  
+    const mealCard = document.getElementById("editCard");
+    setEditTitle(mealCard, "add");
+
   });
 
   // ABORT EDIT BUTTON EVENT LISTENER
   abortBtn.addEventListener("click", () => {
+    showToast("Åtgärden avbruten");
     selectedEditItem = null;
 
     const editInput = document.getElementById("editSearchInput");
@@ -182,7 +164,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (editFields) editFields.innerHTML = "";
     document.getElementById("editMealItems").innerHTML = "";
     
-    resetEditButtons();
+    loadItemForEditing(null);
+    setEditTitle("edit");
 
   });
 
@@ -191,7 +174,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const item = window.currentEditItem;
 
     if (!item) {
-      alert("Inget valt att radera.");
+      showToast("Inget valt att radera");
+
       return;
     }
 
@@ -199,13 +183,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!ok) return;
 
     window.masterList = window.masterList.filter(x => x.id !== item.id);
-   
+    localStorage.setItem("masterList", JSON.stringify(window.masterList));
+
     refreshAllDropdowns();
-    resetEditButtons();
+    loadItemForEditing(null);
 
     abortBtn.click();
+    showToast("Innehållet raderat permanent!");
 
   });
+
+  // CANCEL MEAL BUILD BUTTON EVENT LISTENER
+  const addCancelBtn = document.getElementById("addCancelBtn");
+
+addCancelBtn.addEventListener("click", () => {
+  resetMealBuild();
+});
 
   // ACTION BUTTONS EVENT LISTENER - MEAL LIST
   mealList.addEventListener("click", (e) => {
@@ -241,21 +234,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // SAVE DAILY GOAL BUTTON EVENT LISTENER
-    saveGoalBtn.addEventListener("click", () => {
-    const goal = Number(dailyGoalSelect.value);
-    if (!goal || goal < 500) {
-      alert("Ange ett rimligt kcal-mål.");
-      return;
-    }
-    localStorage.setItem("dailyKcalGoal", goal);
-    updateWeekSummary();
-    alert("Mål sparat!");
-  });
+dailyGoalSelect.addEventListener("change", () => {
+  const goal = Number(dailyGoalSelect.value);
+
+  if (!goal || goal < 500) {
+    showToast("Ange ett rimligt kcal mål");
+    return;
+  }
+
+  localStorage.setItem("dailyKcalGoal", goal);
+  updateWeekSummary();
+  showToast("Mål uppdaterat");
+});
 
 // ACCEPT BUTTON EVENT LISTENER
 acceptBtn.addEventListener("click", () => {
   if (!selectedItem) {
-    alert("Välj något först!");
+    showToast("Du måste välja något först");
+
     return;
   }
 
@@ -285,7 +281,8 @@ addBtn.addEventListener("click", () => {
   const items = Array.from(mealBuild.querySelectorAll("li"));
 
   if (items.length === 0) {
-    alert("Du måste bekräfta valda alternativ först.");
+    showToast("Du måste lägga till något i listan");
+
     return;
   }
 
@@ -318,19 +315,27 @@ addBtn.addEventListener("click", () => {
   updateWeekSummary();
   updateTotalKcal();
   updateRemainingKcal(0);
+  renderCurrentWeekTotal();
+  showToast("Måltid tillagd");
+
 });
 
 // SAVE BUTTON EVENT LISTENER
 saveBtn.addEventListener("click", () => {
   const items = Array.from(mealBuild.querySelectorAll("li"));
 
-  if (items.length === 0) {
-    alert("Det finns inga måltider att spara!");
-    return;
-  }
+if (items.length < 1) {
+ showToast("Du behöver lägga till något i listan");
 
-  const confirmSave = confirm("Vill du spara som ny måltid?");
-  if (!confirmSave) return;
+  return;
+}
+
+  // 🔥 NYTT: Tvinga fram namn
+  let customName = "";
+  while (customName.trim() === "") {
+    customName = prompt("Ange namn på måltiden:");
+    if (customName === null) return; // användaren tryckte Avbryt
+  }
 
   let totalweight = 0;
   let totalcWeight = 0;
@@ -342,12 +347,14 @@ saveBtn.addEventListener("click", () => {
     const kcal = Number(li.dataset.kcal || 0);
     const weight = Number(li.dataset.weight || 0);
     const cWeight = Number(li.dataset.cWeight || 0);
+    const amount = Number(li.dataset.amount || 1);
 
     totalweight += weight;
     totalcWeight += cWeight;
     totalKcal += kcal;
 
     mealItems.push({
+      amount,
       id: li.dataset.id,
       weight,
       cWeight,
@@ -357,7 +364,7 @@ saveBtn.addEventListener("click", () => {
 
   // Skapa nytt masterList‑item
   const meal = createNewItem("meal");
-  meal.name = items.map(li => li.dataset.name).join(", ");
+  meal.name = customName; // 🔥 användarens namn
   meal.weight = totalweight;
   meal.cWeight = totalcWeight;
   meal.kcal = totalKcal;
@@ -371,18 +378,28 @@ saveBtn.addEventListener("click", () => {
   updateTotalKcal();
   updateRemainingKcal(0);
 
-  alert(`Ny måltid sparad med ${totalKcal} kcal och ${totalcWeight} gc!`);
+  showToast(`Ny måltid "${customName}" sparad med ${totalKcal} kcal och ${totalcWeight} gc`);
 });
 
+  saveToLocal();
 
-saveToLocal();
+// THEME SELECT
+const themeSelect = document.getElementById("themeSelect");
 
-  // SAVE THEME
-  saveThemeBtn.addEventListener("click", () => {
-    const theme = themeSelect.value;
-    localStorage.setItem("savedTheme", theme);
-    applyTheme(theme);
-  });
+// INIT
+const savedTheme = localStorage.getItem("savedTheme") || "cold";
+themeSelect.value = savedTheme;
+applyTheme(savedTheme);
+
+// EVENT LISTENER (endast en!)
+themeSelect.addEventListener("change", () => {
+  const theme = themeSelect.value;
+  localStorage.setItem("savedTheme", theme);
+  applyTheme(theme);
+
+  const label = theme.charAt(0).toUpperCase() + theme.slice(1);
+  showToast(`Tema "${label}" har aktiverats`);
+});
 
   //#endregion EVENT LISTENERS
 
