@@ -192,6 +192,11 @@
     </li>
 
     <li class="settings-item">
+      <span class="label">Ladda om sidan</span>
+      <button id="refreshAppBtn" class="btn-secondary">Refresh</button>
+    </li>
+    
+    <li class="settings-item">
       <span class="label">Backup userData</span>
       <button id="backupBtn" class="btn-secondary">Backup</button>
     </li>
@@ -214,9 +219,11 @@
     </li>
 
     <li class="settings-item">
-      <span class="label">Ladda om sidan</span>
-      <button id="refreshAppBtn" class="btn-primary">Refresh</button>
+      <span class="label">Reset MasterList on GitHub</span>
+      <button id="resetMasterListBtn" class="btn-warning">Reset</button>
+      <input type="file" id="importMasterFile" accept="application/json" style="display:none;">
     </li>
+
   </ul>
   </div> 
 </section>

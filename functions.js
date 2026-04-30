@@ -209,9 +209,6 @@ function createMealListItem(item, amount, weight, cWeight, kcal, day) {
   applyDayColors();
 }
 
-
-
-
 // LOAD FROM LOCAL - MEAL LIST
 function loadFromLocal() {
   const savedMeals = JSON.parse(localStorage.getItem("mealList")) || [];
@@ -799,7 +796,8 @@ function createNewItem(type) {
     cPercent: "",
     category: type,
     kcal: null,
-    cWeight: null
+    cWeight: null,
+    items: type === "meal" ? [] : null
   };
 }
 

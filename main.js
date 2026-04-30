@@ -106,6 +106,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   // REFRESH BUTTON EVENT LISTENER
   refreshAppBtn.addEventListener("click", () => location.reload());
 
+  // RESET MASTER LIST AND RESTORE FROM GITHUB
+  document.getElementById("resetMasterListBtn").addEventListener("click", async () => {
+  const confirmReset = confirm("Detta rensar din masterList och hämtar en ny från GitHub. Fortsätt?");
+  if (!confirmReset) return;
+
+  // 1. Rensa localStorage
+  localStorage.removeItem("masterList");
+
+  // 2. Hämta masterList.json från GitHub
+  const response = await fetch("masterList.json", { cache: "no-store" });
+  const freshList = await response.json();
+
+  // 3. Spara i localStorage
+  localStorage.setItem("masterList", JSON.stringify(freshList));
+
+  // 4. Ladda om appen
+  location.reload();
+});
+
+
   // DAY SELECT EVENT LISTENER - MEAL BUILD
   daySelect.addEventListener("change", () => {
     applyDayColors();
