@@ -158,7 +158,8 @@ function createMealListItem(item, amount, weight, cWeight, kcal, day) {
           cWeight && cWeight !== actualW ? ` | ${cWeight} gc` : "";
 
         const weightLabel = `${actualW} g`;
-      return `${amount} st | ${item.name} | ${weightLabel} | ${kcal} kcal`;
+        return `${amount} st | ${item.name} | ${weightLabel}${cookedLabel} | ${kcal} kcal`;
+
 
       })();
 
@@ -497,7 +498,9 @@ const detailsHTML = item.type === "meal"
       const actualW = totalweight > 0 ? totalweight : normalW;
 
       const weightLabel = `${actualW} g`;
-      return `${amount} st | ${item.name} | ${weightLabel} | ${kcal} kcal`;
+      const cookedLabel =
+      totalcWeight && totalcWeight !== actualW ? ` | ${totalcWeight} gc` : "";
+      return `${amount} st | ${item.name} | ${weightLabel}${cookedLabel} | ${kcal} kcal`;
 
     })();
 
